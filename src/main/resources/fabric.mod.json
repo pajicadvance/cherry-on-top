@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "cherry-on-top",
+  "version": "${version}",
+  "name": "Cherry On Top",
+  "description": "A collection of configurable small features and tweaks",
+  "authors": [
+    "pajic"
+  ],
+  "contact": {
+    "repo": "https://github.com/pajicadvance/cherry-on-top"
+  },
+  "license": "MIT",
+  "icon": "icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "me.pajic.cherryontop.Main"
+    ]
+  },
+  "mixins": [
+    "cherry-on-top.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}",
+    "modmenu": "^11.0.0",
+    "owolib": "^0.12.10"
+  }
+}
