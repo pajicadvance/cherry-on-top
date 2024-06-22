@@ -4,9 +4,20 @@
   "package": "me.pajic.cherryontop.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "bow_drawing_sounds.BowItemMixin",
+    "bow_drawing_sounds.RangedBowAttackGoalMixin",
+    "enchantment_upgrade_smithing_template.SmithingMenuMixin",
+    "hide_debug_info_in_survival.PlayerMixin",
+    "phantom_spawning_rework.PhantomSpawnerMixin",
+    "riptide_water_only.TridentItemMixin",
+    "tipped_arrows_from_regular_potions.TippedArrowRecipeMixin",
+    "tipped_arrows_from_regular_potions.emi.VanillaPluginMixin"
   ],
   "client": [
+    "double_tap_sprint.LocalPlayerMixin",
+    "enchantment_upgrade_smithing_template.SmithingScreenMixin"
   ],
+  "plugin": "com.moulberry.mixinconstraints.ConstraintsMixinPlugin",
   "injectors": {
     "defaultRequire": 1
   }

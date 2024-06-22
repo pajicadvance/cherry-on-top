@@ -3,7 +3,7 @@
   "id": "cherry-on-top",
   "version": "${version}",
   "name": "Cherry On Top",
-  "description": "A collection of configurable small features and tweaks",
+  "description": "A collection of configurable features and tweaks",
   "authors": [
     "pajic"
   ],
@@ -16,16 +16,22 @@
   "entrypoints": {
     "main": [
       "me.pajic.cherryontop.Main"
+    ],
+    "modmenu": [
+      "me.pajic.cherryontop.config.ModMenuIntegration"
     ]
   },
   "mixins": [
     "cherry-on-top.mixins.json"
   ],
+  "accessWidener": "cherry-on-top.accesswidener",
   "depends": {
     "fabricloader": ">=${loader_version}",
     "fabric": "*",
     "minecraft": "${minecraft_version}",
-    "modmenu": "^11.0.0",
-    "owolib": "^0.12.10"
+    "yet_another_config_lib_v3": "*"
+  },
+  "recommends": {
+    "modmenu": "^11.0.0"
   }
 }

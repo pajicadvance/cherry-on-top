@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "cherry-on-top:enchantment_upgrade"
+    },
+    "L": {
+      "item": "minecraft:lapis_block"
+    },
+    "D": {
+      "item": "minecraft:diamond"
+    }
+  },
+  "pattern": [
+    "D#D",
+    "DLD",
+    "DDD"
+  ],
+  "result": {
+    "id": "cherry-on-top:enchantment_upgrade",
+    "count": 2
+  }
+}

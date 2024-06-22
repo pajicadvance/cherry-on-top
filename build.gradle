@@ -20,7 +20,10 @@ repositories {
         name = "Terraformers"
         url = "https://maven.terraformersmc.com/"
     }
-    maven { url 'https://maven.wispforest.io/releases/' }
+    maven {
+        name 'Xander Maven'
+        url 'https://maven.isxander.dev/releases'
+    }
 }
 
 dependencies {
@@ -28,6 +31,7 @@ dependencies {
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
     mappings loom.officialMojangMappings()
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+    include(implementation("com.moulberry:mixinconstraints:${project.mixinconstraints_version}"))
 
     // Fabric API. This is technically optional, but you probably want it anyway.
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
@@ -35,9 +39,15 @@ dependencies {
     // ModMenu
     modImplementation("com.terraformersmc:modmenu:${project.modmenu_version}")
 
-    // owo-lib
-    annotationProcessor modImplementation("io.wispforest:owo-lib:${project.owo_version}")
-    include "io.wispforest:owo-sentinel:${project.owo_version}"
+    // YACL
+    modImplementation("dev.isxander:yet-another-config-lib:${project.yacl_version}-fabric")
+
+    // EMI
+    modCompileOnly "dev.emi:emi-fabric:${emi_version}"
+}
+
+loom {
+    accessWidenerPath = file("src/main/resources/cherry-on-top.accesswidener")
 }
 
 processResources {
