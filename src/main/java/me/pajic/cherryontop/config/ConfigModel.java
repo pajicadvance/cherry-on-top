@@ -29,6 +29,7 @@ public class ConfigModel {
     public static class EnchantmentUpgradingOptions {
         public boolean upgradingHasExperienceCost = true;
         @PredicateConstraint("greaterThanZero") public int upgradingBaseExperienceCost = 5;
+        public boolean ignoreTooExpensive = false;
         public boolean allowUpgradingSingleEnchantedBooksOnly = false;
         @RestartRequired @RangeConstraint(min = 1, max = 100) public int templateLootChance = 10;
         @RestartRequired public List<String> templateLootLocations = List.of("minecraft:chests/end_city_treasure");

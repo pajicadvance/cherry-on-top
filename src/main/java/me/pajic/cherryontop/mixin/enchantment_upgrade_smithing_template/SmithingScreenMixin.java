@@ -13,10 +13,9 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.SmithingMenu;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import org.jetbrains.annotations.NotNull;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(SmithingScreen.class)
 public abstract class SmithingScreenMixin extends ItemCombinerScreen<SmithingMenu> {
@@ -25,12 +24,10 @@ public abstract class SmithingScreenMixin extends ItemCombinerScreen<SmithingMen
         super(itemCombinerMenu, inventory, component, resourceLocation);
     }
 
-    @Inject(
-            method = "render",
-            at = @At("TAIL")
-    )
+    @Override
     @SuppressWarnings("ConstantConditions")
-    private void renderEnchantmentCostText(GuiGraphics guiGraphics, int i, int j, float f, CallbackInfo ci) {
+    protected void renderLabels(@NotNull GuiGraphics guiGraphics, int mouseX, int mouseY) {
+        super.renderLabels(guiGraphics, mouseX, mouseY);
         if (Main.CONFIG.enableEnchantmentUpgrading() && Main.CONFIG.enchantmentUpgradingOptions.upgradingHasExperienceCost() &&
                 menu.slots.get(0).getItem().is(ModItems.ENCHANTMENT_UPGRADE_SMITHING_TEMPLATE) &&
                 menu.slots.get(1).getItem().is(Items.ENCHANTED_BOOK) &&
@@ -40,11 +37,17 @@ public abstract class SmithingScreenMixin extends ItemCombinerScreen<SmithingMen
         ) {
             ItemStack stack = menu.slots.get(1).getItem();
             int repairCost = Main.CONFIG.enchantmentUpgradingOptions.upgradingBaseExperienceCost() + stack.getOrDefault(DataComponents.REPAIR_COST, 0);
-            Component component = Component.translatable("container.repair.cost", repairCost);
-            int m = this.imageWidth + 118 - this.font.width(component) - 2;
-            int l = menu.slots.get(3).mayPickup(minecraft.player) ? 8453920 : 0xFF6060;
-            guiGraphics.fill(m - 2, 105, this.imageWidth + 118, 117, 0x4F000000);
-            guiGraphics.drawString(this.font, component, m, 107, l);
+            if (repairCost > 0) {
+                Component component = Component.translatable("container.repair.cost", repairCost);
+                int textColor = menu.slots.get(3).mayPickup(minecraft.player) ? 8453920 : 0xFF6060;
+                if (!Main.CONFIG.enchantmentUpgradingOptions.ignoreTooExpensive() && repairCost >= 40) {
+                    component = Component.translatable("container.repair.expensive");
+                    textColor = 0xFF6060;
+                }
+                int x = imageWidth - 8 - font.width(component) - 2;
+                guiGraphics.fill(x - 2, 67, imageWidth - 8, 79, 0x4F000000);
+                guiGraphics.drawString(font, component, x, 69, textColor);
+            }
         }
     }
 

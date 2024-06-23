@@ -57,7 +57,7 @@ public abstract class SmithingMenuMixin extends ItemCombinerMenu {
                         if (Main.CONFIG.enchantmentUpgradingOptions.upgradingHasExperienceCost()) {
                             int originalRepairCost = stack.get().getOrDefault(DataComponents.REPAIR_COST, 0);
                             cost = Main.CONFIG.enchantmentUpgradingOptions.upgradingBaseExperienceCost() + originalRepairCost;
-                            if (cost < 1) break;
+                            if (cost < 1 || (!Main.CONFIG.enchantmentUpgradingOptions.ignoreTooExpensive() && cost >= 40)) break;
                             updatedStack.set(DataComponents.REPAIR_COST, AnvilMenu.calculateIncreasedRepairCost(originalRepairCost));
                         }
                         stack.set(updatedStack);
