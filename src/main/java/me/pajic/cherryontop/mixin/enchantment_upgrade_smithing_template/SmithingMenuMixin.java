@@ -4,7 +4,7 @@ import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import com.llamalad7.mixinextras.sugar.Local;
 import com.llamalad7.mixinextras.sugar.ref.LocalRef;
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
-import me.pajic.cherryontop.config.ModConfig;
+import me.pajic.cherryontop.Main;
 import me.pajic.cherryontop.item.ModItems;
 import net.minecraft.core.Holder;
 import net.minecraft.core.component.DataComponents;
@@ -41,16 +41,12 @@ public abstract class SmithingMenuMixin extends ItemCombinerMenu {
             cancellable = true
     )
     private void incrementEnchantmentLevel(CallbackInfo ci, @Local LocalRef<ItemStack> stack) {
-        if (ModConfig.enableEnchantmentUpgrading && isEnchantmentUpgradeRecipe()) {
+        if (Main.CONFIG.enableEnchantmentUpgrading() && isEnchantmentUpgradeRecipe()) {
             boolean success = false;
             int lapisAmount = slots.get(2).getItem().getCount();
             ItemEnchantments itemEnchantments = stack.get().get(DataComponents.STORED_ENCHANTMENTS);
-            if (itemEnchantments != null && lapisAmount <= itemEnchantments.entrySet().size()) {
-                if (ModConfig.allowUpgradingSingleEnchantedBooksOnly && itemEnchantments.entrySet().size() != 1) {
-                    resultSlots.setItem(0, ItemStack.EMPTY);
-                    ci.cancel();
-                    return;
-                }
+            if (itemEnchantments != null && lapisAmount <= itemEnchantments.entrySet().size() &&
+                    (!Main.CONFIG.enchantmentUpgradingOptions.allowUpgradingSingleEnchantedBooksOnly() || itemEnchantments.entrySet().size() == 1)) {
                 ItemStack updatedStack = stack.get();
                 int counter = 0;
                 for (Object2IntMap.Entry<Holder<Enchantment>> entry : itemEnchantments.entrySet()) {
@@ -58,9 +54,10 @@ public abstract class SmithingMenuMixin extends ItemCombinerMenu {
                     if (counter == lapisAmount && entry.getIntValue() < entry.getKey().value().getMaxLevel()) {
                         EnchantmentHelper.updateEnchantments(updatedStack, mutable ->
                                 mutable.upgrade(entry.getKey(), entry.getIntValue() + 1));
-                        if (ModConfig.upgradingHasExperienceCost) {
+                        if (Main.CONFIG.enchantmentUpgradingOptions.upgradingHasExperienceCost()) {
                             int originalRepairCost = stack.get().getOrDefault(DataComponents.REPAIR_COST, 0);
-                            cost = ModConfig.upgradingBaseExperienceCost + originalRepairCost;
+                            cost = Main.CONFIG.enchantmentUpgradingOptions.upgradingBaseExperienceCost() + originalRepairCost;
+                            if (cost < 1) break;
                             updatedStack.set(DataComponents.REPAIR_COST, AnvilMenu.calculateIncreasedRepairCost(originalRepairCost));
                         }
                         stack.set(updatedStack);
@@ -81,7 +78,7 @@ public abstract class SmithingMenuMixin extends ItemCombinerMenu {
             at = @At("RETURN")
     )
     private boolean modifyMayPickup(boolean original) {
-        if (ModConfig.enableEnchantmentUpgrading && ModConfig.upgradingHasExperienceCost
+        if (Main.CONFIG.enableEnchantmentUpgrading() && Main.CONFIG.enchantmentUpgradingOptions.upgradingHasExperienceCost()
                 && isEnchantmentUpgradeRecipe()) {
             return (player.hasInfiniteMaterials() || player.experienceLevel >= cost) && cost > 0;
         }
@@ -93,7 +90,7 @@ public abstract class SmithingMenuMixin extends ItemCombinerMenu {
             at = @At("HEAD")
     )
     private void hookOnTake(Player player, ItemStack itemStack, CallbackInfo ci) {
-        if (ModConfig.enableEnchantmentUpgrading && ModConfig.upgradingHasExperienceCost &&
+        if (Main.CONFIG.enableEnchantmentUpgrading() && Main.CONFIG.enchantmentUpgradingOptions.upgradingHasExperienceCost() &&
                 isEnchantmentUpgradeRecipe() && !player.getAbilities().instabuild) {
             player.giveExperienceLevels(-cost);
         }

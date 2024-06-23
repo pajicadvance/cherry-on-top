@@ -1,5 +1,5 @@
 plugins {
-    id 'fabric-loom' version '1.6-SNAPSHOT'
+    id 'fabric-loom' version '1.7-SNAPSHOT'
     id 'maven-publish'
 }
 
@@ -17,19 +17,23 @@ repositories {
     // See https://docs.gradle.org/current/userguide/declaring_repositories.html
     // for more information about repositories.
     maven {
+        name = 'ParchmentMC'
+        url = 'https://maven.parchmentmc.org'
+    }
+    maven {
         name = "Terraformers"
         url = "https://maven.terraformersmc.com/"
     }
-    maven {
-        name 'Xander Maven'
-        url 'https://maven.isxander.dev/releases'
-    }
+    maven { url 'https://maven.wispforest.io/releases/' }
 }
 
 dependencies {
     // To change the versions see the gradle.properties file
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
-    mappings loom.officialMojangMappings()
+    mappings loom.layered() {
+        officialMojangMappings()
+        parchment("org.parchmentmc.data:parchment-${project.parchment_version}@zip")
+    }
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
     include(implementation("com.moulberry:mixinconstraints:${project.mixinconstraints_version}"))
 
@@ -39,8 +43,9 @@ dependencies {
     // ModMenu
     modImplementation("com.terraformersmc:modmenu:${project.modmenu_version}")
 
-    // YACL
-    modImplementation("dev.isxander:yet-another-config-lib:${project.yacl_version}-fabric")
+    // owo-lib
+    annotationProcessor modImplementation("io.wispforest:owo-lib:${project.owo_version}")
+    include "io.wispforest:owo-sentinel:${project.owo_version}"
 
     // EMI
     modCompileOnly "dev.emi:emi-fabric:${emi_version}"

@@ -1,6 +1,6 @@
 package me.pajic.cherryontop.mixin.hide_debug_info_in_survival;
 
-import me.pajic.cherryontop.config.ModConfig;
+import me.pajic.cherryontop.Main;
 import net.minecraft.world.entity.player.Player;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -20,7 +20,7 @@ public abstract class PlayerMixin {
             at = @At("HEAD")
     )
     private void setReducedDebugInfo(CallbackInfo ci) {
-        if (ModConfig.hideDebugInfoInSurvival) {
+        if (Main.CONFIG.hideDebugInfoInSurvival()) {
             setReducedDebugInfo(!isCreative() && !isSpectator());
         }
     }

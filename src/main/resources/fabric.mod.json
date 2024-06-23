@@ -16,9 +16,6 @@
   "entrypoints": {
     "main": [
       "me.pajic.cherryontop.Main"
-    ],
-    "modmenu": [
-      "me.pajic.cherryontop.config.ModMenuIntegration"
     ]
   },
   "mixins": [
@@ -29,7 +26,7 @@
     "fabricloader": ">=${loader_version}",
     "fabric": "*",
     "minecraft": "${minecraft_version}",
-    "yet_another_config_lib_v3": "*"
+    "owo-lib": "^0.12.10"
   },
   "recommends": {
     "modmenu": "^11.0.0"

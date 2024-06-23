@@ -1,6 +1,6 @@
 package me.pajic.cherryontop.mixin.tipped_arrows_from_regular_potions;
 
-import me.pajic.cherryontop.config.ModConfig;
+import me.pajic.cherryontop.Main;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.TippedArrowRecipe;
@@ -37,7 +37,7 @@ public class TippedArrowRecipeMixin {
 
     @Unique
     private Item setRequiredPotionType(Item item) {
-        if (ModConfig.craftTippedArrowsWithRegularPotions) {
+        if (Main.CONFIG.craftTippedArrowsWithRegularPotions()) {
             return Items.POTION;
         }
         return item;

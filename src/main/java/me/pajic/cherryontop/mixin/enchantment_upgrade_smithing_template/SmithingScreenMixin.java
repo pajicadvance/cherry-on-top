@@ -1,7 +1,7 @@
 package me.pajic.cherryontop.mixin.enchantment_upgrade_smithing_template;
 
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
-import me.pajic.cherryontop.config.ModConfig;
+import me.pajic.cherryontop.Main;
 import me.pajic.cherryontop.item.ModItems;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.ItemCombinerScreen;
@@ -29,8 +29,9 @@ public abstract class SmithingScreenMixin extends ItemCombinerScreen<SmithingMen
             method = "render",
             at = @At("TAIL")
     )
+    @SuppressWarnings("ConstantConditions")
     private void renderEnchantmentCostText(GuiGraphics guiGraphics, int i, int j, float f, CallbackInfo ci) {
-        if (ModConfig.enableEnchantmentUpgrading && ModConfig.upgradingHasExperienceCost &&
+        if (Main.CONFIG.enableEnchantmentUpgrading() && Main.CONFIG.enchantmentUpgradingOptions.upgradingHasExperienceCost() &&
                 menu.slots.get(0).getItem().is(ModItems.ENCHANTMENT_UPGRADE_SMITHING_TEMPLATE) &&
                 menu.slots.get(1).getItem().is(Items.ENCHANTED_BOOK) &&
                 menu.slots.get(1).getItem().has(DataComponents.STORED_ENCHANTMENTS) &&
@@ -38,7 +39,7 @@ public abstract class SmithingScreenMixin extends ItemCombinerScreen<SmithingMen
                 menu.slots.get(3).hasItem()
         ) {
             ItemStack stack = menu.slots.get(1).getItem();
-            int repairCost = ModConfig.upgradingBaseExperienceCost + stack.getOrDefault(DataComponents.REPAIR_COST, 0);
+            int repairCost = Main.CONFIG.enchantmentUpgradingOptions.upgradingBaseExperienceCost() + stack.getOrDefault(DataComponents.REPAIR_COST, 0);
             Component component = Component.translatable("container.repair.cost", repairCost);
             int m = this.imageWidth + 118 - this.font.width(component) - 2;
             int l = menu.slots.get(3).mayPickup(minecraft.player) ? 8453920 : 0xFF6060;
@@ -52,7 +53,7 @@ public abstract class SmithingScreenMixin extends ItemCombinerScreen<SmithingMen
             at = @At(value = "CONSTANT", args = "intValue=75")
     )
     private int nudgeArmorStandUp(int original) {
-        if (ModConfig.enableEnchantmentUpgrading && ModConfig.upgradingHasExperienceCost) {
+        if (Main.CONFIG.enableEnchantmentUpgrading() && Main.CONFIG.enchantmentUpgradingOptions.upgradingHasExperienceCost()) {
             return original - 10;
         }
         return original;

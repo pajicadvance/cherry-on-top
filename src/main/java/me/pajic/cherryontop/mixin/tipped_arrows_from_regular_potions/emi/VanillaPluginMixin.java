@@ -2,7 +2,7 @@ package me.pajic.cherryontop.mixin.tipped_arrows_from_regular_potions.emi;
 
 import com.moulberry.mixinconstraints.annotations.IfModLoaded;
 import dev.emi.emi.VanillaPlugin;
-import me.pajic.cherryontop.config.ModConfig;
+import me.pajic.cherryontop.Main;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import org.spongepowered.asm.mixin.Mixin;
@@ -22,7 +22,7 @@ public class VanillaPluginMixin {
             )
     )
     private static ItemStack setRequiredPotionType(ItemStack stack) {
-        if (ModConfig.craftTippedArrowsWithRegularPotions) {
+        if (Main.CONFIG.craftTippedArrowsWithRegularPotions()) {
             return new ItemStack(Items.POTION);
         }
         return stack;

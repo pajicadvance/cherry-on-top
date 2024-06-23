@@ -5,6 +5,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.flag.FeatureFlag;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.SmithingTemplateItem;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
@@ -15,7 +16,7 @@ public class SmithingTemplateFoilItem extends SmithingTemplateItem {
     }
 
     @Override
-    public boolean isFoil(ItemStack itemStack) {
+    public boolean isFoil(@NotNull ItemStack itemStack) {
         return true;
     }
 }

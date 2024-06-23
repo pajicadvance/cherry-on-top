@@ -16,21 +16,21 @@ import net.minecraft.world.item.Items;
 
 public class Main implements ModInitializer {
 
+    public static final ModConfig CONFIG = ModConfig.createAndLoad();
+
     @Override
     public void onInitialize() {
-        ModConfig.HANDLER.load();
-
         LootTableModifier.modifyLootTables();
 
         FabricLoader.getInstance().getModContainer("cherry-on-top").ifPresent(modContainer -> {
-            if (ModConfig.infinityMendingCompatible) {
+            if (CONFIG.infinityMendingCompatible()) {
                 ResourceManagerHelper.registerBuiltinResourcePack(
                         ResourceLocation.parse("cherry-on-top:infinimending"),
                         modContainer,
                         ResourcePackActivationType.ALWAYS_ENABLED
                 );
             }
-            if (ModConfig.enableEnchantmentUpgrading) {
+            if (CONFIG.enableEnchantmentUpgrading()) {
                 ResourceManagerHelper.registerBuiltinResourcePack(
                         ResourceLocation.parse("cherry-on-top:enchantmentupgrade"),
                         modContainer,
@@ -39,7 +39,7 @@ public class Main implements ModInitializer {
             }
         });
 
-        if (ModConfig.enableEnchantmentUpgrading) {
+        if (CONFIG.enableEnchantmentUpgrading()) {
             Registry.register(
                     BuiltInRegistries.ITEM,
                     ResourceLocation.parse("cherry-on-top:enchantment_upgrade"),

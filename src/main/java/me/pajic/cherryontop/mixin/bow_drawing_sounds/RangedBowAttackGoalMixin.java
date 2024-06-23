@@ -1,6 +1,6 @@
 package me.pajic.cherryontop.mixin.bow_drawing_sounds;
 
-import me.pajic.cherryontop.config.ModConfig;
+import me.pajic.cherryontop.Main;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.ai.goal.RangedBowAttackGoal;
 import net.minecraft.world.entity.monster.Monster;
@@ -25,7 +25,7 @@ public class RangedBowAttackGoalMixin<T extends Monster & RangedAttackMob> {
             )
     )
     private void playMobBowDrawingSound(CallbackInfo ci) {
-        if (ModConfig.playBowDrawingSounds) {
+        if (Main.CONFIG.playBowDrawingSounds()) {
             mob.playSound(SoundEvents.CROSSBOW_QUICK_CHARGE_1.value(), 1.0F, 1.0F);
         }
     }

@@ -2,14 +2,18 @@ package me.pajic.cherryontop.mixin.phantom_spawning_rework;
 
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import com.llamalad7.mixinextras.sugar.Local;
-import me.pajic.cherryontop.config.ModConfig;
+import me.pajic.cherryontop.Main;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.levelgen.PhantomSpawner;
 import org.objectweb.asm.Opcodes;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.Slice;
@@ -38,8 +42,9 @@ public class PhantomSpawnerMixin {
             )
     )
     private void modifySpawnCheckFrequency(PhantomSpawner instance, int value, @Local RandomSource randomSource) {
-        if (ModConfig.enablePhantomSpawningRework) {
-            instance.nextTick += (ModConfig.phantomSpawnFrequencyBase + randomSource.nextInt(ModConfig.phantomSpawnFrequencyRandomOffsetBound)) * 20;
+        if (Main.CONFIG.enablePhantomSpawningRework()) {
+            instance.nextTick += (Main.CONFIG.phantomSpawningReworkOptions.phantomSpawnFrequencyBase() +
+                    randomSource.nextInt(Main.CONFIG.phantomSpawningReworkOptions.phantomSpawnFrequencyRandomOffsetBound())) * 20;
         }
     }
 
@@ -51,11 +56,11 @@ public class PhantomSpawnerMixin {
             )
     )
     private boolean repelIfHoldingRepellentItem(boolean original, @Local ServerPlayer serverPlayer) {
-        if (original || !ModConfig.phantomRepellentItems.isEmpty()) {
+        if (original || !Main.CONFIG.enablePhantomSpawningRework()) {
             return true;
         }
-        return ModConfig.phantomRepellentItems.contains(serverPlayer.getItemInHand(InteractionHand.MAIN_HAND).getItem()) ||
-                ModConfig.phantomRepellentItems.contains(serverPlayer.getItemInHand(InteractionHand.OFF_HAND).getItem());
+        return Main.CONFIG.phantomSpawningReworkOptions.phantomRepellentItems().contains(getNamespaceAndPath(serverPlayer.getItemInHand(InteractionHand.MAIN_HAND))) ||
+                Main.CONFIG.phantomSpawningReworkOptions.phantomRepellentItems().contains(getNamespaceAndPath(serverPlayer.getItemInHand(InteractionHand.OFF_HAND)));
     }
 
     @ModifyExpressionValue(
@@ -77,7 +82,7 @@ public class PhantomSpawnerMixin {
             )
     )
     private int modifyCondition(int original, @Local BlockPos playerBlockPos, @Local RandomSource randomSource) {
-        if (ModConfig.enablePhantomSpawningRework) {
+        if (Main.CONFIG.enablePhantomSpawningRework()) {
             return randomSource.nextInt(playerBlockPos.getY());
         }
         return original;
@@ -101,9 +106,15 @@ public class PhantomSpawnerMixin {
             )
     )
     private int modifyConditionCheckValue(int original, @Local BlockPos playerBlockPos) {
-        if (ModConfig.enablePhantomSpawningRework) {
-            return ModConfig.phantomSpawnStartHeight;
+        if (Main.CONFIG.enablePhantomSpawningRework()) {
+            return Main.CONFIG.phantomSpawningReworkOptions.phantomSpawnStartHeight();
         }
         return original;
+    }
+
+    @Unique
+    private String getNamespaceAndPath(ItemStack itemStack) {
+        ResourceLocation resourceLocation = BuiltInRegistries.ITEM.getKey(itemStack.getItem());
+        return resourceLocation.getNamespace() + ":" + resourceLocation.getPath();
     }
 }

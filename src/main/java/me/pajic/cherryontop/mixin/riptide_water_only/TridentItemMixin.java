@@ -2,7 +2,7 @@ package me.pajic.cherryontop.mixin.riptide_water_only;
 
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import com.llamalad7.mixinextras.sugar.Local;
-import me.pajic.cherryontop.config.ModConfig;
+import me.pajic.cherryontop.Main;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.TridentItem;
 import org.spongepowered.asm.mixin.Mixin;
@@ -19,7 +19,7 @@ public class TridentItemMixin {
             )
     )
     private boolean modifyRiptideActivationCondition(boolean original, @Local Player player) {
-        if (ModConfig.riptideWorksOnlyInWater) {
+        if (Main.CONFIG.riptideWorksOnlyInWater()) {
             return player.isInWater();
         }
         return original;

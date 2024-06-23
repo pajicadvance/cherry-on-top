@@ -1,6 +1,6 @@
 package me.pajic.cherryontop.mixin.bow_drawing_sounds;
 
-import me.pajic.cherryontop.config.ModConfig;
+import me.pajic.cherryontop.Main;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
@@ -25,7 +25,7 @@ public class BowItemMixin {
             )
     )
     private void playPlayerBowDrawingSound(Level level, Player player, InteractionHand interactionHand, CallbackInfoReturnable<InteractionResultHolder<ItemStack>> cir) {
-        if (ModConfig.playBowDrawingSounds && !player.getProjectile(player.getItemInHand(interactionHand)).isEmpty()) {
+        if (Main.CONFIG.playBowDrawingSounds() && !player.getProjectile(player.getItemInHand(interactionHand)).isEmpty()) {
             level.playSound(null, player.getX(), player.getY(), player.getZ(),
                     SoundEvents.CROSSBOW_QUICK_CHARGE_1, SoundSource.PLAYERS, 5.0F, 1.0F);
         }
