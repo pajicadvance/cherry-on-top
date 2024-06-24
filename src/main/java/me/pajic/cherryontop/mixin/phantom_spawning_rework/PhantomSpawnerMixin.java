@@ -56,11 +56,14 @@ public class PhantomSpawnerMixin {
             )
     )
     private boolean repelIfHoldingRepellentItem(boolean original, @Local ServerPlayer serverPlayer) {
-        if (original || !Main.CONFIG.enablePhantomSpawningRework()) {
-            return true;
+        if (Main.CONFIG.enablePhantomSpawningRework()) {
+            if (original || !Main.CONFIG.phantomSpawningReworkOptions.repelPhantomsWithDefinedItems()) {
+                return true;
+            }
+            return Main.CONFIG.phantomSpawningReworkOptions.phantomRepellentItems().contains(getNamespaceAndPath(serverPlayer.getItemInHand(InteractionHand.MAIN_HAND))) ||
+                    Main.CONFIG.phantomSpawningReworkOptions.phantomRepellentItems().contains(getNamespaceAndPath(serverPlayer.getItemInHand(InteractionHand.OFF_HAND)));
         }
-        return Main.CONFIG.phantomSpawningReworkOptions.phantomRepellentItems().contains(getNamespaceAndPath(serverPlayer.getItemInHand(InteractionHand.MAIN_HAND))) ||
-                Main.CONFIG.phantomSpawningReworkOptions.phantomRepellentItems().contains(getNamespaceAndPath(serverPlayer.getItemInHand(InteractionHand.OFF_HAND)));
+        return original;
     }
 
     @ModifyExpressionValue(

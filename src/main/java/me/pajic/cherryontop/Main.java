@@ -37,6 +37,13 @@ public class Main implements ModInitializer {
                         ResourcePackActivationType.ALWAYS_ENABLED
                 );
             }
+            if (CONFIG.enableMusicDiscLoot() && CONFIG.musicDiscLootOptions.remove13AndCatSimpleDungeonEntries()) {
+                ResourceManagerHelper.registerBuiltinResourcePack(
+                        ResourceLocation.parse("cherry-on-top:remove13andcatloot"),
+                        modContainer,
+                        ResourcePackActivationType.ALWAYS_ENABLED
+                );
+            }
         });
 
         if (CONFIG.enableEnchantmentUpgrading()) {

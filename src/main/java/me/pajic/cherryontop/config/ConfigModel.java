@@ -18,12 +18,16 @@ public class ConfigModel {
     public boolean enablePhantomSpawningRework = false;
     @Nest public PhantomSpawningReworkOptions phantomSpawningReworkOptions = new PhantomSpawningReworkOptions();
 
+    @SectionHeader("musicDiscLoot")
+    @RestartRequired public boolean enableMusicDiscLoot = false;
+    @Nest public MusicDiscLootOptions musicDiscLootOptions = new MusicDiscLootOptions();
+
     @SectionHeader("tweaks")
     @RestartRequired public boolean craftTippedArrowsWithRegularPotions = false;
     @RestartRequired public boolean infinityMendingCompatible = false;
+    public boolean playBowDrawingSounds = false;
     public boolean riptideWorksOnlyInWater = false;
     public boolean hideDebugInfoInSurvival = false;
-    public boolean playBowDrawingSounds = false;
     @Sync(Option.SyncMode.NONE) public boolean disableDoubleTapSprint = false;
 
     public static class EnchantmentUpgradingOptions {
@@ -43,11 +47,29 @@ public class ConfigModel {
         @RangeConstraint(min = -64, max = 320) public int phantomSpawnStartHeight = 128;
         @PredicateConstraint("greaterThanZero") public int phantomSpawnFrequencyBase = 30;
         @PredicateConstraint("greaterThanZero") public int phantomSpawnFrequencyRandomOffsetBound = 30;
-        public boolean repelPhantomsWithDefinedItems = false;
+        public boolean repelPhantomsWithDefinedItems = true;
         public List<String> phantomRepellentItems = List.of("minecraft:phantom_membrane");
 
         public static boolean greaterThanZero(int value) {
             return value > 0;
         }
+    }
+
+    public static class MusicDiscLootOptions {
+        @RestartRequired @RangeConstraint(min = 1, max = 100) public int musicDiscLootChance = 10;
+        @RestartRequired public List<String> musicDiscLootLocations = List.of(
+                "minecraft:chests/abandoned_mineshaft",
+                "minecraft:chests/end_city_treasure",
+                "minecraft:chests/igloo_chest",
+                "minecraft:chests/jungle_temple",
+                "minecraft:chests/pillager_outpost",
+                "minecraft:chests/simple_dungeon",
+                "minecraft:chests/stronghold_corridor",
+                "minecraft:chests/stronghold_crossing",
+                "minecraft:chests/stronghold_library",
+                "minecraft:chests/woodland_mansion",
+                "minecraft:gameplay/cat_morning_gift"
+        );
+        @RestartRequired public boolean remove13AndCatSimpleDungeonEntries = true;
     }
 }

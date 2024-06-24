@@ -31,6 +31,13 @@
   "text.config.cherry-on-top.option.enchantmentUpgradingOptions.templateLootLocations": "Template loot locations",
   "cherry-on-top.features.enchantmentUpgrading.group.templateLootLocations.desc": "Loot tables on this list will have a chance to contain the smithing template.",
 
+  "text.config.cherry-on-top.section.musicDiscLoot": "Music Disc Loot",
+  "text.config.cherry-on-top.option.enableMusicDiscLoot": "Enable music disc loot",
+  "text.config.cherry-on-top.category.musicDiscLootOptions": "Options",
+  "text.config.cherry-on-top.option.musicDiscLootOptions.musicDiscLootChance": "Music disc loot chance (%)",
+  "text.config.cherry-on-top.option.musicDiscLootOptions.musicDiscLootLocations": "Music disc loot locations",
+  "text.config.cherry-on-top.option.musicDiscLootOptions.remove13AndCatSimpleDungeonEntries": "Remove 13 and cat from dungeon loot",
+
   "text.config.cherry-on-top.section.tweaks": "Tweaks",
   "text.config.cherry-on-top.option.disableDoubleTapSprint": "Disable double-tap to sprint",
   "cherry-on-top.tweaks.disableDoubleTapSprint.desc": "Disables double-tapping the forward key to sprint.",
