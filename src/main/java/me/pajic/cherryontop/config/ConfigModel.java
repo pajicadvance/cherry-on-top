@@ -10,17 +10,10 @@ import java.util.List;
 @Sync(Option.SyncMode.OVERRIDE_CLIENT)
 @SuppressWarnings("unused")
 public class ConfigModel {
-    @SectionHeader("enchantmentUpgrading")
-    @RestartRequired public boolean enableEnchantmentUpgrading = false;
-    @Nest public EnchantmentUpgradingOptions enchantmentUpgradingOptions = new EnchantmentUpgradingOptions();
-
-    @SectionHeader("phantomSpawningRework")
-    public boolean enablePhantomSpawningRework = false;
-    @Nest public PhantomSpawningReworkOptions phantomSpawningReworkOptions = new PhantomSpawningReworkOptions();
-
-    @SectionHeader("musicDiscLoot")
-    @RestartRequired public boolean enableMusicDiscLoot = false;
-    @Nest public MusicDiscLootOptions musicDiscLootOptions = new MusicDiscLootOptions();
+    @SectionHeader("features")
+    @Nest public EnchantmentUpgrading enchantmentUpgrading = new EnchantmentUpgrading();
+    @Nest public PhantomSpawningRework phantomSpawningRework = new PhantomSpawningRework();
+    @Nest public MusicDiscLoot musicDiscLoot = new MusicDiscLoot();
 
     @SectionHeader("tweaks")
     @RestartRequired public boolean craftTippedArrowsWithRegularPotions = false;
@@ -30,7 +23,8 @@ public class ConfigModel {
     public boolean hideDebugInfoInSurvival = false;
     @Sync(Option.SyncMode.NONE) public boolean disableDoubleTapSprint = false;
 
-    public static class EnchantmentUpgradingOptions {
+    public static class EnchantmentUpgrading {
+        @RestartRequired public boolean enableEnchantmentUpgrading = false;
         public boolean upgradingHasExperienceCost = true;
         @PredicateConstraint("greaterThanZero") public int upgradingBaseExperienceCost = 5;
         public boolean ignoreTooExpensive = false;
@@ -43,7 +37,8 @@ public class ConfigModel {
         }
     }
 
-    public static class PhantomSpawningReworkOptions {
+    public static class PhantomSpawningRework {
+        public boolean enablePhantomSpawningRework = false;
         @RangeConstraint(min = -64, max = 320) public int phantomSpawnStartHeight = 128;
         @PredicateConstraint("greaterThanZero") public int phantomSpawnFrequencyBase = 30;
         @PredicateConstraint("greaterThanZero") public int phantomSpawnFrequencyRandomOffsetBound = 30;
@@ -55,7 +50,8 @@ public class ConfigModel {
         }
     }
 
-    public static class MusicDiscLootOptions {
+    public static class MusicDiscLoot {
+        @RestartRequired public boolean enableMusicDiscLoot = false;
         @RestartRequired @RangeConstraint(min = 1, max = 100) public int musicDiscLootChance = 10;
         @RestartRequired public List<String> musicDiscLootLocations = List.of(
                 "minecraft:chests/abandoned_mineshaft",

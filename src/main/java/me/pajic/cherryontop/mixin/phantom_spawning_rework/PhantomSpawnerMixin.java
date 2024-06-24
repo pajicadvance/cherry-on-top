@@ -42,9 +42,9 @@ public class PhantomSpawnerMixin {
             )
     )
     private void modifySpawnCheckFrequency(PhantomSpawner instance, int value, @Local RandomSource randomSource) {
-        if (Main.CONFIG.enablePhantomSpawningRework()) {
-            instance.nextTick += (Main.CONFIG.phantomSpawningReworkOptions.phantomSpawnFrequencyBase() +
-                    randomSource.nextInt(Main.CONFIG.phantomSpawningReworkOptions.phantomSpawnFrequencyRandomOffsetBound())) * 20;
+        if (Main.CONFIG.phantomSpawningRework.enablePhantomSpawningRework()) {
+            instance.nextTick += (Main.CONFIG.phantomSpawningRework.phantomSpawnFrequencyBase() +
+                    randomSource.nextInt(Main.CONFIG.phantomSpawningRework.phantomSpawnFrequencyRandomOffsetBound())) * 20;
         }
     }
 
@@ -56,12 +56,12 @@ public class PhantomSpawnerMixin {
             )
     )
     private boolean repelIfHoldingRepellentItem(boolean original, @Local ServerPlayer serverPlayer) {
-        if (Main.CONFIG.enablePhantomSpawningRework()) {
-            if (original || !Main.CONFIG.phantomSpawningReworkOptions.repelPhantomsWithDefinedItems()) {
+        if (Main.CONFIG.phantomSpawningRework.enablePhantomSpawningRework()) {
+            if (original || !Main.CONFIG.phantomSpawningRework.repelPhantomsWithDefinedItems()) {
                 return true;
             }
-            return Main.CONFIG.phantomSpawningReworkOptions.phantomRepellentItems().contains(getNamespaceAndPath(serverPlayer.getItemInHand(InteractionHand.MAIN_HAND))) ||
-                    Main.CONFIG.phantomSpawningReworkOptions.phantomRepellentItems().contains(getNamespaceAndPath(serverPlayer.getItemInHand(InteractionHand.OFF_HAND)));
+            return Main.CONFIG.phantomSpawningRework.phantomRepellentItems().contains(getNamespaceAndPath(serverPlayer.getItemInHand(InteractionHand.MAIN_HAND))) ||
+                    Main.CONFIG.phantomSpawningRework.phantomRepellentItems().contains(getNamespaceAndPath(serverPlayer.getItemInHand(InteractionHand.OFF_HAND)));
         }
         return original;
     }
@@ -85,7 +85,7 @@ public class PhantomSpawnerMixin {
             )
     )
     private int modifyCondition(int original, @Local BlockPos playerBlockPos, @Local RandomSource randomSource) {
-        if (Main.CONFIG.enablePhantomSpawningRework()) {
+        if (Main.CONFIG.phantomSpawningRework.enablePhantomSpawningRework()) {
             return randomSource.nextInt(playerBlockPos.getY());
         }
         return original;
@@ -109,8 +109,8 @@ public class PhantomSpawnerMixin {
             )
     )
     private int modifyConditionCheckValue(int original, @Local BlockPos playerBlockPos) {
-        if (Main.CONFIG.enablePhantomSpawningRework()) {
-            return Main.CONFIG.phantomSpawningReworkOptions.phantomSpawnStartHeight();
+        if (Main.CONFIG.phantomSpawningRework.enablePhantomSpawningRework()) {
+            return Main.CONFIG.phantomSpawningRework.phantomSpawnStartHeight();
         }
         return original;
     }

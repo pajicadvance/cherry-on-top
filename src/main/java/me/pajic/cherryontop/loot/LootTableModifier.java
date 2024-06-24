@@ -13,20 +13,20 @@ public class LootTableModifier {
     public static void modifyLootTables() {
         LootTableEvents.MODIFY.register((key, tableBuilder, source) -> {
             if (source.isBuiltin()) {
-                if (Main.CONFIG.enableEnchantmentUpgrading()) {
-                    for (String s : Main.CONFIG.enchantmentUpgradingOptions.templateLootLocations()) {
+                if (Main.CONFIG.enchantmentUpgrading.enableEnchantmentUpgrading()) {
+                    for (String s : Main.CONFIG.enchantmentUpgrading.templateLootLocations()) {
                         if (ResourceLocation.parse(s).equals(key.location())) {
                             LootPool.Builder lootPool = LootPool.lootPool()
-                                    .add(LootItem.lootTableItem(ModItems.ENCHANTMENT_UPGRADE_SMITHING_TEMPLATE).setWeight(Main.CONFIG.enchantmentUpgradingOptions.templateLootChance()))
-                                    .add(EmptyLootItem.emptyItem().setWeight(100 - Main.CONFIG.enchantmentUpgradingOptions.templateLootChance()));
+                                    .add(LootItem.lootTableItem(ModItems.ENCHANTMENT_UPGRADE_SMITHING_TEMPLATE).setWeight(Main.CONFIG.enchantmentUpgrading.templateLootChance()))
+                                    .add(EmptyLootItem.emptyItem().setWeight(100 - Main.CONFIG.enchantmentUpgrading.templateLootChance()));
                             tableBuilder.withPool(lootPool);
                         }
                     }
                 }
-                if (Main.CONFIG.enableMusicDiscLoot()) {
-                    int discWeight = Main.CONFIG.musicDiscLootOptions.musicDiscLootChance();
+                if (Main.CONFIG.musicDiscLoot.enableMusicDiscLoot()) {
+                    int discWeight = Main.CONFIG.musicDiscLoot.musicDiscLootChance();
                     int emptyWeight = 1200 - discWeight * 12;
-                    for (String s : Main.CONFIG.musicDiscLootOptions.musicDiscLootLocations()) {
+                    for (String s : Main.CONFIG.musicDiscLoot.musicDiscLootLocations()) {
                         if (ResourceLocation.parse(s).equals(key.location())) {
                             LootPool.Builder musicDiscPoolBuilder = LootPool.lootPool()
                                     .add(LootItem.lootTableItem(Items.MUSIC_DISC_13).setWeight(discWeight))

@@ -30,14 +30,14 @@ public class Main implements ModInitializer {
                         ResourcePackActivationType.ALWAYS_ENABLED
                 );
             }
-            if (CONFIG.enableEnchantmentUpgrading()) {
+            if (CONFIG.enchantmentUpgrading.enableEnchantmentUpgrading()) {
                 ResourceManagerHelper.registerBuiltinResourcePack(
                         ResourceLocation.parse("cherry-on-top:enchantmentupgrade"),
                         modContainer,
                         ResourcePackActivationType.ALWAYS_ENABLED
                 );
             }
-            if (CONFIG.enableMusicDiscLoot() && CONFIG.musicDiscLootOptions.remove13AndCatSimpleDungeonEntries()) {
+            if (CONFIG.musicDiscLoot.enableMusicDiscLoot() && CONFIG.musicDiscLoot.remove13AndCatSimpleDungeonEntries()) {
                 ResourceManagerHelper.registerBuiltinResourcePack(
                         ResourceLocation.parse("cherry-on-top:remove13andcatloot"),
                         modContainer,
@@ -46,7 +46,7 @@ public class Main implements ModInitializer {
             }
         });
 
-        if (CONFIG.enableEnchantmentUpgrading()) {
+        if (CONFIG.enchantmentUpgrading.enableEnchantmentUpgrading()) {
             Registry.register(
                     BuiltInRegistries.ITEM,
                     ResourceLocation.parse("cherry-on-top:enchantment_upgrade"),
