@@ -1,0 +1,11 @@
+@version "1";
+@target "minecraft:loot_table/chests/simple_dungeon.json";
+
+foreach (pool in $pools) {
+    for (var i = 0; i < pool.entries.length; i++) {
+        if (pool.entries[i].name == "minecraft:music_disc_13" || pool.entries[i].name == "minecraft:music_disc_cat") {
+            delete pool.entries[i];
+            i--;
+        }
+    }
+}

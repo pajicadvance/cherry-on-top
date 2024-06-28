@@ -11,11 +11,7 @@ base {
 }
 
 repositories {
-    // Add repositories to retrieve artifacts from in here.
-    // You should only use this when depending on other mods because
-    // Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
-    // See https://docs.gradle.org/current/userguide/declaring_repositories.html
-    // for more information about repositories.
+    mavenCentral()
     maven {
         name = 'ParchmentMC'
         url = 'https://maven.parchmentmc.org'
@@ -25,20 +21,25 @@ repositories {
         url = "https://maven.terraformersmc.com/"
     }
     maven { url 'https://maven.wispforest.io/releases/' }
+    maven { url 'https://jitpack.io' }
 }
 
 dependencies {
-    // To change the versions see the gradle.properties file
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
     mappings loom.layered() {
         officialMojangMappings()
         parchment("org.parchmentmc.data:parchment-${project.parchment_version}@zip")
     }
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+
+    // Fabric API
+    modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+
+    // MixinConstraints
     include(implementation("com.moulberry:mixinconstraints:${project.mixinconstraints_version}"))
 
-    // Fabric API. This is technically optional, but you probably want it anyway.
-    modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+    // JsonPatcher
+    modImplementation(include("com.github.mattidragon:jsonpatcher:${jsonpatcher_version}"))
 
     // ModMenu
     modImplementation("com.terraformersmc:modmenu:${project.modmenu_version}")

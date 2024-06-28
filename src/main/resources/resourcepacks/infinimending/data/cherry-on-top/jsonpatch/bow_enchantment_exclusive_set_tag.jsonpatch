@@ -1,0 +1,9 @@
+@version "1";
+@target "minecraft:tags/enchantment/exclusive_set/bow.json";
+
+var infinityIndex = arrays.indexOf($values, "minecraft:infinity");
+var mendingIndex = arrays.indexOf($values, "minecraft:mending");
+
+if (infinityIndex != -1 && mendingIndex != -1) {
+    $values = arrays.removeIf($values, (value) -> value == "minecraft:infinity" || value == "minecraft:mending");
+}
