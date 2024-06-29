@@ -14,12 +14,14 @@ public class ConfigModel {
     @Nest public EnchantmentUpgrading enchantmentUpgrading = new EnchantmentUpgrading();
     @Nest public PhantomSpawningRework phantomSpawningRework = new PhantomSpawningRework();
     @Nest public MusicDiscLoot musicDiscLoot = new MusicDiscLoot();
+    @Nest public EnchantmentDisabler enchantmentDisabler = new EnchantmentDisabler();
 
     @SectionHeader("tweaks")
     @RestartRequired public boolean craftTippedArrowsWithRegularPotions = false;
     @RestartRequired public boolean infinityMendingCompatible = false;
     public boolean playBowDrawingSounds = false;
     public boolean riptideWorksOnlyInWater = false;
+    public boolean disableEnchantingTable = false;
     public boolean hideDebugInfoInSurvival = false;
     @Sync(Option.SyncMode.NONE) public boolean disableDoubleTapSprint = false;
 
@@ -67,5 +69,10 @@ public class ConfigModel {
                 "minecraft:gameplay/cat_morning_gift"
         );
         @RestartRequired public boolean remove13AndCatSimpleDungeonEntries = true;
+    }
+
+    public static class EnchantmentDisabler {
+        @RestartRequired public boolean enableEnchantmentDisabler = false;
+        @RestartRequired public List<String> disabledEnchantments = List.of("minecraft:mending");
     }
 }

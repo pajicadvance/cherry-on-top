@@ -29,12 +29,17 @@
   "cherry-on-top.features.enchantmentUpgrading.templateLootChance.desc": "The chance of the smithing template appearing in loot chests defined in the list below.",
   "text.config.cherry-on-top.option.enchantmentUpgrading.templateLootLocations": "Template loot locations",
   "cherry-on-top.features.enchantmentUpgrading.group.templateLootLocations.desc": "Loot tables on this list will have a chance to contain the smithing template.",
+  "text.config.cherry-on-top.option.enchantmentUpgrading.ignoreTooExpensive": "Ignore \"Too Expensive\"",
 
   "text.config.cherry-on-top.category.musicDiscLoot": "Music Disc Loot",
   "text.config.cherry-on-top.option.musicDiscLoot.enableMusicDiscLoot": "Enable music disc loot",
   "text.config.cherry-on-top.option.musicDiscLoot.musicDiscLootChance": "Music disc loot chance (%)",
   "text.config.cherry-on-top.option.musicDiscLoot.musicDiscLootLocations": "Music disc loot locations",
   "text.config.cherry-on-top.option.musicDiscLoot.remove13AndCatSimpleDungeonEntries": "Remove 13 and cat from dungeon loot",
+
+  "text.config.cherry-on-top.category.enchantmentDisabler": "Enchantment Disabler",
+  "text.config.cherry-on-top.option.enchantmentDisabler.enableEnchantmentDisabler": "Enable enchantment disabler",
+  "text.config.cherry-on-top.option.enchantmentDisabler.disabledEnchantments": "Disabled enchantments",
 
   "text.config.cherry-on-top.section.tweaks": "Tweaks",
   "text.config.cherry-on-top.option.disableDoubleTapSprint": "Disable double-tap to sprint",
@@ -49,6 +54,7 @@
   "cherry-on-top.tweaks.hideDebugInfoInSurvival.desc": "Hides information relevant to gameplay from the F3 debug screen when in survival mode.",
   "text.config.cherry-on-top.option.riptideWorksOnlyInWater": "Riptide works in water only",
   "cherry-on-top.tweaks.riptideWorksOnlyInWater.desc": "Makes Riptide work only when inside water and not in rain.",
+  "text.config.cherry-on-top.option.disableEnchantingTable": "Disable enchanting table",
 
   "item.cherry-on-top.enchantment_upgrade": "Enchantment Upgrade Smithing Template",
   "upgrade.minecraft.cherry-on-top.enchantment_upgrade": "Enchantment Upgrade",

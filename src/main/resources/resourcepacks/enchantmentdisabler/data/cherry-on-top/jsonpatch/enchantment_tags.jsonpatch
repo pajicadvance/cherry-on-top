@@ -1,0 +1,9 @@
+@version "1";
+@target {
+    "path": {
+        "start": "tags/enchantment/",
+        "end": ".json"
+    }
+};
+
+$values = arrays.removeIf($values, (value) -> arrays.indexOf(cherryontop_config.enchantmentDisabler.disabledEnchantments, value) != -1);

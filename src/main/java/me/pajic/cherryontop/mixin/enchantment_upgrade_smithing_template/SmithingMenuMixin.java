@@ -30,7 +30,8 @@ public abstract class SmithingMenuMixin extends ItemCombinerMenu {
         super(menuType, i, inventory, containerLevelAccess);
     }
 
-    @Unique int cost = 0;
+    @Unique
+    int cost = 0;
 
     @Inject(
             method = "createResult",

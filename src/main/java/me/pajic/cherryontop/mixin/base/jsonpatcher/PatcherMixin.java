@@ -1,4 +1,4 @@
-package me.pajic.cherryontop.mixin.jsonpatcher;
+package me.pajic.cherryontop.mixin.base.jsonpatcher;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;

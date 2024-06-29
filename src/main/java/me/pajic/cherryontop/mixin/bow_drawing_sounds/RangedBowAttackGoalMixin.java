@@ -15,7 +15,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(RangedBowAttackGoal.class)
 public class RangedBowAttackGoalMixin<T extends Monster & RangedAttackMob> {
 
-    @Shadow @Final private T mob;
+    @Shadow
+    @Final
+    private T mob;
 
     @Inject(
             method = "tick",

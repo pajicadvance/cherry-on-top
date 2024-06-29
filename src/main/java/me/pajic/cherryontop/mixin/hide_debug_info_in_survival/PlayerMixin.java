@@ -11,9 +11,14 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(Player.class)
 public abstract class PlayerMixin {
 
-    @Shadow public abstract boolean isCreative();
-    @Shadow public abstract boolean isSpectator();
-    @Shadow public abstract void setReducedDebugInfo(boolean reducedDebugInfo);
+    @Shadow
+    public abstract boolean isCreative();
+
+    @Shadow
+    public abstract boolean isSpectator();
+
+    @Shadow
+    public abstract void setReducedDebugInfo(boolean reducedDebugInfo);
 
     @Inject(
             method = "tick",

@@ -36,6 +36,15 @@ public class Main implements ModInitializer {
                         modContainer,
                         ResourcePackActivationType.ALWAYS_ENABLED
                 );
+                Registry.register(
+                        BuiltInRegistries.ITEM,
+                        ResourceLocation.parse("cherry-on-top:enchantment_upgrade"),
+                        ModItems.ENCHANTMENT_UPGRADE_SMITHING_TEMPLATE
+                );
+                ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.INGREDIENTS).register(contents -> contents.addAfter(
+                        Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE,
+                        ModItems.ENCHANTMENT_UPGRADE_SMITHING_TEMPLATE)
+                );
             }
             if (CONFIG.musicDiscLoot.enableMusicDiscLoot() && CONFIG.musicDiscLoot.remove13AndCatSimpleDungeonEntries()) {
                 ResourceManagerHelper.registerBuiltinResourcePack(
@@ -44,18 +53,13 @@ public class Main implements ModInitializer {
                         ResourcePackActivationType.ALWAYS_ENABLED
                 );
             }
+            if (CONFIG.enchantmentDisabler.enableEnchantmentDisabler()) {
+                ResourceManagerHelper.registerBuiltinResourcePack(
+                        ResourceLocation.parse("cherry-on-top:enchantmentdisabler"),
+                        modContainer,
+                        ResourcePackActivationType.ALWAYS_ENABLED
+                );
+            }
         });
-
-        if (CONFIG.enchantmentUpgrading.enableEnchantmentUpgrading()) {
-            Registry.register(
-                    BuiltInRegistries.ITEM,
-                    ResourceLocation.parse("cherry-on-top:enchantment_upgrade"),
-                    ModItems.ENCHANTMENT_UPGRADE_SMITHING_TEMPLATE
-            );
-            ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.INGREDIENTS).register(content -> content.addAfter(
-                    Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE,
-                    ModItems.ENCHANTMENT_UPGRADE_SMITHING_TEMPLATE)
-            );
-        }
     }
 }
