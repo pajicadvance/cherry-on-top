@@ -40,6 +40,7 @@ dependencies {
 
     // JsonPatcher
     modImplementation(include("com.github.mattidragon:jsonpatcher:${jsonpatcher_version}"))
+    modCompileOnly "com.github.MattiDragon:JsonPatcherLang:v1.0.0"
 
     // ModMenu
     modImplementation("com.terraformersmc:modmenu:${project.modmenu_version}")

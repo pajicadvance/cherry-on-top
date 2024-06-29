@@ -8,6 +8,7 @@
     "bow_drawing_sounds.RangedBowAttackGoalMixin",
     "enchantment_upgrade_smithing_template.SmithingMenuMixin",
     "hide_debug_info_in_survival.PlayerMixin",
+    "jsonpatcher.PatcherMixin",
     "phantom_spawning_rework.PhantomSpawnerMixin",
     "riptide_water_only.TridentItemMixin",
     "tipped_arrows_from_regular_potions.TippedArrowRecipeMixin",
