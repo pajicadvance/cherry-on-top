@@ -42,6 +42,10 @@ dependencies {
     modImplementation(include("com.github.mattidragon:jsonpatcher:${jsonpatcher_version}"))
     modCompileOnly "com.github.MattiDragon:JsonPatcherLang:v1.0.0"
 
+    // exp4j
+    include 'net.objecthunter:exp4j:0.4.8'
+    implementation 'net.objecthunter:exp4j:0.4.8'
+
     // ModMenu
     modImplementation("com.terraformersmc:modmenu:${project.modmenu_version}")
 

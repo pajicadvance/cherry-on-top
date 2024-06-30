@@ -1,0 +1,5 @@
+@version "1";
+@target "minecraft:lang/en_us.json";
+
+$'entity.minecraft.experience_bottle' = "Thrown Experience Bottle";
+$'item.minecraft.experience_bottle' = "Experience Bottle";

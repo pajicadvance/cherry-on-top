@@ -8,6 +8,8 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.entries.EmptyLootItem;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
+import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
+import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 
 public class LootTableModifier {
     public static void modifyLootTables() {
@@ -43,6 +45,32 @@ public class LootTableModifier {
                                     .add(LootItem.lootTableItem(Items.MUSIC_DISC_WAIT).setWeight(discWeight))
                                     .add(EmptyLootItem.emptyItem().setWeight(emptyWeight));
                             tableBuilder.withPool(musicDiscPoolBuilder);
+                        }
+                    }
+                }
+                if (Main.CONFIG.bottleOEnchantingImprovements.enableBottleOEnchantingImprovements() && Main.CONFIG.bottleOEnchantingImprovements.addToLootChests()) {
+                    for (String s : Main.CONFIG.bottleOEnchantingImprovements.bottleLootLocations()) {
+                        String[] stringArray = s.split(";");
+                        if (stringArray.length == 2) {
+                            if (ResourceLocation.parse(stringArray[0]).equals(key.location())) {
+                                int count;
+                                try {
+                                    count = Integer.parseInt(stringArray[1]);
+                                } catch (NumberFormatException e) {
+                                    count = 1;
+                                }
+                                LootPool.Builder lootPool = LootPool.lootPool()
+                                        .add(LootItem.lootTableItem(Items.EXPERIENCE_BOTTLE).apply(SetItemCountFunction.setCount(ConstantValue.exactly(count))));
+                                tableBuilder.withPool(lootPool);
+                            }
+                        }
+                        if (stringArray.length == 1) {
+                            if (ResourceLocation.parse(stringArray[0]).equals(key.location())) {
+                                LootPool.Builder lootPool = LootPool.lootPool()
+                                        .add(LootItem.lootTableItem(Items.EXPERIENCE_BOTTLE).setWeight(Main.CONFIG.bottleOEnchantingImprovements.bottleLootChance()))
+                                        .add(EmptyLootItem.emptyItem().setWeight(100 - Main.CONFIG.bottleOEnchantingImprovements.bottleLootChance()));
+                                tableBuilder.withPool(lootPool);
+                            }
                         }
                     }
                 }

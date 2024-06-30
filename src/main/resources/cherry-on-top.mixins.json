@@ -5,6 +5,7 @@
   "compatibilityLevel": "JAVA_21",
   "mixins": [
     "base.jsonpatcher.PatcherMixin",
+    "bottle_o_enchanting_improvements.ThrownExperienceBottleMixin",
     "bow_drawing_sounds.BowItemMixin",
     "bow_drawing_sounds.RangedBowAttackGoalMixin",
     "disable_enchanting_table.EnchantingTableBlockMixin",

@@ -11,6 +11,9 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.levelgen.PhantomSpawner;
+import net.objecthunter.exp4j.Expression;
+import net.objecthunter.exp4j.ExpressionBuilder;
+import net.objecthunter.exp4j.function.Function;
 import org.objectweb.asm.Opcodes;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
@@ -43,8 +46,23 @@ public class PhantomSpawnerMixin {
     )
     private void modifySpawnCheckFrequency(PhantomSpawner instance, int value, @Local RandomSource randomSource) {
         if (Main.CONFIG.phantomSpawningRework.enablePhantomSpawningRework()) {
-            instance.nextTick += (Main.CONFIG.phantomSpawningRework.phantomSpawnFrequencyBase() +
-                    randomSource.nextInt(Main.CONFIG.phantomSpawningRework.phantomSpawnFrequencyRandomOffsetBound())) * 20;
+            Function rand = new Function("rand", 1) {
+                @Override
+                public double apply(double... args) {
+                    return 1 + randomSource.nextInt((int)args[0]);
+                }
+            };
+            try {
+                Expression expression = new ExpressionBuilder(Main.CONFIG.phantomSpawningRework.phantomSpawnFrequency())
+                        .function(rand)
+                        .build();
+                if (expression.validate().isValid()) {
+                    int newValue = (int)expression.evaluate();
+                    if (newValue > 0) {
+                        instance.nextTick += newValue * 20;
+                    }
+                }
+            } catch (Exception ignored) {}
         }
     }
 

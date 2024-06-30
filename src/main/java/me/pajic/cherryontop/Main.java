@@ -23,13 +23,6 @@ public class Main implements ModInitializer {
         LootTableModifier.modifyLootTables();
 
         FabricLoader.getInstance().getModContainer("cherry-on-top").ifPresent(modContainer -> {
-            if (CONFIG.infinityMendingCompatible()) {
-                ResourceManagerHelper.registerBuiltinResourcePack(
-                        ResourceLocation.parse("cherry-on-top:infinimending"),
-                        modContainer,
-                        ResourcePackActivationType.ALWAYS_ENABLED
-                );
-            }
             if (CONFIG.enchantmentUpgrading.enableEnchantmentUpgrading()) {
                 ResourceManagerHelper.registerBuiltinResourcePack(
                         ResourceLocation.parse("cherry-on-top:enchantmentupgrade"),
@@ -46,6 +39,13 @@ public class Main implements ModInitializer {
                         ModItems.ENCHANTMENT_UPGRADE_SMITHING_TEMPLATE)
                 );
             }
+            if (CONFIG.infinityMendingCompatible()) {
+                ResourceManagerHelper.registerBuiltinResourcePack(
+                        ResourceLocation.parse("cherry-on-top:infinimending"),
+                        modContainer,
+                        ResourcePackActivationType.ALWAYS_ENABLED
+                );
+            }
             if (CONFIG.musicDiscLoot.enableMusicDiscLoot() && CONFIG.musicDiscLoot.remove13AndCatSimpleDungeonEntries()) {
                 ResourceManagerHelper.registerBuiltinResourcePack(
                         ResourceLocation.parse("cherry-on-top:remove13andcatloot"),
@@ -56,6 +56,13 @@ public class Main implements ModInitializer {
             if (CONFIG.enchantmentDisabler.enableEnchantmentDisabler()) {
                 ResourceManagerHelper.registerBuiltinResourcePack(
                         ResourceLocation.parse("cherry-on-top:enchantmentdisabler"),
+                        modContainer,
+                        ResourcePackActivationType.ALWAYS_ENABLED
+                );
+            }
+            if (Main.CONFIG.bottleOEnchantingImprovements.enableBottleOEnchantingImprovements() && CONFIG.bottleOEnchantingImprovements.renameToExperienceBottle()) {
+                ResourceManagerHelper.registerBuiltinResourcePack(
+                        ResourceLocation.parse("cherry-on-top:bottleoenchantingrename"),
                         modContainer,
                         ResourcePackActivationType.ALWAYS_ENABLED
                 );
