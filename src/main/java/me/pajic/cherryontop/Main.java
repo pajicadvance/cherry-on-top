@@ -1,9 +1,9 @@
 package me.pajic.cherryontop;
 
-import me.pajic.cherryontop.config.ModConfig;
-import me.pajic.cherryontop.item.ModItems;
-import me.pajic.cherryontop.loot.LootTableModifier;
+import me.pajic.cherryontop.config.CoTConfig;
+import me.pajic.cherryontop.item.CoTItems;
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
 import net.fabricmc.fabric.api.resource.ResourcePackActivationType;
@@ -11,18 +11,24 @@ import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Items;
 
 public class Main implements ModInitializer {
 
-    public static final ModConfig CONFIG = ModConfig.createAndLoad();
+    public static final CoTConfig CONFIG = CoTConfig.createAndLoad();
+    public static MinecraftServer SERVER;
 
     @Override
     public void onInitialize() {
-        LootTableModifier.modifyLootTables();
-
         FabricLoader.getInstance().getModContainer("cherry-on-top").ifPresent(modContainer -> {
+
+            ResourceManagerHelper.registerBuiltinResourcePack(
+                    ResourceLocation.parse("cherry-on-top:patcherlib"),
+                    modContainer,
+                    ResourcePackActivationType.ALWAYS_ENABLED
+            );
             if (CONFIG.enchantmentUpgrading.enableEnchantmentUpgrading()) {
                 ResourceManagerHelper.registerBuiltinResourcePack(
                         ResourceLocation.parse("cherry-on-top:enchantmentupgrade"),
@@ -32,11 +38,11 @@ public class Main implements ModInitializer {
                 Registry.register(
                         BuiltInRegistries.ITEM,
                         ResourceLocation.parse("cherry-on-top:enchantment_upgrade"),
-                        ModItems.ENCHANTMENT_UPGRADE_SMITHING_TEMPLATE
+                        CoTItems.ENCHANTMENT_UPGRADE_SMITHING_TEMPLATE
                 );
                 ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.INGREDIENTS).register(contents -> contents.addAfter(
                         Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE,
-                        ModItems.ENCHANTMENT_UPGRADE_SMITHING_TEMPLATE)
+                        CoTItems.ENCHANTMENT_UPGRADE_SMITHING_TEMPLATE)
                 );
             }
             if (CONFIG.infinityMendingCompatible()) {
@@ -46,12 +52,19 @@ public class Main implements ModInitializer {
                         ResourcePackActivationType.ALWAYS_ENABLED
                 );
             }
-            if (CONFIG.musicDiscLoot.enableMusicDiscLoot() && CONFIG.musicDiscLoot.remove13AndCatSimpleDungeonEntries()) {
+            if (CONFIG.musicDiscLoot.enableMusicDiscLoot()) {
                 ResourceManagerHelper.registerBuiltinResourcePack(
-                        ResourceLocation.parse("cherry-on-top:remove13andcatloot"),
+                        ResourceLocation.parse("cherry-on-top:musicdiscloot"),
                         modContainer,
                         ResourcePackActivationType.ALWAYS_ENABLED
                 );
+                if (CONFIG.musicDiscLoot.remove13AndCatSimpleDungeonEntries()) {
+                    ResourceManagerHelper.registerBuiltinResourcePack(
+                            ResourceLocation.parse("cherry-on-top:remove13andcatloot"),
+                            modContainer,
+                            ResourcePackActivationType.ALWAYS_ENABLED
+                    );
+                }
             }
             if (CONFIG.enchantmentDisabler.enableEnchantmentDisabler()) {
                 ResourceManagerHelper.registerBuiltinResourcePack(
@@ -60,13 +73,42 @@ public class Main implements ModInitializer {
                         ResourcePackActivationType.ALWAYS_ENABLED
                 );
             }
-            if (Main.CONFIG.bottleOEnchantingImprovements.enableBottleOEnchantingImprovements() && CONFIG.bottleOEnchantingImprovements.renameToExperienceBottle()) {
-                ResourceManagerHelper.registerBuiltinResourcePack(
-                        ResourceLocation.parse("cherry-on-top:bottleoenchantingrename"),
-                        modContainer,
-                        ResourcePackActivationType.ALWAYS_ENABLED
-                );
+            if (Main.CONFIG.bottleOEnchantingImprovements.enableBottleOEnchantingImprovements()) {
+                if (CONFIG.bottleOEnchantingImprovements.additionalChestLoot()) {
+                    ResourceManagerHelper.registerBuiltinResourcePack(
+                            ResourceLocation.parse("cherry-on-top:bottleoenchantingloot"),
+                            modContainer,
+                            ResourcePackActivationType.ALWAYS_ENABLED
+                    );
+                }
+                if (CONFIG.bottleOEnchantingImprovements.renameToExperienceBottle()) {
+                    ResourceManagerHelper.registerBuiltinResourcePack(
+                            ResourceLocation.parse("cherry-on-top:bottleoenchantingrename"),
+                            modContainer,
+                            ResourcePackActivationType.ALWAYS_ENABLED
+                    );
+                }
+            }
+            if (Main.CONFIG.enchantedBookLootImprovements.enableEnchantedBookLootImprovements()) {
+                if (Main.CONFIG.enchantedBookLootImprovements.additionalChestLoot()) {
+                    ResourceManagerHelper.registerBuiltinResourcePack(
+                            ResourceLocation.parse("cherry-on-top:additionalbookloot"),
+                            modContainer,
+                            ResourcePackActivationType.ALWAYS_ENABLED
+                    );
+                }
+                if (Main.CONFIG.enchantedBookLootImprovements.structureSpecificLoot()) {
+                    ResourceManagerHelper.registerBuiltinResourcePack(
+                            ResourceLocation.parse("cherry-on-top:structurespecificbookloot"),
+                            modContainer,
+                            ResourcePackActivationType.ALWAYS_ENABLED
+                    );
+                }
             }
         });
+
+        // Provides registry and random source access to mixins whose methods don't have them provided.
+        // Absolutely terrible, but it is what it is.
+        ServerLifecycleEvents.SERVER_STARTED.register(server -> SERVER = server);
     }
 }
