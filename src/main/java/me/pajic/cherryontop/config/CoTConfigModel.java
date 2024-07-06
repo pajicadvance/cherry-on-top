@@ -107,10 +107,10 @@ public class CoTConfigModel {
                 "minecraft:sharpness/5"
         );
         public boolean enchantmentLevelWeights = false;
-        @PredicateConstraint("positive") public int level1Weight = 1;
-        @PredicateConstraint("positive") public int level2Weight = 1;
-        @PredicateConstraint("positive") public int level3Weight = 1;
-        @PredicateConstraint("positive") public int level4Weight = 1;
+        @PredicateConstraint("positive") public int level1Weight = 16;
+        @PredicateConstraint("positive") public int level2Weight = 8;
+        @PredicateConstraint("positive") public int level3Weight = 4;
+        @PredicateConstraint("positive") public int level4Weight = 2;
         @PredicateConstraint("positive") public int level5Weight = 1;
 
         public static boolean positive(int value) {
