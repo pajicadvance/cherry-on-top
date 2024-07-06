@@ -1,0 +1,59 @@
+@version "1";
+@target [
+    {
+        "path": {
+            "start": "loot_table/chests/",
+            "end": ".json"
+        }
+    }
+];
+import "cherry-on-top:cot_patcher_lib" as cotlib;
+
+foreach (entry in cherryontop_config.enchantedBookLootImprovements.enchantmentStructureMap) {
+    val stringArray = strings.split(entry, ",");
+
+    if (cotlib.arraySize(stringArray) < 2) {
+        debug.throw("Invalid structure specific loot entry " + entry + ": Entry must be in format enchantment,location;chance;count,location;chance;count,...");
+    } else {
+        val enchantment = stringArray[0];
+
+        for (var i = 1; i < cotlib.arraySize(stringArray); i++) {
+            val location = strings.split(stringArray[i], ";");
+
+            if (cotlib.arraySize(location) != 3) {
+                debug.throw("Invalid location entry " + stringArray[i] + " in structure specific loot entry " + entry + ": Location entry must be in format location;chance;count");
+            } else if (location[0] == $random_sequence) {
+                val chance = cotlib.strToInt(location[1], stringArray[i]) / 100;
+                val count = cotlib.strToInt(location[2], stringArray[i]);
+
+                val pool = {
+                    "rolls": 1.0,
+                    "entries": [
+                        {
+                            "type": "minecraft:item",
+                            "name": "minecraft:book",
+                            "functions": [
+                                {
+                                    "function": "minecraft:set_count",
+                                    "count": count
+                                },
+                                {
+                                    "function": "minecraft:enchant_randomly",
+                                    "options": enchantment
+                                }
+                            ]
+                        }
+                    ],
+                    "conditions": [
+                        {
+                            "condition": "minecraft:random_chance",
+                            "chance": chance
+                        }
+                    ]
+                };
+
+                $pools = arrays.push($pools, pool);
+            }
+        }
+    }
+}

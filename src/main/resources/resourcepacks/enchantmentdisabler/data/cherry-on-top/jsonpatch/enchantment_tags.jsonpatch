@@ -7,3 +7,9 @@
 };
 
 $values = arrays.removeIf($values, (value) -> arrays.indexOf(cherryontop_config.enchantmentDisabler.disabledEnchantments, value) != -1);
+
+if (cherryontop_config.enchantedBookLootImprovements.enableEnchantedBookLootImprovements) {
+    foreach (configEntry in cherryontop_config.enchantedBookLootImprovements.enchantmentStructureMap) {
+        $values = arrays.removeIf($values, (value) -> strings.split(configEntry, ",")[0] == value);
+    }
+}

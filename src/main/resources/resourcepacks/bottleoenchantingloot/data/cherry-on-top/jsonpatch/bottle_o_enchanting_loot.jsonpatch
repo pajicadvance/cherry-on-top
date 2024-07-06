@@ -1,0 +1,46 @@
+@version "1";
+@target [
+    {
+        "path": {
+            "start": "loot_table/chests/",
+            "end": ".json"
+        }
+    }
+];
+import "cherry-on-top:cot_patcher_lib" as cotlib;
+
+foreach (entry in cherryontop_config.bottleOEnchantingImprovements.bottleLootLocations) {
+    val stringArray = strings.split(entry, ";");
+
+    if (cotlib.arraySize(stringArray) != 3) {
+        debug.throw("Invalid bottle o' enchanting loot entry " + entry + ": Entry must be in format location;chance;count");
+    }
+    else if (stringArray[0] == $random_sequence) {
+        val chance = cotlib.strToInt(stringArray[1], entry) / 100;
+        val count = cotlib.strToInt(stringArray[2], entry);
+
+        val pool = {
+            "rolls": 1.0,
+            "entries": [
+                {
+                    "type": "minecraft:item",
+                    "name": "minecraft:experience_bottle",
+                    "functions": [
+                        {
+                            "function": "minecraft:set_count",
+                            "count": count
+                        }
+                    ]
+                }
+            ],
+            "conditions": [
+                {
+                    "condition": "minecraft:random_chance",
+                    "chance": chance
+                }
+            ]
+        };
+
+        $pools = arrays.push($pools, pool);
+    }
+}

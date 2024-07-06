@@ -1,0 +1,50 @@
+@version "1";
+@target [
+    {
+        "path": {
+            "start": "loot_table/chests/",
+            "end": ".json"
+        }
+    }
+];
+import "cherry-on-top:cot_patcher_lib" as cotlib;
+
+foreach (entry in cherryontop_config.enchantedBookLootImprovements.bookLootLocations) {
+    val stringArray = strings.split(entry, ";");
+
+    if (cotlib.arraySize(stringArray) != 3) {
+        debug.throw("Invalid additional book loot entry " + entry + ": Entry must be in format location;chance;count");
+    }
+    else if (stringArray[0] == $random_sequence) {
+        val chance = cotlib.strToInt(stringArray[1], entry) / 100;
+        val count = cotlib.strToInt(stringArray[2], entry);
+
+        val pool = {
+            "rolls": 1.0,
+            "entries": [
+                {
+                    "type": "minecraft:item",
+                    "name": "minecraft:book",
+                    "functions": [
+                        {
+                            "function": "minecraft:set_count",
+                            "count": count
+                        },
+                        {
+                            "function": "minecraft:enchant_randomly",
+                            "options": "#minecraft:on_random_loot"
+                        }
+                    ]
+                }
+            ],
+            "conditions": [
+                {
+                    "condition": "minecraft:random_chance",
+                    "chance": chance
+                }
+            ]
+        };
+
+        $pools = arrays.push($pools, pool);
+    }
+}
