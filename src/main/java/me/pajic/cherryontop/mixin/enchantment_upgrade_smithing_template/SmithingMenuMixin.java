@@ -5,7 +5,7 @@ import com.llamalad7.mixinextras.sugar.Local;
 import com.llamalad7.mixinextras.sugar.ref.LocalRef;
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import me.pajic.cherryontop.Main;
-import me.pajic.cherryontop.item.ModItems;
+import me.pajic.cherryontop.item.CoTItems;
 import net.minecraft.core.Holder;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.entity.player.Inventory;
@@ -99,7 +99,7 @@ public abstract class SmithingMenuMixin extends ItemCombinerMenu {
 
     @Unique
     private boolean isEnchantmentUpgradeRecipe() {
-        return slots.get(0).getItem().is(ModItems.ENCHANTMENT_UPGRADE_SMITHING_TEMPLATE) &&
+        return slots.get(0).getItem().is(CoTItems.ENCHANTMENT_UPGRADE_SMITHING_TEMPLATE) &&
                 slots.get(1).getItem().is(Items.ENCHANTED_BOOK) &&
                 slots.get(1).getItem().has(DataComponents.STORED_ENCHANTMENTS);
     }

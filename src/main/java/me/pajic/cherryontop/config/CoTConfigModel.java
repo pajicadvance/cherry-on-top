@@ -10,16 +10,17 @@ import net.objecthunter.exp4j.function.Function;
 import java.util.List;
 
 @Modmenu(modId = "cherry-on-top")
-@Config(name = "cherry-on-top", wrapperName = "ModConfig")
+@Config(name = "cherry-on-top", wrapperName = "CoTConfig")
 @Sync(Option.SyncMode.OVERRIDE_CLIENT)
 @SuppressWarnings("unused")
-public class ConfigModel {
+public class CoTConfigModel {
     @SectionHeader("features")
     @Nest public EnchantmentUpgrading enchantmentUpgrading = new EnchantmentUpgrading();
     @Nest public EnchantmentDisabler enchantmentDisabler = new EnchantmentDisabler();
     @Nest public PhantomSpawningRework phantomSpawningRework = new PhantomSpawningRework();
-    @Nest public MusicDiscLoot musicDiscLoot = new MusicDiscLoot();
     @Nest public BottleOEnchantingImprovements bottleOEnchantingImprovements = new BottleOEnchantingImprovements();
+    @Nest public EnchantedBookLootImprovements enchantedBookLootImprovements = new EnchantedBookLootImprovements();
+    @Nest public MusicDiscLoot musicDiscLoot = new MusicDiscLoot();
 
     @SectionHeader("tweaks")
     @RestartRequired public boolean craftTippedArrowsWithRegularPotions = false;
@@ -36,8 +37,9 @@ public class ConfigModel {
         @PredicateConstraint("greaterThanZero") public int upgradingBaseExperienceCost = 5;
         public boolean ignoreTooExpensive = false;
         public boolean allowUpgradingSingleEnchantedBooksOnly = false;
-        @RestartRequired @RangeConstraint(min = 1, max = 100) public int templateLootChance = 10;
-        @RestartRequired public List<String> templateLootLocations = List.of("minecraft:chests/end_city_treasure");
+        @RestartRequired public List<String> templateLootLocations = List.of(
+                "minecraft:chests/end_city_treasure;10;1"
+        );
 
         public static boolean greaterThanZero(int value) {
             return Predicates.greaterThanZero(value);
@@ -46,7 +48,9 @@ public class ConfigModel {
 
     public static class EnchantmentDisabler {
         @RestartRequired public boolean enableEnchantmentDisabler = false;
-        @RestartRequired public List<String> disabledEnchantments = List.of("minecraft:mending");
+        @RestartRequired public List<String> disabledEnchantments = List.of(
+                "minecraft:mending"
+        );
     }
 
     public static class PhantomSpawningRework {
@@ -54,10 +58,63 @@ public class ConfigModel {
         @RangeConstraint(min = -64, max = 320) public int phantomSpawnStartHeight = 128;
         @PredicateConstraint("expressionWithRandValid") public String phantomSpawnFrequency = "30+rand(30)";
         public boolean repelPhantomsWithDefinedItems = true;
-        public List<String> phantomRepellentItems = List.of("minecraft:phantom_membrane");
+        public List<String> phantomRepellentItems = List.of(
+                "minecraft:phantom_membrane"
+        );
 
         public static boolean expressionWithRandValid(String string) {
             return Predicates.expressionWithRandValid(string);
+        }
+    }
+
+    public static class BottleOEnchantingImprovements {
+        @RestartRequired public boolean enableBottleOEnchantingImprovements = false;
+        public boolean modifyExperienceReward = true;
+        @PredicateConstraint("expressionWithRandValid") public String experienceReward = "30+rand(10)+rand(10)";
+        @RestartRequired public boolean renameToExperienceBottle = true;
+        @RestartRequired public boolean additionalChestLoot = true;
+        @RestartRequired public List<String> bottleLootLocations = List.of(
+                "minecraft:chests/abandoned_mineshaft;50;1",
+                "minecraft:chests/pillager_outpost;100;2"
+        );
+
+        public static boolean expressionWithRandValid(String string) {
+            return Predicates.expressionWithRandValid(string);
+        }
+    }
+
+    public static class EnchantedBookLootImprovements {
+        @RestartRequired public boolean enableEnchantedBookLootImprovements = false;
+        @RestartRequired public boolean additionalChestLoot = false;
+        @RestartRequired public List<String> bookLootLocations = List.of(
+                "minecraft:chests/abandoned_mineshaft;10;1",
+                "minecraft:chests/ancient_city;10;1",
+                "minecraft:chests/end_city_treasure;10;1",
+                "minecraft:chests/jungle_temple;10;1",
+                "minecraft:chests/pillager_outpost;10;1",
+                "minecraft:chests/simple_dungeon;10;1",
+                "minecraft:chests/stronghold_corridor;10;1",
+                "minecraft:chests/stronghold_crossing;10;1",
+                "minecraft:chests/stronghold_library;10;1",
+                "minecraft:chests/woodland_mansion;10;1"
+        );
+        @RestartRequired public boolean structureSpecificLoot = false;
+        @RestartRequired public List<String> enchantmentStructureMap = List.of(
+                "minecraft:frost_walker,minecraft:chests/ancient_city_ice_box;100;1"
+        );
+        public boolean modifyMaxEnchantmentLevel = false;
+        public List<String> maxLevels = List.of(
+                "minecraft:sharpness/5"
+        );
+        public boolean enchantmentLevelWeights = false;
+        @PredicateConstraint("positive") public int level1Weight = 1;
+        @PredicateConstraint("positive") public int level2Weight = 1;
+        @PredicateConstraint("positive") public int level3Weight = 1;
+        @PredicateConstraint("positive") public int level4Weight = 1;
+        @PredicateConstraint("positive") public int level5Weight = 1;
+
+        public static boolean positive(int value) {
+            return Predicates.positive(value);
         }
     }
 
@@ -74,33 +131,19 @@ public class ConfigModel {
                 "minecraft:chests/stronghold_corridor",
                 "minecraft:chests/stronghold_crossing",
                 "minecraft:chests/stronghold_library",
-                "minecraft:chests/woodland_mansion",
-                "minecraft:gameplay/cat_morning_gift"
+                "minecraft:chests/woodland_mansion"
         );
         @RestartRequired public boolean remove13AndCatSimpleDungeonEntries = true;
-    }
-
-    public static class BottleOEnchantingImprovements {
-        @RestartRequired public boolean enableBottleOEnchantingImprovements = false;
-        public boolean modifyExperienceReward = true;
-        @PredicateConstraint("expressionWithRandValid") public String experienceReward = "30+rand(10)+rand(10)";
-        @RestartRequired public boolean renameToExperienceBottle = true;
-        @RestartRequired public boolean addToLootChests = true;
-        @RestartRequired @RangeConstraint(min = 1, max = 100) public int bottleLootChance = 50;
-        @RestartRequired public List<String> bottleLootLocations = List.of(
-                "minecraft:chests/abandoned_mineshaft",
-                "minecraft:chests/pillager_outpost;2"
-        );
-
-        public static boolean expressionWithRandValid(String string) {
-            return Predicates.expressionWithRandValid(string);
-        }
     }
 
     public static class Predicates {
 
         public static boolean greaterThanZero(int value) {
             return value > 0;
+        }
+
+        public static boolean positive(int value) {
+            return value >= 0;
         }
 
         public static boolean expressionWithRandValid(String string) {

@@ -8,7 +8,7 @@ import net.minecraft.world.item.Item;
 
 import java.util.List;
 
-public class ModItems {
+public class CoTItems {
 
     // Enchantment upgrade smithing template
     public static final Item ENCHANTMENT_UPGRADE_SMITHING_TEMPLATE = new SmithingTemplateFoilItem(

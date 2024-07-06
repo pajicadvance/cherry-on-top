@@ -8,7 +8,7 @@ import net.minecraft.core.component.DataComponents;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.enchantment.ItemEnchantments;
 
-public class ModEMIPlugin implements EmiPlugin {
+public class CoTEMIPlugin implements EmiPlugin {
     @Override
     public void initialize(EmiInitRegistry registry) {
         if (Main.CONFIG.enchantmentDisabler.enableEnchantmentDisabler()) {

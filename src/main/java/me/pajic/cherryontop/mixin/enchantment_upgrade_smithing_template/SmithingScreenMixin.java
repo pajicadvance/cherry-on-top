@@ -2,7 +2,7 @@ package me.pajic.cherryontop.mixin.enchantment_upgrade_smithing_template;
 
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import me.pajic.cherryontop.Main;
-import me.pajic.cherryontop.item.ModItems;
+import me.pajic.cherryontop.item.CoTItems;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.ItemCombinerScreen;
 import net.minecraft.client.gui.screens.inventory.SmithingScreen;
@@ -29,7 +29,7 @@ public abstract class SmithingScreenMixin extends ItemCombinerScreen<SmithingMen
     protected void renderLabels(@NotNull GuiGraphics guiGraphics, int mouseX, int mouseY) {
         super.renderLabels(guiGraphics, mouseX, mouseY);
         if (Main.CONFIG.enchantmentUpgrading.enableEnchantmentUpgrading() && Main.CONFIG.enchantmentUpgrading.upgradingHasExperienceCost() &&
-                menu.slots.get(0).getItem().is(ModItems.ENCHANTMENT_UPGRADE_SMITHING_TEMPLATE) &&
+                menu.slots.get(0).getItem().is(CoTItems.ENCHANTMENT_UPGRADE_SMITHING_TEMPLATE) &&
                 menu.slots.get(1).getItem().is(Items.ENCHANTED_BOOK) &&
                 menu.slots.get(1).getItem().has(DataComponents.STORED_ENCHANTMENTS) &&
                 menu.slots.get(2).getItem().is(Items.LAPIS_LAZULI) &&

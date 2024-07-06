@@ -18,7 +18,7 @@
       "me.pajic.cherryontop.Main"
     ],
     "emi": [
-      "me.pajic.cherryontop.plugin.ModEMIPlugin"
+      "me.pajic.cherryontop.plugin.CoTEMIPlugin"
     ]
   },
   "mixins": [
