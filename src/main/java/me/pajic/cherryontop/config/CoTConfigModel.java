@@ -16,11 +16,11 @@ import java.util.List;
 public class CoTConfigModel {
     @SectionHeader("features")
     @Nest public EnchantmentUpgrading enchantmentUpgrading = new EnchantmentUpgrading();
-    @Nest public EnchantmentDisabler enchantmentDisabler = new EnchantmentDisabler();
     @Nest public PhantomSpawningRework phantomSpawningRework = new PhantomSpawningRework();
     @Nest public BottleOEnchantingImprovements bottleOEnchantingImprovements = new BottleOEnchantingImprovements();
     @Nest public EnchantedBookLootImprovements enchantedBookLootImprovements = new EnchantedBookLootImprovements();
     @Nest public MusicDiscLoot musicDiscLoot = new MusicDiscLoot();
+    @Nest public EnchantmentDisabler enchantmentDisabler = new EnchantmentDisabler();
 
     @SectionHeader("tweaks")
     @RestartRequired public boolean craftTippedArrowsWithRegularPotions = false;
@@ -46,13 +46,6 @@ public class CoTConfigModel {
         }
     }
 
-    public static class EnchantmentDisabler {
-        @RestartRequired public boolean enableEnchantmentDisabler = false;
-        @RestartRequired public List<String> disabledEnchantments = List.of(
-                "minecraft:mending"
-        );
-    }
-
     public static class PhantomSpawningRework {
         public boolean enablePhantomSpawningRework = false;
         @RangeConstraint(min = -64, max = 320) public int phantomSpawnStartHeight = 128;
@@ -75,7 +68,12 @@ public class CoTConfigModel {
         @RestartRequired public boolean additionalChestLoot = true;
         @RestartRequired public List<String> bottleLootLocations = List.of(
                 "minecraft:chests/abandoned_mineshaft;50;1",
-                "minecraft:chests/pillager_outpost;100;2"
+                "minecraft:chests/end_city_treasure;100;1",
+                "minecraft:chests/simple_dungeon;100;1",
+                "minecraft:chests/stronghold_corridor;100;1",
+                "minecraft:chests/stronghold_crossing;100;1",
+                "minecraft:chests/stronghold_library;100;2",
+                "minecraft:chests/woodland_mansion;100;3"
         );
 
         public static boolean expressionWithRandValid(String string) {
@@ -85,7 +83,7 @@ public class CoTConfigModel {
 
     public static class EnchantedBookLootImprovements {
         @RestartRequired public boolean enableEnchantedBookLootImprovements = false;
-        @RestartRequired public boolean additionalChestLoot = false;
+        @RestartRequired public boolean additionalChestLoot = true;
         @RestartRequired public List<String> bookLootLocations = List.of(
                 "minecraft:chests/abandoned_mineshaft;10;1",
                 "minecraft:chests/ancient_city;10;1",
@@ -134,6 +132,13 @@ public class CoTConfigModel {
                 "minecraft:chests/woodland_mansion"
         );
         @RestartRequired public boolean remove13AndCatSimpleDungeonEntries = true;
+    }
+
+    public static class EnchantmentDisabler {
+        @RestartRequired public boolean enableEnchantmentDisabler = false;
+        @RestartRequired public List<String> disabledEnchantments = List.of(
+                "minecraft:mending"
+        );
     }
 
     public static class Predicates {

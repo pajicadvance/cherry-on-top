@@ -1,4 +1,4 @@
-package me.pajic.cherryontop.mixin.enchantment_book_loot_improvements;
+package me.pajic.cherryontop.mixin.enchanted_book_loot_improvements;
 
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import com.llamalad7.mixinextras.sugar.Local;
