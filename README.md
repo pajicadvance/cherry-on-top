@@ -86,6 +86,14 @@ Every tweak is disabled by default, and can be toggled on or off at any time. To
 
 Changes the tipped arrow recipe to use regular potions instead of lingering potions. If EMI is installed, the recipe will change accordingly.
 
+### Glowstone dust recipe
+
+Enables crafting glowstone dust by combining redstone dust with blaze powder.
+
+### Crying obsidian recipe
+
+Enables crafting crying obsidian by combining obsidian with a ghast tear.
+
 ### Infinity compatible with Mending
 
 Makes it possible to apply Mending to a bow enchanted with Infinity and vice versa.
