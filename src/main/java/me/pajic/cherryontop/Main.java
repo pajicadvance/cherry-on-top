@@ -22,6 +22,12 @@ public class Main implements ModInitializer {
 
     @Override
     public void onInitialize() {
+
+        // Provides registry and random source access to mixins whose methods don't have them provided.
+        // Absolutely terrible, but it is what it is.
+        ServerLifecycleEvents.SERVER_STARTED.register(server -> SERVER = server);
+
+        // Conditionally enable datapacks
         FabricLoader.getInstance().getModContainer("cherry-on-top").ifPresent(modContainer -> {
 
             ResourceManagerHelper.registerBuiltinResourcePack(
@@ -29,6 +35,7 @@ public class Main implements ModInitializer {
                     modContainer,
                     ResourcePackActivationType.ALWAYS_ENABLED
             );
+
             if (CONFIG.enchantmentUpgrading.enableEnchantmentUpgrading()) {
                 ResourceManagerHelper.registerBuiltinResourcePack(
                         ResourceLocation.parse("cherry-on-top:enchantmentupgrade"),
@@ -45,6 +52,7 @@ public class Main implements ModInitializer {
                         CoTItems.ENCHANTMENT_UPGRADE_SMITHING_TEMPLATE)
                 );
             }
+
             if (CONFIG.infinityMendingCompatible()) {
                 ResourceManagerHelper.registerBuiltinResourcePack(
                         ResourceLocation.parse("cherry-on-top:infinimending"),
@@ -52,6 +60,7 @@ public class Main implements ModInitializer {
                         ResourcePackActivationType.ALWAYS_ENABLED
                 );
             }
+
             if (CONFIG.musicDiscLoot.enableMusicDiscLoot()) {
                 ResourceManagerHelper.registerBuiltinResourcePack(
                         ResourceLocation.parse("cherry-on-top:musicdiscloot"),
@@ -66,6 +75,7 @@ public class Main implements ModInitializer {
                     );
                 }
             }
+
             if (CONFIG.enchantmentDisabler.enableEnchantmentDisabler()) {
                 ResourceManagerHelper.registerBuiltinResourcePack(
                         ResourceLocation.parse("cherry-on-top:enchantmentdisabler"),
@@ -73,6 +83,7 @@ public class Main implements ModInitializer {
                         ResourcePackActivationType.ALWAYS_ENABLED
                 );
             }
+
             if (Main.CONFIG.bottleOEnchantingImprovements.enableBottleOEnchantingImprovements()) {
                 if (CONFIG.bottleOEnchantingImprovements.additionalChestLoot()) {
                     ResourceManagerHelper.registerBuiltinResourcePack(
@@ -89,6 +100,7 @@ public class Main implements ModInitializer {
                     );
                 }
             }
+
             if (Main.CONFIG.enchantedBookLootImprovements.enableEnchantedBookLootImprovements()) {
                 if (Main.CONFIG.enchantedBookLootImprovements.additionalChestLoot()) {
                     ResourceManagerHelper.registerBuiltinResourcePack(
@@ -105,10 +117,22 @@ public class Main implements ModInitializer {
                     );
                 }
             }
-        });
 
-        // Provides registry and random source access to mixins whose methods don't have them provided.
-        // Absolutely terrible, but it is what it is.
-        ServerLifecycleEvents.SERVER_STARTED.register(server -> SERVER = server);
+            if (Main.CONFIG.cryingObsidianRecipe()) {
+                ResourceManagerHelper.registerBuiltinResourcePack(
+                        ResourceLocation.parse("cherry-on-top:cryingobsidianrecipe"),
+                        modContainer,
+                        ResourcePackActivationType.ALWAYS_ENABLED
+                );
+            }
+
+            if (Main.CONFIG.glowstoneDustRecipe()) {
+                ResourceManagerHelper.registerBuiltinResourcePack(
+                        ResourceLocation.parse("cherry-on-top:glowstonedustrecipe"),
+                        modContainer,
+                        ResourcePackActivationType.ALWAYS_ENABLED
+                );
+            }
+        });
     }
 }

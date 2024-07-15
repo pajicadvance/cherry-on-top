@@ -24,6 +24,8 @@ public class CoTConfigModel {
 
     @SectionHeader("tweaks")
     @RestartRequired public boolean craftTippedArrowsWithRegularPotions = false;
+    @RestartRequired public boolean glowstoneDustRecipe = false;
+    @RestartRequired public boolean cryingObsidianRecipe = false;
     @RestartRequired public boolean infinityMendingCompatible = false;
     public boolean playBowDrawingSounds = false;
     public boolean riptideWorksOnlyInWater = false;

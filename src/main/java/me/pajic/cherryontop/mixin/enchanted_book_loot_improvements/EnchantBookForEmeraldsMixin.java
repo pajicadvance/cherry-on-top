@@ -24,10 +24,10 @@ public class EnchantBookForEmeraldsMixin {
             )
     )
     private int setMaxEnchantmentLevel(int original, @Local Holder<Enchantment> enchantmentHolder, @Local(argsOnly = true) Entity trader) {
-        RegistryAccess registryAccess = trader.level().registryAccess();
         if (Main.CONFIG.enchantedBookLootImprovements.enableEnchantedBookLootImprovements() &&
                 Main.CONFIG.enchantedBookLootImprovements.modifyMaxEnchantmentLevel()
         ) {
+            RegistryAccess registryAccess = trader.level().registryAccess();
             return Math.min(original, CoTEnchantmentUtil.getNewMaxLevel(enchantmentHolder, registryAccess));
         }
         return original;

@@ -73,6 +73,8 @@
   "text.config.cherry-on-top.option.riptideWorksOnlyInWater": "Riptide works in water only",
   "cherry-on-top.tweaks.riptideWorksOnlyInWater.desc": "Makes Riptide work only when inside water and not in rain.",
   "text.config.cherry-on-top.option.disableEnchantingTable": "Disable enchanting table",
+  "text.config.cherry-on-top.option.cryingObsidianRecipe": "Crying obsidian recipe",
+  "text.config.cherry-on-top.option.glowstoneDustRecipe": "Glowstone dust recipe",
 
   "item.cherry-on-top.enchantment_upgrade": "Enchantment Upgrade Smithing Template",
   "upgrade.minecraft.cherry-on-top.enchantment_upgrade": "Enchantment Upgrade",
