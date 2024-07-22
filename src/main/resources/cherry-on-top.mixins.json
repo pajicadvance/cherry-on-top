@@ -4,10 +4,12 @@
   "package": "me.pajic.cherryontop.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "anvil_repair_unit_cost.AnvilMenuMixin",
     "base.jsonpatcher.PatcherMixin",
     "bottle_o_enchanting_improvements.ThrownExperienceBottleMixin",
     "bow_drawing_sounds.BowItemMixin",
     "bow_drawing_sounds.RangedBowAttackGoalMixin",
+    "disable_shulker_duplication.ShulkerMixin",
     "enchanted_book_loot_improvements.EnchantBookForEmeraldsMixin",
     "enchanted_book_loot_improvements.EnchantRandomlyFunctionMixin",
     "enchantment_upgrade_smithing_template.SmithingMenuMixin",

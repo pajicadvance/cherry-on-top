@@ -50,7 +50,6 @@ Adds additional enchanted book loot to chests in the world.
 Optionally, make defined enchantments exclusive to defined structures, and specify the chances for each enchantment level to appear on looted enchanted books.
 
 Configuration options:
-- Enable or disable adding enchanted books as loot to more chests in the world
 - Add or remove additional locations where enchanted books can be found and define the loot chance and amount, in the format of `location;chance;count`
 - Enable or disable making enchantments exclusive to defined structures
 - Add or remove rules for structure-specific enchantments, in the format of `enchantment,location;chance;count, ... ,location;chance;count` (an example entry is provided in the default config)
@@ -65,6 +64,15 @@ Configuration options:
 - Change the chance that a disc will spawn in any of the defined locations
 - Add or remove locations where the discs can be found
 - Enable or disable removing the vanilla 13 and Cat music disc loot from regular dungeons
+
+### Recipe-Based Anvil Repair Unit Costs
+
+Changes the amount of materials required to repair items in the anvil from a fixed amount of 4 to an amount based on the amount of material units required to craft the item.
+
+For example, to fully repair an iron chestplate, you now need 8 iron ingots up from 4, and to fully repair an iron sword, you need 2 iron ingots down from 4.
+
+Configuration options:
+- Change the amount of material units required to fully repair an item for each item type
 
 ## Tweaks
 
@@ -89,6 +97,10 @@ Makes it possible to apply Mending to a bow enchanted with Infinity and vice ver
 ### Play bow drawing sounds
 
 Makes the bow play a bow drawing sound when being drawn by players or mobs. Makes dealing with skeletons easier since you can now hear them drawing the bow before they shoot.
+
+### Disable shulker duplication
+
+Disables the game mechanic that allows shulkers to duplicate by hitting each other with their bullets.
 
 ### Riptide works in water only
 

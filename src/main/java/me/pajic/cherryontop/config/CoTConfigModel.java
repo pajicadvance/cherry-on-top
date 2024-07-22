@@ -20,6 +20,7 @@ public class CoTConfigModel {
     @Nest public BottleOEnchantingImprovements bottleOEnchantingImprovements = new BottleOEnchantingImprovements();
     @Nest public EnchantedBookLootImprovements enchantedBookLootImprovements = new EnchantedBookLootImprovements();
     @Nest public MusicDiscLoot musicDiscLoot = new MusicDiscLoot();
+    @Nest public AnvilRepairUnitCost anvilRepairUnitCost = new AnvilRepairUnitCost();
 
     @SectionHeader("tweaks")
     @RestartRequired public boolean craftTippedArrowsWithRegularPotions = false;
@@ -27,6 +28,7 @@ public class CoTConfigModel {
     @RestartRequired public boolean cryingObsidianRecipe = false;
     @RestartRequired public boolean infinityMendingCompatible = false;
     public boolean playBowDrawingSounds = false;
+    public boolean disableShulkerDuplication = false;
     public boolean riptideWorksOnlyInWater = false;
     public boolean hideDebugInfoInSurvival = false;
     @Sync(Option.SyncMode.NONE) public boolean disableDoubleTapSprint = false;
@@ -128,6 +130,34 @@ public class CoTConfigModel {
                 "minecraft:chests/woodland_mansion"
         );
         @RestartRequired public boolean remove13AndCatSimpleDungeonEntries = true;
+    }
+
+    public static class AnvilRepairUnitCost {
+        public boolean modifyAnvilRepairUnitCosts = false;
+        @Nest public Armor armor = new Armor();
+        @Nest public Tools tools = new Tools();
+        @Nest public UniqueItems uniqueItems = new UniqueItems();
+    }
+
+    public static class Armor {
+        public int headArmorUnits = 5;
+        public int chestArmorUnits = 8;
+        public int legArmorUnits = 7;
+        public int footArmorUnits = 4;
+    }
+
+    public static class Tools {
+        public int pickaxeUnits = 3;
+        public int axeUnits = 3;
+        public int hoeUnits = 2;
+        public int swordUnits = 2;
+        public int shovelUnits = 1;
+    }
+
+    public static class UniqueItems {
+        public int shieldUnits = 6;
+        public int elytraUnits = 2;
+        public int maceUnits = 2;
     }
 
     public static class Predicates {
