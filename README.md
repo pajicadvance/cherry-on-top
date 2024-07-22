@@ -45,17 +45,15 @@ Configuration options:
 
 ### Enchanted Book Loot Improvements
 
-Adds additional enchanted book loot to chests in the world. 
+Adds additional enchanted book loot to chests in the world.
 
-Optionally, make defined enchantments exclusive to defined structures, modify the maximum enchantment level for each enchantment, and specify the chances for each enchantment level to appear on looted enchanted books.
+Optionally, make defined enchantments exclusive to defined structures, and specify the chances for each enchantment level to appear on looted enchanted books.
 
 Configuration options:
 - Enable or disable adding enchanted books as loot to more chests in the world
 - Add or remove additional locations where enchanted books can be found and define the loot chance and amount, in the format of `location;chance;count`
 - Enable or disable making enchantments exclusive to defined structures
 - Add or remove rules for structure-specific enchantments, in the format of `enchantment,location;chance;count, ... ,location;chance;count` (an example entry is provided in the default config)
-- Enable or disable modifying the maximum enchantment level for each enchantment
-- Add or remove maximum enchantment level overrides, in the format of `enchantment/maxLevel` (an example entry is provided in the default config)
 - Enable or disable weighted enchantment levels in looted enchanted books
 - Modify weights for each enchantment level
 
@@ -67,16 +65,6 @@ Configuration options:
 - Change the chance that a disc will spawn in any of the defined locations
 - Add or remove locations where the discs can be found
 - Enable or disable removing the vanilla 13 and Cat music disc loot from regular dungeons
-
-### Enchantment Disabler
-
-Specify enchantments to disable from the game. Those enchantments won't appear anywhere in the game, making them unobtainable in survival gameplay, and only obtainable by commands.
-
-If EMI is installed, the disabled enchantments won't appear in the EMI index, and any recipe related to the enchantment will be removed.
-
-If Structure Specific Enchantments is enabled in Enchanted Book Loot Improvements, the enchantments specified in that list will also be disabled.
-
-Disabled by default. Useful for balancing a modpack, or just disabling enchantments you don't like.
 
 ## Tweaks
 
@@ -105,10 +93,6 @@ Makes the bow play a bow drawing sound when being drawn by players or mobs. Make
 ### Riptide works in water only
 
 Makes tridents enchanted with Riptide work only in water, and not in rain.
-
-### Disable enchanting table
-
-Entirely disables the functionality of the enchanting table. It can still be crafted and used as a decorative item.
 
 ### Reduce debug info in survival
 

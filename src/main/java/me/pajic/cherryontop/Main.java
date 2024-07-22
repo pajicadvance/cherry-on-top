@@ -3,7 +3,6 @@ package me.pajic.cherryontop;
 import me.pajic.cherryontop.config.CoTConfig;
 import me.pajic.cherryontop.item.CoTItems;
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
 import net.fabricmc.fabric.api.resource.ResourcePackActivationType;
@@ -11,23 +10,16 @@ import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Items;
 
 public class Main implements ModInitializer {
 
     public static final CoTConfig CONFIG = CoTConfig.createAndLoad();
-    public static MinecraftServer SERVER;
 
     @Override
     public void onInitialize() {
 
-        // Provides registry and random source access to mixins whose methods don't have them provided.
-        // Absolutely terrible, but it is what it is.
-        ServerLifecycleEvents.SERVER_STARTED.register(server -> SERVER = server);
-
-        // Conditionally enable datapacks
         FabricLoader.getInstance().getModContainer("cherry-on-top").ifPresent(modContainer -> {
 
             ResourceManagerHelper.registerBuiltinResourcePack(
@@ -74,14 +66,6 @@ public class Main implements ModInitializer {
                             ResourcePackActivationType.ALWAYS_ENABLED
                     );
                 }
-            }
-
-            if (CONFIG.enchantmentDisabler.enableEnchantmentDisabler()) {
-                ResourceManagerHelper.registerBuiltinResourcePack(
-                        ResourceLocation.parse("cherry-on-top:enchantmentdisabler"),
-                        modContainer,
-                        ResourcePackActivationType.ALWAYS_ENABLED
-                );
             }
 
             if (Main.CONFIG.bottleOEnchantingImprovements.enableBottleOEnchantingImprovements()) {

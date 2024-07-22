@@ -20,7 +20,6 @@ public class CoTConfigModel {
     @Nest public BottleOEnchantingImprovements bottleOEnchantingImprovements = new BottleOEnchantingImprovements();
     @Nest public EnchantedBookLootImprovements enchantedBookLootImprovements = new EnchantedBookLootImprovements();
     @Nest public MusicDiscLoot musicDiscLoot = new MusicDiscLoot();
-    @Nest public EnchantmentDisabler enchantmentDisabler = new EnchantmentDisabler();
 
     @SectionHeader("tweaks")
     @RestartRequired public boolean craftTippedArrowsWithRegularPotions = false;
@@ -29,7 +28,6 @@ public class CoTConfigModel {
     @RestartRequired public boolean infinityMendingCompatible = false;
     public boolean playBowDrawingSounds = false;
     public boolean riptideWorksOnlyInWater = false;
-    public boolean disableEnchantingTable = false;
     public boolean hideDebugInfoInSurvival = false;
     @Sync(Option.SyncMode.NONE) public boolean disableDoubleTapSprint = false;
 
@@ -102,10 +100,6 @@ public class CoTConfigModel {
         @RestartRequired public List<String> enchantmentStructureMap = List.of(
                 "minecraft:frost_walker,minecraft:chests/ancient_city_ice_box;100;1"
         );
-        public boolean modifyMaxEnchantmentLevel = false;
-        public List<String> maxLevels = List.of(
-                "minecraft:sharpness/5"
-        );
         public boolean enchantmentLevelWeights = false;
         @PredicateConstraint("positive") public int level1Weight = 16;
         @PredicateConstraint("positive") public int level2Weight = 8;
@@ -134,13 +128,6 @@ public class CoTConfigModel {
                 "minecraft:chests/woodland_mansion"
         );
         @RestartRequired public boolean remove13AndCatSimpleDungeonEntries = true;
-    }
-
-    public static class EnchantmentDisabler {
-        @RestartRequired public boolean enableEnchantmentDisabler = false;
-        @RestartRequired public List<String> disabledEnchantments = List.of(
-                "minecraft:mending"
-        );
     }
 
     public static class Predicates {

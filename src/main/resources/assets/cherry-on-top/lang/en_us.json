@@ -15,10 +15,6 @@
   "cherry-on-top.features.enchantmentUpgrading.group.templateLootLocations.desc": "Loot tables on this list will have a chance to contain the smithing template.",
   "text.config.cherry-on-top.option.enchantmentUpgrading.ignoreTooExpensive": "Ignore \"Too Expensive\"",
 
-  "text.config.cherry-on-top.category.enchantmentDisabler": "Enchantment Disabler",
-  "text.config.cherry-on-top.option.enchantmentDisabler.enableEnchantmentDisabler": "Enable enchantment disabler",
-  "text.config.cherry-on-top.option.enchantmentDisabler.disabledEnchantments": "Disabled enchantments",
-
   "text.config.cherry-on-top.category.phantomSpawningRework": "Phantom Spawning Rework",
   "text.config.cherry-on-top.option.phantomSpawningRework.enablePhantomSpawningRework": "Enable phantom spawning rework",
   "cherry-on-top.features.phantomSpawningRework.enablePhantomSpawningRework.desc": "Replaces the vanilla phantom spawning rules with spawning rules based on player altitude.",
@@ -36,8 +32,6 @@
   "text.config.cherry-on-top.option.enchantedBookLootImprovements.bookLootLocations": "Book loot locations",
   "text.config.cherry-on-top.option.enchantedBookLootImprovements.structureSpecificLoot": "Structure specific book loot",
   "text.config.cherry-on-top.option.enchantedBookLootImprovements.enchantmentStructureMap": "Enchantment to structure mapping",
-  "text.config.cherry-on-top.option.enchantedBookLootImprovements.modifyMaxEnchantmentLevel": "Modify max enchantment levels",
-  "text.config.cherry-on-top.option.enchantedBookLootImprovements.maxLevels": "Maximum levels",
   "text.config.cherry-on-top.option.enchantedBookLootImprovements.enchantmentLevelWeights": "Weighted loot enchantment levels",
   "text.config.cherry-on-top.option.enchantedBookLootImprovements.level1Weight": "Level 1 weight",
   "text.config.cherry-on-top.option.enchantedBookLootImprovements.level2Weight": "Level 2 weight",
@@ -72,7 +66,6 @@
   "cherry-on-top.tweaks.hideDebugInfoInSurvival.desc": "Hides information relevant to gameplay from the F3 debug screen when in survival mode.",
   "text.config.cherry-on-top.option.riptideWorksOnlyInWater": "Riptide works in water only",
   "cherry-on-top.tweaks.riptideWorksOnlyInWater.desc": "Makes Riptide work only when inside water and not in rain.",
-  "text.config.cherry-on-top.option.disableEnchantingTable": "Disable enchanting table",
   "text.config.cherry-on-top.option.cryingObsidianRecipe": "Crying obsidian recipe",
   "text.config.cherry-on-top.option.cryingObsidianRecipe.tooltip": "Obsidian + Ghast Tear",
   "text.config.cherry-on-top.option.glowstoneDustRecipe": "Glowstone dust recipe",
