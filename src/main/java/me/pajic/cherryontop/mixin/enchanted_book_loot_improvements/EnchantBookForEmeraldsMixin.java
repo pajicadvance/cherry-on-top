@@ -3,7 +3,7 @@ package me.pajic.cherryontop.mixin.enchanted_book_loot_improvements;
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
 import com.llamalad7.mixinextras.sugar.Local;
 import me.pajic.cherryontop.Main;
-import me.pajic.cherryontop.util.CoTEnchantmentUtil;
+import me.pajic.cherryontop.util.CoTUtil;
 import net.minecraft.core.Holder;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.npc.VillagerTrades;
@@ -28,7 +28,7 @@ public class EnchantBookForEmeraldsMixin {
         if (Main.CONFIG.enchantedBookLootImprovements.enableEnchantedBookLootImprovements() &&
                 Main.CONFIG.enchantedBookLootImprovements.enchantmentLevelWeights()
         ) {
-            return CoTEnchantmentUtil.calculateNewLevelFromWeights(enchantmentHolder, randomSource);
+            return CoTUtil.calculateNewEnchantmentLevelFromWeights(enchantmentHolder, randomSource);
         }
         return original;
     }

@@ -4,7 +4,7 @@
   "package": "me.pajic.cherryontop.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
-    "anvil_repair_unit_cost.AnvilMenuMixin",
+    "anvil_improvements.AnvilMenuMixin",
     "base.jsonpatcher.PatcherMixin",
     "bottle_o_enchanting_improvements.ThrownExperienceBottleMixin",
     "bow_drawing_sounds.BowItemMixin",
@@ -17,9 +17,11 @@
     "phantom_spawning_rework.PhantomSpawnerMixin",
     "riptide_water_only.TridentItemMixin",
     "tipped_arrows_from_regular_potions.TippedArrowRecipeMixin",
-    "tipped_arrows_from_regular_potions.emi.VanillaPluginMixin"
+    "tipped_arrows_from_regular_potions.emi.VanillaPluginMixin",
+    "whetstone.RepairItemRecipeMixin"
   ],
   "client": [
+    "anvil_improvements.AnvilScreenMixin",
     "double_tap_sprint.LocalPlayerMixin",
     "enchantment_upgrade_smithing_template.SmithingScreenMixin"
   ],

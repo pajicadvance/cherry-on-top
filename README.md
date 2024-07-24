@@ -17,6 +17,10 @@ Configuration options:
 - Ignore "Too Expensive!" (XP cost limit) when upgrading
 - Only allow upgrading books which contain one enchantment only
 
+### Portable Item Repair
+
+Adds Whetstones, a new item crafted with quartz that can be used to repair unenchanted items on the go.
+
 ### Phantom Spawning Rework
 
 Replaces vanilla phantom spawning rules with spawning rules based on altitude. 
@@ -30,6 +34,23 @@ Configuration options:
 - Modify the frequency at which the spawn check will run, in seconds. `rand(x)` can be used in the expression to pick a random number from 1 to x. The vanilla frequency is `59 + rand(60)`
 - Enable or disable phantom repelling
 - Add or remove items to be used as phantom repellent items
+
+### Anvil Improvements
+
+Changes the amount of materials required to repair items in the anvil from a fixed amount of 4 to an amount based on the amount of material units required to craft the item.
+
+For example, to fully repair an iron chestplate, you now need 8 iron ingots up from 4, and to fully repair an iron sword, you need 2 iron ingots down from 4.
+
+Additionally:
+- Change the chance that the anvil will be damaged on use
+- Remove the XP cost for repairing unenchanted items
+- Remove the XP cost for renaming items
+- Remove the combine XP cost limit ("Too Expensive!" prompt)
+- Remove prior work penalty (combine XP cost increasing the more you repair and upgrade the item)
+
+Configuration options:
+- Change the amount of material units required to fully repair an item for each item type
+- Toggle each option listed above on or off
 
 ### Bottle O' Enchanting Improvements
 
@@ -64,15 +85,6 @@ Configuration options:
 - Change the chance that a disc will spawn in any of the defined locations
 - Add or remove locations where the discs can be found
 - Enable or disable removing the vanilla 13 and Cat music disc loot from regular dungeons
-
-### Recipe-Based Anvil Repair Unit Costs
-
-Changes the amount of materials required to repair items in the anvil from a fixed amount of 4 to an amount based on the amount of material units required to craft the item.
-
-For example, to fully repair an iron chestplate, you now need 8 iron ingots up from 4, and to fully repair an iron sword, you need 2 iron ingots down from 4.
-
-Configuration options:
-- Change the amount of material units required to fully repair an item for each item type
 
 ## Tweaks
 

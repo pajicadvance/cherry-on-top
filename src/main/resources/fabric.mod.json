@@ -16,6 +16,9 @@
   "entrypoints": {
     "main": [
       "me.pajic.cherryontop.Main"
+    ],
+    "emi": [
+      "me.pajic.cherryontop.plugin.CoTEmiPlugin"
     ]
   },
   "mixins": [
