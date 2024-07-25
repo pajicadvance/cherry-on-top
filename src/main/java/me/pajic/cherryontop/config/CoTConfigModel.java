@@ -22,6 +22,7 @@ public class CoTConfigModel {
     @Nest public BottleOEnchantingImprovements bottleOEnchantingImprovements = new BottleOEnchantingImprovements();
     @Nest public EnchantedBookLootImprovements enchantedBookLootImprovements = new EnchantedBookLootImprovements();
     @Nest public MusicDiscLoot musicDiscLoot = new MusicDiscLoot();
+    @Nest public PotionOfTeleportation potionOfTeleportation = new PotionOfTeleportation();
 
     @SectionHeader("tweaks")
     @RestartRequired public boolean craftTippedArrowsWithRegularPotions = false;
@@ -170,6 +171,12 @@ public class CoTConfigModel {
                 "minecraft:chests/woodland_mansion"
         );
         @RestartRequired public boolean remove13AndCatSimpleDungeonEntries = true;
+    }
+
+    public static class PotionOfTeleportation {
+        @RestartRequired public boolean enablePotionOfTeleportation = false;
+        public int teleportRadius = 10000;
+        public int teleportMaxHeight = 384;
     }
 
     public static class Predicates {

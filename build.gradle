@@ -20,6 +20,13 @@ repositories {
         name = "Terraformers"
         url = "https://maven.terraformersmc.com/"
     }
+    maven {
+        name = "Modrinth"
+        url = "https://api.modrinth.com/maven"
+        content {
+            includeGroup "maven.modrinth"
+        }
+    }
     maven { url 'https://maven.wispforest.io/releases/' }
     maven { url 'https://jitpack.io' }
 }
@@ -41,6 +48,9 @@ dependencies {
     // JsonPatcher
     modImplementation(include("com.github.mattidragon:jsonpatcher:${jsonpatcher_version}"))
     modCompileOnly "com.github.MattiDragon:JsonPatcherLang:v1.0.0"
+
+    // Custom Brew Recipes
+    modImplementation "maven.modrinth:custombrewrecipes:${custombrewrecipes_version}"
 
     // exp4j
     include 'net.objecthunter:exp4j:0.4.8'

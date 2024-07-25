@@ -1,15 +1,20 @@
 package me.pajic.cherryontop.item;
 
+import me.emafire003.dev.custombrewrecipes.CustomBrewRecipeRegister;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.ChatFormatting;
 import net.minecraft.Util;
 import net.minecraft.core.Registry;
+import net.minecraft.core.component.DataComponentMap;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.alchemy.PotionContents;
+import net.minecraft.world.item.alchemy.Potions;
 
 import java.util.List;
 
@@ -26,6 +31,8 @@ public class CoTItems {
     );
 
     public static final Item WHETSTONE = new WhetstoneItem(new Item.Properties().durability(6));
+
+    public static final Item POTION_OF_TELEPORTATION = new PotionOfTeleportationItem(new Item.Properties().stacksTo(1));
 
     public static void initModItems() {
         Registry.register(
@@ -46,6 +53,27 @@ public class CoTItems {
         ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.TOOLS_AND_UTILITIES).register(contents -> contents.addAfter(
                 Items.NETHERITE_HOE,
                 CoTItems.WHETSTONE)
+        );
+
+        Registry.register(
+                BuiltInRegistries.ITEM,
+                ResourceLocation.parse("cherry-on-top:potion_of_teleportation"),
+                CoTItems.POTION_OF_TELEPORTATION
+        );
+        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.FOOD_AND_DRINKS).register(contents -> contents.addAfter(
+                Items.POTION,
+                CoTItems.POTION_OF_TELEPORTATION
+        ));
+        CustomBrewRecipeRegister.registerCustomRecipeWithComponents(
+                Items.POTION,
+                Items.ENDER_PEARL,
+                CoTItems.POTION_OF_TELEPORTATION,
+                DataComponentMap.builder().set(
+                        DataComponents.POTION_CONTENTS,
+                        new PotionContents(Potions.AWKWARD)
+                ).build(),
+                null,
+                null
         );
     }
 }

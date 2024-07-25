@@ -81,6 +81,11 @@
   "text.config.cherry-on-top.option.anvilImprovements.noPriorWorkCost": "Disable prior work cost",
   "text.config.cherry-on-top.option.anvilImprovements.noTooExpensive": "Ignore \"Too Expensive\"",
 
+  "text.config.cherry-on-top.category.potionOfTeleportation": "Potion of Teleportation",
+  "text.config.cherry-on-top.option.potionOfTeleportation.enablePotionOfTeleportation": "Enable teleportation potion",
+  "text.config.cherry-on-top.option.potionOfTeleportation.teleportRadius": "Teleport radius",
+  "text.config.cherry-on-top.option.potionOfTeleportation.teleportMaxHeight": "Teleport max height",
+
   "text.config.cherry-on-top.section.tweaks": "Tweaks",
   "text.config.cherry-on-top.option.disableDoubleTapSprint": "Disable double-tap to sprint",
   "cherry-on-top.tweaks.disableDoubleTapSprint.desc": "Disables double-tapping the forward key to sprint.",
@@ -107,5 +112,9 @@
   "item.minecraft.cherry-on-top.smithing_template.enchantment_upgrade.base_slot_description": "Add enchanted book",
   "item.minecraft.cherry-on-top.smithing_template.enchantment_upgrade.additions_slot_description": "Select enchantment to upgrade with Lapis Lazuli",
 
-  "item.cherry-on-top.whetstone": "Whetstone"
+  "item.cherry-on-top.whetstone": "Whetstone",
+
+  "item.cherry-on-top.potion_of_teleportation.effect.empty": "Potion of Teleportation",
+  "item.cherry-on-top.potion_of_teleportation.effect.water": "Potion of Teleportation",
+  "item.cherry-on-top.potion_of_teleportation.tooltip": "Random Teleport"
 }

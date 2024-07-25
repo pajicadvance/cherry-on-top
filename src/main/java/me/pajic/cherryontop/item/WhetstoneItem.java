@@ -14,12 +14,12 @@ public class WhetstoneItem extends Item {
     }
 
     @Override
-    public boolean isEnabled(@NotNull FeatureFlagSet enabledFeatures) {
-        return Main.CONFIG.whetstone.enableWhetstone();
+    public boolean isValidRepairItem(@NotNull ItemStack stack, ItemStack repairCandidate) {
+        return repairCandidate.is(Items.QUARTZ);
     }
 
     @Override
-    public boolean isValidRepairItem(@NotNull ItemStack stack, ItemStack repairCandidate) {
-        return repairCandidate.is(Items.QUARTZ);
+    public boolean isEnabled(@NotNull FeatureFlagSet enabledFeatures) {
+        return Main.CONFIG.whetstone.enableWhetstone();
     }
 }
