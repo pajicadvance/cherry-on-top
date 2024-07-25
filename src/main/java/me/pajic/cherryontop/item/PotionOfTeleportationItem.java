@@ -45,7 +45,7 @@ public class PotionOfTeleportationItem extends PotionItem {
             do {
                 x = random.nextIntBetweenInclusive((int) (player.getX() - radius), (int) (player.getX() + radius));
                 y = random.nextInt(levelHeight);
-                z = random.nextInt((int) (player.getZ() - radius), (int) (player.getZ() + radius));
+                z = random.nextIntBetweenInclusive((int) (player.getZ() - radius), (int) (player.getZ() + radius));
             } while (!player.randomTeleport(x, y, z, false));
         }
 
