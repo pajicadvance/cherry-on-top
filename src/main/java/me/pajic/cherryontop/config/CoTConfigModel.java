@@ -22,7 +22,7 @@ public class CoTConfigModel {
     @Nest public BottleOEnchantingImprovements bottleOEnchantingImprovements = new BottleOEnchantingImprovements();
     @Nest public EnchantedBookLootImprovements enchantedBookLootImprovements = new EnchantedBookLootImprovements();
     @Nest public MusicDiscLoot musicDiscLoot = new MusicDiscLoot();
-    @Nest public PotionOfTeleportation potionOfTeleportation = new PotionOfTeleportation();
+    @Nest public TeleportationPotions teleportationPotions = new TeleportationPotions();
 
     @SectionHeader("tweaks")
     @RestartRequired public boolean craftTippedArrowsWithRegularPotions = false;
@@ -173,7 +173,8 @@ public class CoTConfigModel {
         @RestartRequired public boolean remove13AndCatSimpleDungeonEntries = true;
     }
 
-    public static class PotionOfTeleportation {
+    public static class TeleportationPotions {
+        @RestartRequired public boolean enablePotionOfWormhole = false;
         @RestartRequired public boolean enablePotionOfTeleportation = false;
         public int teleportRadius = 10000;
         public int teleportMaxHeight = 384;

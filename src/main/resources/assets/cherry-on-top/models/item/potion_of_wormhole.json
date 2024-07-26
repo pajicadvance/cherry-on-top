@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "cherry-on-top:item/potion_of_wormhole"
+  }
+}

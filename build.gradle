@@ -65,6 +65,9 @@ dependencies {
 
     // EMI
     modImplementation "dev.emi:emi-fabric:${emi_version}"
+
+    // Carpet
+    modImplementation "com.github.gnembon:fabric-carpet:${carpet_version}"
 }
 
 loom {

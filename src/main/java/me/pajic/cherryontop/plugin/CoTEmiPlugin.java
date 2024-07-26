@@ -31,6 +31,7 @@ public class CoTEmiPlugin implements EmiPlugin {
 
         ItemStack awkwardPotion = new ItemStack(Items.POTION);
         awkwardPotion.set(DataComponents.POTION_CONTENTS, new PotionContents(Potions.AWKWARD));
+
         registry.addRecipe(new EmiBrewingRecipe(
                 EmiStack.of(awkwardPotion),
                 EmiStack.of(Items.ENDER_PEARL),
@@ -41,6 +42,19 @@ public class CoTEmiPlugin implements EmiPlugin {
                                 "/" + EmiUtil.subId(awkwardPotion.getItem()) +
                                 "/" + EmiUtil.subId(Items.ENDER_PEARL) +
                                 "/" + EmiUtil.subId(CoTItems.POTION_OF_TELEPORTATION)
+                )
+        ));
+
+        registry.addRecipe(new EmiBrewingRecipe(
+                EmiStack.of(awkwardPotion),
+                EmiStack.of(Items.ENDER_EYE),
+                EmiStack.of(CoTItems.POTION_OF_WORMHOLE),
+                EmiPort.id(
+                        "emi",
+                        "/" + "brewing/item" +
+                                "/" + EmiUtil.subId(awkwardPotion.getItem()) +
+                                "/" + EmiUtil.subId(Items.ENDER_EYE) +
+                                "/" + EmiUtil.subId(CoTItems.POTION_OF_WORMHOLE)
                 )
         ));
     }

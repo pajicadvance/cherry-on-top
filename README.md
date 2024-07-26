@@ -86,6 +86,20 @@ Configuration options:
 - Add or remove locations where the discs can be found
 - Enable or disable removing the vanilla 13 and Cat music disc loot from regular dungeons
 
+### Teleportation Potions
+
+Adds two new potions inspired by Terraria.
+
+Potion of Wormhole
+- Teleports you to other players
+- Brewed with an awkward potion and ender eye
+- Drinking opens up a screen where you can select a player to teleport to
+
+Potion of Teleportation
+- Teleports you to a random location in a configurable radius
+- Brewed with an awkward potion and ender pearl
+- Configurable max teleport height
+
 ## Tweaks
 
 Every tweak is disabled by default, and can be toggled on or off at any time. Toggling some tweaks will require a restart, and you will be prompted to do so if a restart is required.

@@ -1,6 +1,7 @@
 package me.pajic.cherryontop.item;
 
 import me.emafire003.dev.custombrewrecipes.CustomBrewRecipeRegister;
+import me.pajic.cherryontop.Main;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.ChatFormatting;
 import net.minecraft.Util;
@@ -32,9 +33,19 @@ public class CoTItems {
 
     public static final Item WHETSTONE = new WhetstoneItem(new Item.Properties().durability(6));
 
-    public static final Item POTION_OF_TELEPORTATION = new PotionOfTeleportationItem(new Item.Properties().stacksTo(1));
+    public static final Item POTION_OF_TELEPORTATION = new PotionOfTeleportationItem(
+            new Item.Properties().stacksTo(1),
+            Component.translatable("item.cherry-on-top.potion_of_teleportation.tooltip").withStyle(ChatFormatting.BLUE),
+            Main.CONFIG.teleportationPotions.enablePotionOfTeleportation()
+    );
 
-    public static void initModItems() {
+    public static final Item POTION_OF_WORMHOLE = new PotionOfWormholeItem(
+            new Item.Properties().stacksTo(1),
+            Component.translatable("item.cherry-on-top.potion_of_wormhole.tooltip").withStyle(ChatFormatting.BLUE),
+            Main.CONFIG.teleportationPotions.enablePotionOfWormhole()
+    );
+
+    public static void initItems() {
         Registry.register(
                 BuiltInRegistries.ITEM,
                 ResourceLocation.parse("cherry-on-top:enchantment_upgrade"),
@@ -68,6 +79,27 @@ public class CoTItems {
                 Items.POTION,
                 Items.ENDER_PEARL,
                 CoTItems.POTION_OF_TELEPORTATION,
+                DataComponentMap.builder().set(
+                        DataComponents.POTION_CONTENTS,
+                        new PotionContents(Potions.AWKWARD)
+                ).build(),
+                null,
+                null
+        );
+
+        Registry.register(
+                BuiltInRegistries.ITEM,
+                ResourceLocation.parse("cherry-on-top:potion_of_wormhole"),
+                CoTItems.POTION_OF_WORMHOLE
+        );
+        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.FOOD_AND_DRINKS).register(contents -> contents.addAfter(
+                CoTItems.POTION_OF_TELEPORTATION,
+                CoTItems.POTION_OF_WORMHOLE
+        ));
+        CustomBrewRecipeRegister.registerCustomRecipeWithComponents(
+                Items.POTION,
+                Items.ENDER_EYE,
+                CoTItems.POTION_OF_WORMHOLE,
                 DataComponentMap.builder().set(
                         DataComponents.POTION_CONTENTS,
                         new PotionContents(Potions.AWKWARD)

@@ -81,10 +81,11 @@
   "text.config.cherry-on-top.option.anvilImprovements.noPriorWorkCost": "Disable prior work cost",
   "text.config.cherry-on-top.option.anvilImprovements.noTooExpensive": "Ignore \"Too Expensive\"",
 
-  "text.config.cherry-on-top.category.potionOfTeleportation": "Potion of Teleportation",
-  "text.config.cherry-on-top.option.potionOfTeleportation.enablePotionOfTeleportation": "Enable teleportation potion",
-  "text.config.cherry-on-top.option.potionOfTeleportation.teleportRadius": "Teleport radius",
-  "text.config.cherry-on-top.option.potionOfTeleportation.teleportMaxHeight": "Teleport max height",
+  "text.config.cherry-on-top.category.teleportationPotions": "Teleportation Potions",
+  "text.config.cherry-on-top.option.teleportationPotions.enablePotionOfWormhole": "Enable wormhole potion",
+  "text.config.cherry-on-top.option.teleportationPotions.enablePotionOfTeleportation": "Enable teleportation potion",
+  "text.config.cherry-on-top.option.teleportationPotions.teleportRadius": "Teleport radius",
+  "text.config.cherry-on-top.option.teleportationPotions.teleportMaxHeight": "Teleport max height",
 
   "text.config.cherry-on-top.section.tweaks": "Tweaks",
   "text.config.cherry-on-top.option.disableDoubleTapSprint": "Disable double-tap to sprint",
@@ -105,6 +106,8 @@
   "text.config.cherry-on-top.option.glowstoneDustRecipe.tooltip": "Redstone Dust + Blaze Powder",
   "text.config.cherry-on-top.option.disableShulkerDuplication": "Disable shulker duplication",
 
+  "screen.cherry-on-top.wormholePlayerSelection.title": "Select player to teleport to",
+
   "item.cherry-on-top.enchantment_upgrade": "Enchantment Upgrade Smithing Template",
   "upgrade.minecraft.cherry-on-top.enchantment_upgrade": "Enchantment Upgrade",
   "item.minecraft.cherry-on-top.smithing_template.enchantment_upgrade.applies_to": "Enchanted Books",
@@ -116,5 +119,9 @@
 
   "item.cherry-on-top.potion_of_teleportation.effect.empty": "Potion of Teleportation",
   "item.cherry-on-top.potion_of_teleportation.effect.water": "Potion of Teleportation",
-  "item.cherry-on-top.potion_of_teleportation.tooltip": "Random Teleport"
+  "item.cherry-on-top.potion_of_teleportation.tooltip": "Random Teleport",
+
+  "item.cherry-on-top.potion_of_wormhole.effect.empty": "Potion of Wormhole",
+  "item.cherry-on-top.potion_of_wormhole.effect.water": "Potion of Wormhole",
+  "item.cherry-on-top.potion_of_wormhole.tooltip": "Teleport to Player"
 }

@@ -3,6 +3,7 @@ package me.pajic.cherryontop;
 import me.pajic.cherryontop.config.CoTConfig;
 import me.pajic.cherryontop.data.CoTData;
 import me.pajic.cherryontop.item.CoTItems;
+import me.pajic.cherryontop.network.CoTNetworking;
 import net.fabricmc.api.ModInitializer;
 
 public class Main implements ModInitializer {
@@ -12,7 +13,8 @@ public class Main implements ModInitializer {
     @Override
     public void onInitialize() {
 
-        CoTItems.initModItems();
+        CoTItems.initItems();
         CoTData.initData();
+        CoTNetworking.initNetworking();
     }
 }
