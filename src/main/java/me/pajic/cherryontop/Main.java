@@ -12,7 +12,6 @@ public class Main implements ModInitializer {
 
     @Override
     public void onInitialize() {
-
         CoTItems.initItems();
         CoTData.initData();
         CoTNetworking.initNetworking();

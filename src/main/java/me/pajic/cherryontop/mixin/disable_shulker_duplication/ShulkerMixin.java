@@ -10,7 +10,11 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(Shulker.class)
 public class ShulkerMixin {
 
-    @Inject(method = "hitByShulkerBullet", at = @At("HEAD"), cancellable = true)
+    @Inject(
+            method = "hitByShulkerBullet",
+            at = @At("HEAD"),
+            cancellable = true
+    )
     private void disableShulkerDuplication(CallbackInfo ci) {
         if (Main.CONFIG.disableShulkerDuplication()) {
             ci.cancel();

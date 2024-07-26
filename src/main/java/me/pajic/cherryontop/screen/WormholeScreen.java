@@ -17,7 +17,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class WormholeScreen extends Screen {
 
-    Player user;
+    private final Player user;
     private final HeaderAndFooterLayout layout = new HeaderAndFooterLayout(this);
     private PlayerListWidget list;
 

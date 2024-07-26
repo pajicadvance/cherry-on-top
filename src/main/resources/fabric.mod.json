@@ -29,7 +29,8 @@
     "fabricloader": ">=${loader_version}",
     "fabric": "*",
     "minecraft": "${minecraft_version}",
-    "owo-lib": "^0.12.10"
+    "owo-lib": "^0.12.10",
+    "custombrewrecipes": ">=1.3.2"
   },
   "recommends": {
     "modmenu": "^11.0.0"
