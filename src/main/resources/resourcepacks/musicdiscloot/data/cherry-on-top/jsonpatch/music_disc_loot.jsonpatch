@@ -9,7 +9,7 @@
 ];
 @priority 2;
 
-if (arrays.indexOf(cherryontop_config.musicDiscLoot.musicDiscLootLocations, $random_sequence) != -1) {
+if ($random_sequence in cherryontop_config.musicDiscLoot.musicDiscLootLocations) {
     val chance = cherryontop_config.musicDiscLoot.musicDiscLootChance / 100;
 
     val pool = {

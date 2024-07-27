@@ -50,7 +50,7 @@ dependencies {
     modCompileOnly "com.github.MattiDragon:JsonPatcherLang:v1.0.0"
 
     // Custom Brew Recipes
-    modImplementation "maven.modrinth:custombrewrecipes:${custombrewrecipes_version}"
+    modImplementation(include("maven.modrinth:custombrewrecipes:${custombrewrecipes_version}"))
 
     // exp4j
     include 'net.objecthunter:exp4j:0.4.8'
