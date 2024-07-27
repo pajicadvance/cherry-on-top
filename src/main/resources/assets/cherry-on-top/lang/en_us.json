@@ -105,6 +105,7 @@
   "text.config.cherry-on-top.option.glowstoneDustRecipe": "Glowstone dust recipe",
   "text.config.cherry-on-top.option.glowstoneDustRecipe.tooltip": "Redstone Dust + Blaze Powder",
   "text.config.cherry-on-top.option.disableShulkerDuplication": "Disable shulker duplication",
+  "text.config.cherry-on-top.option.disableNightVision": "Disable night vision",
 
   "screen.cherry-on-top.wormholePlayerSelection.title": "Select player to teleport to",
 

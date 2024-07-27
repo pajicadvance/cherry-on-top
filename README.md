@@ -128,6 +128,13 @@ Makes the bow play a bow drawing sound when being drawn by players or mobs. Make
 
 Disables the game mechanic that allows shulkers to duplicate by hitting each other with their bullets.
 
+### Disable night vision
+
+Makes Night Vision unobtainable in survival with the following changes:
+- The brewing recipe for Night Vision potions now makes Invisibility potions instead
+- The crafting recipe for Suspicious Stew with a Night Vision effect now gives a Suspicious Stew with Invisibility instead
+- Looted Suspicious Stew that would contain Night Vision now contains Invisibility instead
+
 ### Riptide works in water only
 
 Makes tridents enchanted with Riptide work only in water, and not in rain.

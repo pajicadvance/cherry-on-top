@@ -31,6 +31,7 @@ public class CoTConfigModel {
     @RestartRequired public boolean infinityMendingCompatible = false;
     public boolean playBowDrawingSounds = false;
     public boolean disableShulkerDuplication = false;
+    @RestartRequired public boolean disableNightVision = false;
     public boolean riptideWorksOnlyInWater = false;
     public boolean hideDebugInfoInSurvival = false;
     @Sync(Option.SyncMode.NONE) public boolean disableDoubleTapSprint = false;
