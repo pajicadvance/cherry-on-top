@@ -134,6 +134,7 @@ Makes Night Vision unobtainable in survival with the following changes:
 - The brewing recipe for Night Vision potions now makes Invisibility potions instead
 - The crafting recipe for Suspicious Stew with a Night Vision effect now gives a Suspicious Stew with Invisibility instead
 - Looted Suspicious Stew that would contain Night Vision now contains Invisibility instead
+- Advancements which require Night Vision in any form now don't
 
 ### Riptide works in water only
 

@@ -1,0 +1,9 @@
+@version "1";
+@target [
+    "minecraft:advancement/nether/all_effects",
+    "minecraft:advancement/nether/all_potions"
+];
+
+if ("minecraft:night_vision" in objects.keys($criteria.all_effects.conditions.effects)) {
+    delete $criteria.all_effects.conditions.effects.'minecraft:night_vision';
+}

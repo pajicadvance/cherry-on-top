@@ -105,6 +105,14 @@ public class CoTData {
                         ResourcePackActivationType.ALWAYS_ENABLED
                 );
             }
+
+            if (Main.CONFIG.disableNightVision()) {
+                ResourceManagerHelper.registerBuiltinResourcePack(
+                        ResourceLocation.parse("cherry-on-top:disablenightvision"),
+                        modContainer,
+                        ResourcePackActivationType.ALWAYS_ENABLED
+                );
+            }
         });
     }
 
