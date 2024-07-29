@@ -5,8 +5,10 @@ import me.pajic.cherryontop.item.CoTItems;
 import me.pajic.cherryontop.util.CoTUtil;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.NonNullList;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
+import net.minecraft.world.item.enchantment.ItemEnchantments;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 import org.spongepowered.asm.mixin.Mixin;
@@ -36,7 +38,12 @@ public abstract class RepairItemRecipeMixin extends CustomRecipe {
                         itemStack.isDamageableItem() && !itemStack.is(CoTItems.WHETSTONE)).toList();
                 if (!repairableItems.isEmpty()) {
                     ItemStack itemToRepair = repairableItems.getFirst();
-                    if (itemToRepair.isDamaged()) {
+                    if (
+                            itemToRepair.isDamaged() &&
+                            itemToRepair.getEnchantments().equals(whetstones.getFirst().getOrDefault(
+                                    DataComponents.STORED_ENCHANTMENTS, ItemEnchantments.EMPTY)
+                            )
+                    ) {
                         int unitCost = CoTUtil.determineUnitCost(itemToRepair);
                         int damageRepairedPerUnit = itemToRepair.getMaxDamage() / unitCost;
                         int unitsToMaxRepair = itemToRepair.getDamageValue() / damageRepairedPerUnit;
@@ -64,7 +71,12 @@ public abstract class RepairItemRecipeMixin extends CustomRecipe {
                         itemStack.isDamageableItem() && !itemStack.is(CoTItems.WHETSTONE)).toList();
                 if (!repairableItems.isEmpty()) {
                     ItemStack itemToRepair = repairableItems.getFirst();
-                    if (itemToRepair.isDamaged()) {
+                    if (
+                            itemToRepair.isDamaged() &&
+                            itemToRepair.getEnchantments().equals(whetstones.getFirst().getOrDefault(
+                                    DataComponents.STORED_ENCHANTMENTS, ItemEnchantments.EMPTY)
+                            )
+                    ) {
                         int unitCost = CoTUtil.determineUnitCost(itemToRepair);
                         int damageRepairedPerUnit = itemToRepair.getMaxDamage() / unitCost;
                         int unitsToMaxRepair = itemToRepair.getDamageValue() / damageRepairedPerUnit;
@@ -90,7 +102,12 @@ public abstract class RepairItemRecipeMixin extends CustomRecipe {
                         itemStack.isDamageableItem() && !itemStack.is(CoTItems.WHETSTONE)).toList();
                 if (!repairableItems.isEmpty()) {
                     ItemStack itemToRepair = repairableItems.getFirst();
-                    if (itemToRepair.isDamaged()) {
+                    if (
+                            itemToRepair.isDamaged() &&
+                            itemToRepair.getEnchantments().equals(whetstones.getFirst().getOrDefault(
+                                    DataComponents.STORED_ENCHANTMENTS, ItemEnchantments.EMPTY)
+                            )
+                    ) {
                         int unitCost = CoTUtil.determineUnitCost(itemToRepair);
                         int damageRepairedPerUnit = itemToRepair.getMaxDamage() / unitCost;
                         int unitsToMaxRepair = itemToRepair.getDamageValue() / damageRepairedPerUnit;

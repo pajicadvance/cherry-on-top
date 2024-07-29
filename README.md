@@ -19,7 +19,11 @@ Configuration options:
 
 ### Portable Item Repair
 
-Adds Whetstones, a new item crafted with quartz that can be used to repair unenchanted items on the go.
+Adds Whetstones, a new item crafted with quartz that can be used to repair items on the go.
+- Combine a Whetstone, an item to repair, and the repair material in the crafting grid to repair the item. The Whetstone loses durability after the repair
+- Regular Whetstones only repair unenchanted items
+- Enchantments can be added to the Whetstone at an anvil. An enchanted Whetstone can only repair items whose enchantments match the enchantments on the Whetstone
+- Whetstones can be repaired at an anvil
 
 ### Phantom Spawning Rework
 

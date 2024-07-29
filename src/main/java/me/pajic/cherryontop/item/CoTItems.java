@@ -16,6 +16,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.PotionContents;
 import net.minecraft.world.item.alchemy.Potions;
+import net.minecraft.world.item.enchantment.ItemEnchantments;
 
 import java.util.List;
 
@@ -31,7 +32,11 @@ public class CoTItems {
             List.of(ResourceLocation.parse("item/empty_slot_lapis_lazuli"))
     );
 
-    public static final Item WHETSTONE = new WhetstoneItem(new Item.Properties().durability(6));
+    public static final Item WHETSTONE = new WhetstoneItem(
+            new Item.Properties()
+                    .durability(12)
+                    .component(DataComponents.STORED_ENCHANTMENTS, ItemEnchantments.EMPTY)
+    );
 
     public static final Item POTION_OF_TELEPORTATION = new PotionOfTeleportationItem(
             new Item.Properties().stacksTo(1),

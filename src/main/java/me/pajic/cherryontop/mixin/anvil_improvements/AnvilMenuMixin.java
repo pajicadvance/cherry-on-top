@@ -7,9 +7,11 @@ import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import com.llamalad7.mixinextras.sugar.Local;
 import me.pajic.cherryontop.Main;
 import me.pajic.cherryontop.util.CoTUtil;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AnvilMenu;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.enchantment.ItemEnchantments;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.*;
@@ -57,7 +59,9 @@ public class AnvilMenuMixin {
             )
     )
     private boolean noXPCostIfUnenchanted(Player instance, int levels, @Local(argsOnly = true) ItemStack itemStack) {
-        return !Main.CONFIG.anvilImprovements.freeUnenchantedRepairs() || itemStack.isEnchanted();
+        return !Main.CONFIG.anvilImprovements.freeUnenchantedRepairs() ||
+                itemStack.isEnchanted() ||
+                !itemStack.getOrDefault(DataComponents.STORED_ENCHANTMENTS, ItemEnchantments.EMPTY).isEmpty();
     }
 
     @ModifyArg(
