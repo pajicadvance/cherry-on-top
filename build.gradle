@@ -53,8 +53,8 @@ dependencies {
     modImplementation(include("maven.modrinth:custombrewrecipes:${custombrewrecipes_version}"))
 
     // exp4j
-    include 'net.objecthunter:exp4j:0.4.8'
-    implementation 'net.objecthunter:exp4j:0.4.8'
+    include "net.objecthunter:exp4j:${project.exp4j_version}"
+    implementation "net.objecthunter:exp4j:${project.exp4j_version}"
 
     // ModMenu
     modImplementation("com.terraformersmc:modmenu:${project.modmenu_version}")
