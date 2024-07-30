@@ -12,6 +12,7 @@ import org.spongepowered.asm.mixin.injection.ModifyArg;
 @Mixin(SetStewEffectFunction.class)
 public class SetStewEffectFunctionMixin {
 
+    @SuppressWarnings("unchecked")
     @ModifyArg(
             method = "run",
             at = @At(
@@ -20,7 +21,7 @@ public class SetStewEffectFunctionMixin {
             ),
             index = 2
     )
-    private <T > T replaceNightVisionWithInvisibility(T updateValue, @Local int i) {
+    private <T> T replaceNightVisionWithInvisibility(T updateValue, @Local int i) {
         if (Main.CONFIG.disableNightVision()) {
             SuspiciousStewEffects.Entry entry = (SuspiciousStewEffects.Entry) updateValue;
             if (entry.effect().is(MobEffects.NIGHT_VISION.unwrapKey().get())) {

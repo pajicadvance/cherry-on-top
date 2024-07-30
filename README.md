@@ -124,6 +124,10 @@ Enables crafting crying obsidian by combining obsidian with a ghast tear.
 
 Makes it possible to apply Mending to a bow enchanted with Infinity and vice versa.
 
+### Soul Speed doesn't damage boots
+
+Removes the durability damage taken from using Soul Speed.
+
 ### Play bow drawing sounds
 
 Makes the bow play a bow drawing sound when being drawn by players or mobs. Makes dealing with skeletons easier since you can now hear them drawing the bow before they shoot.

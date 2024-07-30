@@ -1,0 +1,4 @@
+@version "1";
+@target "minecraft:enchantment/soul_speed.json";
+
+arrays.removeIf($effects.'minecraft:location_changed', (entry) -> entry.effect.type == "minecraft:damage_item");

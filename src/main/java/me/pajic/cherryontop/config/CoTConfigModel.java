@@ -29,6 +29,7 @@ public class CoTConfigModel {
     @RestartRequired public boolean glowstoneDustRecipe = false;
     @RestartRequired public boolean cryingObsidianRecipe = false;
     @RestartRequired public boolean infinityMendingCompatible = false;
+    @RestartRequired public boolean soulSpeedNoDamage = false;
     public boolean playBowDrawingSounds = false;
     public boolean disableShulkerDuplication = false;
     @RestartRequired public boolean disableNightVision = false;

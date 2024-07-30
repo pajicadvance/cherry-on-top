@@ -113,6 +113,14 @@ public class CoTData {
                         ResourcePackActivationType.ALWAYS_ENABLED
                 );
             }
+
+            if (Main.CONFIG.soulSpeedNoDamage()) {
+                ResourceManagerHelper.registerBuiltinResourcePack(
+                        ResourceLocation.parse("cherry-on-top:soulspeednodamage"),
+                        modContainer,
+                        ResourcePackActivationType.ALWAYS_ENABLED
+                );
+            }
         });
     }
 
