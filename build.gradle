@@ -42,6 +42,10 @@ dependencies {
     // Fabric API
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
+    // MixinExtras 0.5 beta
+    implementation(annotationProcessor("io.github.llamalad7:mixinextras-fabric:${project.mixinextras_version}"))
+    include("io.github.llamalad7:mixinextras-fabric:${project.mixinextras_version}:slim")
+
     // MixinConstraints
     include(implementation("com.moulberry:mixinconstraints:${project.mixinconstraints_version}"))
 
