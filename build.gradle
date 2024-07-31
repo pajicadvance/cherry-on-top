@@ -44,7 +44,7 @@ dependencies {
 
     // MixinExtras 0.5 beta
     implementation(annotationProcessor("io.github.llamalad7:mixinextras-fabric:${project.mixinextras_version}"))
-    include("io.github.llamalad7:mixinextras-fabric:${project.mixinextras_version}:slim")
+    include("io.github.llamalad7:mixinextras-fabric:${project.mixinextras_version}")
 
     // MixinConstraints
     include(implementation("com.moulberry:mixinconstraints:${project.mixinconstraints_version}"))
