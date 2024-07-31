@@ -17,6 +17,7 @@
     "enchanted_book_loot_improvements.EnchantBookForEmeraldsMixin",
     "enchanted_book_loot_improvements.EnchantRandomlyFunctionMixin",
     "enchantment_upgrade_smithing_template.SmithingMenuMixin",
+    "hide_debug_info_in_survival.DebugScreenOverlayMixin",
     "hide_debug_info_in_survival.PlayerMixin",
     "phantom_spawning_rework.PhantomSpawnerMixin",
     "riptide_water_only.TridentItemMixin",
