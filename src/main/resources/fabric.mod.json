@@ -10,7 +10,7 @@
   "contact": {
     "repo": "https://github.com/pajicadvance/cherry-on-top"
   },
-  "license": "MIT",
+  "license": "PolyForm Shield 1.0.0",
   "icon": "icon.png",
   "environment": "*",
   "entrypoints": {
