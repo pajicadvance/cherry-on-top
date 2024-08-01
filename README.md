@@ -25,6 +25,8 @@ Adds Whetstones, a new item crafted with quartz that can be used to repair items
 - Enchantments can be added to the Whetstone at an anvil. An enchanted Whetstone can only repair items whose enchantments match the enchantments on the Whetstone
 - Whetstones can be repaired at an anvil
 
+The whetstone repair recipe will show up in [EMI](https://modrinth.com/mod/emi) if it's installed.
+
 ### Phantom Spawning Rework
 
 Replaces vanilla phantom spawning rules with spawning rules based on altitude. 
@@ -103,6 +105,27 @@ Potion of Teleportation
 - Teleports you to a random location in a configurable radius
 - Brewed with an awkward potion and ender pearl
 - Configurable max teleport height
+
+Recipes for these potions will show up in [EMI](https://modrinth.com/mod/emi) if it's installed.
+
+## Compass and Clock Overlays
+
+Shows useful information in the top left when holding a compass or a clock.
+
+Compass info:
+- Coordinates
+- Direction
+- Biome
+
+Clock info:
+- Day and time
+- Weather
+- Season (if [Serene Seasons](https://modrinth.com/mod/serene-seasons) is installed)
+
+Configuration options:
+- Enable or disable each info overlay
+- Color the weather line according to the current weather conditions
+- Color the season line according to the current season
 
 ## Tweaks
 

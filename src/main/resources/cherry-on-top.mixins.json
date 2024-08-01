@@ -29,7 +29,8 @@
   "client": [
     "anvil_improvements.AnvilScreenMixin",
     "double_tap_sprint.LocalPlayerMixin",
-    "enchantment_upgrade_smithing_template.SmithingScreenMixin"
+    "enchantment_upgrade_smithing_template.SmithingScreenMixin",
+    "info_overlays.GuiMixin"
   ],
   "plugin": "com.moulberry.mixinconstraints.ConstraintsMixinPlugin",
   "injectors": {

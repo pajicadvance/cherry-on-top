@@ -1,4 +1,4 @@
-package me.pajic.cherryontop.plugin;
+package me.pajic.cherryontop.compat;
 
 import dev.emi.emi.EmiPort;
 import dev.emi.emi.EmiUtil;

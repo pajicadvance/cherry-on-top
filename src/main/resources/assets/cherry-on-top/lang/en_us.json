@@ -87,6 +87,12 @@
   "text.config.cherry-on-top.option.teleportationPotions.teleportRadius": "Teleport radius",
   "text.config.cherry-on-top.option.teleportationPotions.teleportMaxHeight": "Teleport max height",
 
+  "text.config.cherry-on-top.category.infoOverlays": "Compass and Clock Overlays",
+  "text.config.cherry-on-top.option.infoOverlays.enableCompassOverlay": "Compass overlay",
+  "text.config.cherry-on-top.option.infoOverlays.enableClockOverlay": "Clock overlay",
+  "text.config.cherry-on-top.option.infoOverlays.coloredSeason": "Colored season line",
+  "text.config.cherry-on-top.option.infoOverlays.coloredWeather": "Colored weather line",
+
   "text.config.cherry-on-top.section.tweaks": "Tweaks",
   "text.config.cherry-on-top.option.disableDoubleTapSprint": "Disable double-tap to sprint",
   "cherry-on-top.tweaks.disableDoubleTapSprint.desc": "Disables double-tapping the forward key to sprint.",
@@ -125,5 +131,27 @@
 
   "item.cherry-on-top.potion_of_wormhole.effect.empty": "Potion of Wormhole",
   "item.cherry-on-top.potion_of_wormhole.effect.water": "Potion of Wormhole",
-  "item.cherry-on-top.potion_of_wormhole.tooltip": "Teleport to Player"
+  "item.cherry-on-top.potion_of_wormhole.tooltip": "Teleport to Player",
+
+  "gui.cherry-on-top.coordinates": "%s %s %s",
+  "gui.cherry-on-top.facing": "Facing %s",
+  "gui.cherry-on-top.day": "Day %s",
+  "gui.cherry-on-top.time": "%s:%s",
+  "gui.cherry-on-top.clear": "Clear",
+  "gui.cherry-on-top.cloudy": "Cloudy",
+  "gui.cherry-on-top.raining": "Raining",
+  "gui.cherry-on-top.snowing": "Snowing",
+  "gui.cherry-on-top.thundering": "Thunderstorm",
+  "gui.cherry-on-top.early_spring": "Early Spring",
+  "gui.cherry-on-top.mid_spring": "Mid Spring",
+  "gui.cherry-on-top.late_spring": "Late Spring",
+  "gui.cherry-on-top.early_summer": "Early Summer",
+  "gui.cherry-on-top.mid_summer": "Mid Summer",
+  "gui.cherry-on-top.late_summer": "Late Summer",
+  "gui.cherry-on-top.early_autumn": "Early Autumn",
+  "gui.cherry-on-top.mid_autumn": "Mid Autumn",
+  "gui.cherry-on-top.late_autumn": "Late Autumn",
+  "gui.cherry-on-top.early_winter": "Early Winter",
+  "gui.cherry-on-top.mid_winter": "Mid Winter",
+  "gui.cherry-on-top.late_winter": "Late Winter"
 }

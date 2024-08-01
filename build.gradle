@@ -72,6 +72,9 @@ dependencies {
 
     // Carpet
     modImplementation "com.github.gnembon:fabric-carpet:${carpet_version}"
+
+    // Serene Seasons
+    modCompileOnly "maven.modrinth:serene-seasons:${project.sereneseasons_version}"
 }
 
 loom {

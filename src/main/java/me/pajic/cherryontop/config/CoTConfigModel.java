@@ -23,6 +23,7 @@ public class CoTConfigModel {
     @Nest public EnchantedBookLootImprovements enchantedBookLootImprovements = new EnchantedBookLootImprovements();
     @Nest public MusicDiscLoot musicDiscLoot = new MusicDiscLoot();
     @Nest public TeleportationPotions teleportationPotions = new TeleportationPotions();
+    @Nest public InfoOverlays infoOverlays = new InfoOverlays();
 
     @SectionHeader("tweaks")
     @RestartRequired public boolean craftTippedArrowsWithRegularPotions = false;
@@ -109,7 +110,7 @@ public class CoTConfigModel {
         @RestartRequired public boolean enableBottleOEnchantingImprovements = false;
         public boolean modifyExperienceReward = true;
         @PredicateConstraint("expressionWithRandValid") public String experienceReward = "30+rand(10)+rand(10)";
-        @RestartRequired public boolean renameToExperienceBottle = true;
+        @RestartRequired @Sync(Option.SyncMode.NONE) public boolean renameToExperienceBottle = true;
         @RestartRequired public boolean additionalChestLoot = true;
         @RestartRequired public List<String> bottleLootLocations = List.of(
                 "minecraft:chests/abandoned_mineshaft;50;1",
@@ -180,6 +181,13 @@ public class CoTConfigModel {
         @RestartRequired public boolean enablePotionOfTeleportation = false;
         public int teleportRadius = 10000;
         public int teleportMaxHeight = 384;
+    }
+
+    public static class InfoOverlays {
+        public boolean enableCompassOverlay = false;
+        public boolean enableClockOverlay = false;
+        @Sync(Option.SyncMode.NONE) public boolean coloredSeason = true;
+        @Sync(Option.SyncMode.NONE) public boolean coloredWeather = true;
     }
 
     public static class Predicates {
