@@ -110,7 +110,7 @@ Recipes for these potions will show up in [EMI](https://modrinth.com/mod/emi) if
 
 ## Compass and Clock Overlays
 
-Shows useful information in the top left when holding a compass or a clock.
+Shows useful information in the top left when carrying a compass or a clock.
 
 Compass info:
 - Coordinates
