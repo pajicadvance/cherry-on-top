@@ -9,80 +9,81 @@
 ];
 @priority 2;
 
-if ($random_sequence in cherryontop_config.musicDiscLoot.musicDiscLootLocations) {
-    val chance = cherryontop_config.musicDiscLoot.musicDiscLootChance / 100;
+foreach (entry in cherryontop_config.musicDiscLoot.musicDiscLootLocations) {
+    if (strings.contains(_target, strings.split(entry, "/")[1])) {
+        val chance = cherryontop_config.musicDiscLoot.musicDiscLootChance / 100;
+        val pool = {
+            "rolls": 1.0,
+            "entries": [
+                {
+                    "type": "minecraft:item",
+                    "name": "minecraft:music_disc_13",
+                    "weight": 1
+                },
+                {
+                    "type": "minecraft:item",
+                    "name": "minecraft:music_disc_cat",
+                    "weight": 1
+                },
+                {
+                    "type": "minecraft:item",
+                    "name": "minecraft:music_disc_blocks",
+                    "weight": 1
+                },
+                {
+                    "type": "minecraft:item",
+                    "name": "minecraft:music_disc_chirp",
+                    "weight": 1
+                },
+                {
+                    "type": "minecraft:item",
+                    "name": "minecraft:music_disc_far",
+                    "weight": 1
+                },
+                {
+                    "type": "minecraft:item",
+                    "name": "minecraft:music_disc_mall",
+                    "weight": 1
+                },
+                {
+                    "type": "minecraft:item",
+                    "name": "minecraft:music_disc_mellohi",
+                    "weight": 1
+                },
+                {
+                    "type": "minecraft:item",
+                    "name": "minecraft:music_disc_stal",
+                    "weight": 1
+                },
+                {
+                    "type": "minecraft:item",
+                    "name": "minecraft:music_disc_strad",
+                    "weight": 1
+                },
+                {
+                    "type": "minecraft:item",
+                    "name": "minecraft:music_disc_ward",
+                    "weight": 1
+                },
+                {
+                    "type": "minecraft:item",
+                    "name": "minecraft:music_disc_11",
+                    "weight": 1
+                },
+                {
+                    "type": "minecraft:item",
+                    "name": "minecraft:music_disc_wait",
+                    "weight": 1
+                }
+            ],
+            "conditions": [
+                {
+                    "condition": "minecraft:random_chance",
+                    "chance": chance
+                }
+            ]
+        };
 
-    val pool = {
-        "rolls": 1.0,
-        "entries": [
-            {
-                "type": "minecraft:item",
-                "name": "minecraft:music_disc_13",
-                "weight": 1
-            },
-            {
-                "type": "minecraft:item",
-                "name": "minecraft:music_disc_cat",
-                "weight": 1
-            },
-            {
-                "type": "minecraft:item",
-                "name": "minecraft:music_disc_blocks",
-                "weight": 1
-            },
-            {
-                "type": "minecraft:item",
-                "name": "minecraft:music_disc_chirp",
-                "weight": 1
-            },
-            {
-                "type": "minecraft:item",
-                "name": "minecraft:music_disc_far",
-                "weight": 1
-            },
-            {
-                "type": "minecraft:item",
-                "name": "minecraft:music_disc_mall",
-                "weight": 1
-            },
-            {
-                "type": "minecraft:item",
-                "name": "minecraft:music_disc_mellohi",
-                "weight": 1
-            },
-            {
-                "type": "minecraft:item",
-                "name": "minecraft:music_disc_stal",
-                "weight": 1
-            },
-            {
-                "type": "minecraft:item",
-                "name": "minecraft:music_disc_strad",
-                "weight": 1
-            },
-            {
-                "type": "minecraft:item",
-                "name": "minecraft:music_disc_ward",
-                "weight": 1
-            },
-            {
-                "type": "minecraft:item",
-                "name": "minecraft:music_disc_11",
-                "weight": 1
-            },
-            {
-                "type": "minecraft:item",
-                "name": "minecraft:music_disc_wait",
-                "weight": 1
-            }
-        ],
-        "conditions": [
-            {
-                "condition": "minecraft:random_chance",
-                "chance": chance
-            }
-        ]
-    };
-
-    $pools = arrays.push($pools, pool);
+        $pools = arrays.push($pools, pool);
+    }
 }

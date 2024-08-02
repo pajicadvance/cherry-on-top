@@ -15,7 +15,7 @@ foreach (entry in cherryontop_config.enchantmentUpgrading.templateLootLocations)
     if (cotlib.arraySize(stringArray) != 3) {
         debug.throw("Invalid smithing template loot entry " + entry + ": Entry must be in format location;chance;count");
     }
-    else if (stringArray[0] == $random_sequence) {
+    else if (strings.contains(_target, strings.split(stringArray[0], "/")[1])) {
         val chance = cotlib.strToInt(stringArray[1], entry) / 100;
         val count = cotlib.strToInt(stringArray[2], entry);
 
