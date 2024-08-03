@@ -13,7 +13,6 @@ import "cherry-on-top:cot_patcher_lib" as cotlib;
 foreach (entry in cherryontop_config.musicDiscLoot.musicDiscLootLocations) {
     val stringArray = strings.split(entry, "/");
     if (strings.contains(_target, stringArray[cotlib.arraySize(stringArray) - 1])) {
-        debug.log(_target);
         val chance = cherryontop_config.musicDiscLoot.musicDiscLootChance / 100;
         val pool = {
             "rolls": 1.0,

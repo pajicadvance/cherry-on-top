@@ -17,7 +17,6 @@ foreach (entry in cherryontop_config.bottleOEnchantingImprovements.bottleLootLoc
         debug.throw("Invalid bottle o' enchanting loot entry " + entry + ": Entry must be in format location;chance;count");
     }
     else if (strings.contains(_target, stringArray2[cotlib.arraySize(stringArray2) - 1])) {
-        debug.log(_target);
         val chance = cotlib.strToInt(stringArray[1], entry) / 100;
         val count = cotlib.strToInt(stringArray[2], entry);
 

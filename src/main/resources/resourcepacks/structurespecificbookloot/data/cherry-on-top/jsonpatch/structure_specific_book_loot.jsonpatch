@@ -24,7 +24,6 @@ foreach (entry in cherryontop_config.enchantedBookLootImprovements.enchantmentSt
             if (cotlib.arraySize(location) != 3) {
                 debug.throw("Invalid location entry " + stringArray[i] + " in structure specific loot entry " + entry + ": Location entry must be in format location;chance;count");
             } else if (strings.contains(_target, stringArray2[cotlib.arraySize(stringArray2) - 1])) {
-                debug.log(_target);
                 val chance = cotlib.strToInt(location[1], stringArray[i]) / 100;
                 val count = cotlib.strToInt(location[2], stringArray[i]);
 
