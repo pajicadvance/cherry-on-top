@@ -28,7 +28,9 @@ public abstract class SmithingScreenMixin extends ItemCombinerScreen<SmithingMen
     @SuppressWarnings("ConstantConditions")
     protected void renderLabels(@NotNull GuiGraphics guiGraphics, int mouseX, int mouseY) {
         super.renderLabels(guiGraphics, mouseX, mouseY);
-        if (Main.CONFIG.enchantmentUpgrading.enableEnchantmentUpgrading() && Main.CONFIG.enchantmentUpgrading.upgradingHasExperienceCost() &&
+        if (
+                Main.CONFIG.enchantmentUpgrading.enableEnchantmentUpgrading() &&
+                Main.CONFIG.enchantmentUpgrading.upgradingHasExperienceCost() &&
                 menu.slots.get(0).getItem().is(CoTItems.ENCHANTMENT_UPGRADE_SMITHING_TEMPLATE) &&
                 menu.slots.get(1).getItem().is(Items.ENCHANTED_BOOK) &&
                 menu.slots.get(1).getItem().has(DataComponents.STORED_ENCHANTMENTS) &&
@@ -36,7 +38,8 @@ public abstract class SmithingScreenMixin extends ItemCombinerScreen<SmithingMen
                 menu.slots.get(3).hasItem()
         ) {
             ItemStack stack = menu.slots.get(1).getItem();
-            int repairCost = Main.CONFIG.enchantmentUpgrading.upgradingBaseExperienceCost() + stack.getOrDefault(DataComponents.REPAIR_COST, 0);
+            int repairCost = Main.CONFIG.enchantmentUpgrading.upgradingBaseExperienceCost() +
+                    stack.getOrDefault(DataComponents.REPAIR_COST, 0);
             if (repairCost > 0) {
                 Component component = Component.translatable("container.repair.cost", repairCost);
                 int textColor = menu.slots.get(3).mayPickup(minecraft.player) ? 8453920 : 0xFF6060;
@@ -56,7 +59,10 @@ public abstract class SmithingScreenMixin extends ItemCombinerScreen<SmithingMen
             at = @At(value = "CONSTANT", args = "intValue=75")
     )
     private int nudgeArmorStandUp(int original) {
-        if (Main.CONFIG.enchantmentUpgrading.enableEnchantmentUpgrading() && Main.CONFIG.enchantmentUpgrading.upgradingHasExperienceCost()) {
+        if (
+                Main.CONFIG.enchantmentUpgrading.enableEnchantmentUpgrading() &&
+                Main.CONFIG.enchantmentUpgrading.upgradingHasExperienceCost()
+        ) {
             return original - 10;
         }
         return original;

@@ -46,8 +46,10 @@ public abstract class SmithingMenuMixin extends ItemCombinerMenu {
             boolean success = false;
             int lapisAmount = slots.get(2).getItem().getCount();
             ItemEnchantments itemEnchantments = stack.get().get(DataComponents.STORED_ENCHANTMENTS);
-            if (itemEnchantments != null && lapisAmount <= itemEnchantments.entrySet().size() &&
-                    (!Main.CONFIG.enchantmentUpgrading.allowUpgradingSingleEnchantedBooksOnly() || itemEnchantments.entrySet().size() == 1)) {
+            if (
+                    itemEnchantments != null && lapisAmount <= itemEnchantments.entrySet().size() &&
+                    (!Main.CONFIG.enchantmentUpgrading.allowUpgradingSingleEnchantedBooksOnly() || itemEnchantments.entrySet().size() == 1)
+            ) {
                 ItemStack updatedStack = stack.get();
                 int counter = 0;
                 for (Object2IntMap.Entry<Holder<Enchantment>> entry : itemEnchantments.entrySet()) {
@@ -79,8 +81,11 @@ public abstract class SmithingMenuMixin extends ItemCombinerMenu {
             at = @At("RETURN")
     )
     private boolean modifyMayPickup(boolean original) {
-        if (Main.CONFIG.enchantmentUpgrading.enableEnchantmentUpgrading() && Main.CONFIG.enchantmentUpgrading.upgradingHasExperienceCost()
-                && isEnchantmentUpgradeRecipe()) {
+        if (
+                Main.CONFIG.enchantmentUpgrading.enableEnchantmentUpgrading() &&
+                Main.CONFIG.enchantmentUpgrading.upgradingHasExperienceCost() &&
+                isEnchantmentUpgradeRecipe()
+        ) {
             return (player.hasInfiniteMaterials() || player.experienceLevel >= cost) && cost > 0;
         }
         return original;
@@ -91,8 +96,11 @@ public abstract class SmithingMenuMixin extends ItemCombinerMenu {
             at = @At("HEAD")
     )
     private void hookOnTake(Player player, ItemStack itemStack, CallbackInfo ci) {
-        if (Main.CONFIG.enchantmentUpgrading.enableEnchantmentUpgrading() && Main.CONFIG.enchantmentUpgrading.upgradingHasExperienceCost() &&
-                isEnchantmentUpgradeRecipe() && !player.getAbilities().instabuild) {
+        if (
+                Main.CONFIG.enchantmentUpgrading.enableEnchantmentUpgrading() &&
+                Main.CONFIG.enchantmentUpgrading.upgradingHasExperienceCost() &&
+                isEnchantmentUpgradeRecipe() && !player.getAbilities().instabuild
+        ) {
             player.giveExperienceLevels(-cost);
         }
     }

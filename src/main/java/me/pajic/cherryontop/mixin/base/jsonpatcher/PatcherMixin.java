@@ -28,7 +28,12 @@ public class PatcherMixin {
             )
     )
     private static EvaluationContext.Builder addModConfigAsGlobalVariable(EvaluationContext.Builder instance) throws FileNotFoundException {
-        return instance.variable("cherryontop_config",
-                GsonConverter.fromGson(GSON.fromJson(new FileReader(FabricLoader.getInstance().getConfigDir().resolve("cherry-on-top.json5").toFile()), JsonElement.class)));
+        return instance.variable(
+                "cherryontop_config",
+                GsonConverter.fromGson(GSON.fromJson(
+                        new FileReader(FabricLoader.getInstance().getConfigDir().resolve("cherry-on-top.json5").toFile()),
+                        JsonElement.class)
+                )
+        );
     }
 }

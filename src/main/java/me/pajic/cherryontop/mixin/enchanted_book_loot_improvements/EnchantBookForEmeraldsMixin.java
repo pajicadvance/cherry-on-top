@@ -25,7 +25,8 @@ public class EnchantBookForEmeraldsMixin {
                                             @Local Holder<Enchantment> enchantmentHolder,
                                             @Local(argsOnly = true) RandomSource randomSource
     ) {
-        if (Main.CONFIG.enchantedBookLootImprovements.enableEnchantedBookLootImprovements() &&
+        if (
+                Main.CONFIG.enchantedBookLootImprovements.enableEnchantedBookLootImprovements() &&
                 Main.CONFIG.enchantedBookLootImprovements.enchantmentLevelWeights()
         ) {
             return CoTUtil.calculateNewEnchantmentLevelFromWeights(enchantmentHolder, randomSource);

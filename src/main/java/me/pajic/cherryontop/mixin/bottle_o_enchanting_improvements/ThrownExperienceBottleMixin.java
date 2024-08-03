@@ -21,7 +21,10 @@ public class ThrownExperienceBottleMixin {
             index = 2
     )
     private int setXpDropAmount(int amount) {
-        if (Main.CONFIG.bottleOEnchantingImprovements.enableBottleOEnchantingImprovements() && Main.CONFIG.bottleOEnchantingImprovements.modifyExperienceReward()) {
+        if (
+                Main.CONFIG.bottleOEnchantingImprovements.enableBottleOEnchantingImprovements() &&
+                Main.CONFIG.bottleOEnchantingImprovements.modifyExperienceReward()
+        ) {
             ThrownExperienceBottle instance = (ThrownExperienceBottle) (Object) this;
             Function rand = new Function("rand", 1) {
                 @Override
