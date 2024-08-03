@@ -18,6 +18,9 @@
   "text.config.cherry-on-top.category.whetstone": "Portable Item Repair",
   "text.config.cherry-on-top.option.whetstone.enableWhetstone": "Enable whetstones",
 
+  "text.config.cherry-on-top.category.enderBackpack": "Ender Backpack",
+  "text.config.cherry-on-top.option.enderBackpack.enableEnderBackpack": "Enable ender backpack",
+
   "text.config.cherry-on-top.category.phantomSpawningRework": "Phantom Spawning Rework",
   "text.config.cherry-on-top.option.phantomSpawningRework.enablePhantomSpawningRework": "Enable phantom spawning rework",
   "cherry-on-top.features.phantomSpawningRework.enablePhantomSpawningRework.desc": "Replaces the vanilla phantom spawning rules with spawning rules based on player altitude.",
@@ -125,6 +128,8 @@
 
   "item.cherry-on-top.whetstone": "Whetstone",
 
+  "item.cherry-on-top.ender_backpack": "Ender Backpack",
+
   "item.cherry-on-top.potion_of_teleportation.effect.empty": "Potion of Teleportation",
   "item.cherry-on-top.potion_of_teleportation.effect.water": "Potion of Teleportation",
   "item.cherry-on-top.potion_of_teleportation.tooltip": "Random Teleport",
@@ -153,5 +158,8 @@
   "gui.cherry-on-top.late_autumn": "Late Autumn",
   "gui.cherry-on-top.early_winter": "Early Winter",
   "gui.cherry-on-top.mid_winter": "Mid Winter",
-  "gui.cherry-on-top.late_winter": "Late Winter"
+  "gui.cherry-on-top.late_winter": "Late Winter",
+
+  "category.cherry-on-top.keybindings": "Cherry On Top",
+  "key.cherry-on-top.open_ender_backpack": "Open ender backpack"
 }

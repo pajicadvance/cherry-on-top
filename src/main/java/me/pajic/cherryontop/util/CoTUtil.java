@@ -5,8 +5,14 @@ import it.unimi.dsi.fastutil.ints.IntList;
 import me.pajic.cherryontop.Main;
 import me.pajic.cherryontop.item.CoTItems;
 import net.minecraft.core.Holder;
+import net.minecraft.network.chat.Component;
+import net.minecraft.stats.Stats;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.SimpleMenuProvider;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.ChestMenu;
+import net.minecraft.world.inventory.PlayerEnderChestContainer;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantment;
@@ -62,5 +68,13 @@ public class CoTUtil {
         }
 
         return unitCost;
+    }
+
+    public static void openEnderBackpack(Player player) {
+        PlayerEnderChestContainer container = player.getEnderChestInventory();
+        player.openMenu(new SimpleMenuProvider((i, inventory, player1) ->
+                ChestMenu.threeRows(i, inventory, container), Component.translatable("container.enderchest")
+        ));
+        player.awardStat(Stats.OPEN_ENDERCHEST);
     }
 }

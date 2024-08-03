@@ -17,6 +17,21 @@ public class CoTData {
                     ResourcePackActivationType.ALWAYS_ENABLED
             );
 
+            if (Main.CONFIG.enderBackpack.enableEnderBackpack()) {
+                ResourceManagerHelper.registerBuiltinResourcePack(
+                        ResourceLocation.parse("cherry-on-top:enderbackpack"),
+                        modContainer,
+                        ResourcePackActivationType.ALWAYS_ENABLED
+                );
+                if (FabricLoader.getInstance().isModLoaded("trinkets")) {
+                    ResourceManagerHelper.registerBuiltinResourcePack(
+                            ResourceLocation.parse("cherry-on-top:trinketscompat"),
+                            modContainer,
+                            ResourcePackActivationType.ALWAYS_ENABLED
+                    );
+                }
+            }
+
             if (Main.CONFIG.enchantmentUpgrading.enableEnchantmentUpgrading()) {
                 ResourceManagerHelper.registerBuiltinResourcePack(
                         ResourceLocation.parse("cherry-on-top:enchantmentupgrade"),

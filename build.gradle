@@ -31,6 +31,10 @@ repositories {
             includeGroup "maven.modrinth"
         }
     }
+    maven {
+        name = "Ladysnake Libs"
+        url = 'https://maven.ladysnake.org/releases'
+    }
     maven { url 'https://maven.wispforest.io/releases/' }
     maven { url 'https://jitpack.io' }
 }
@@ -73,6 +77,9 @@ dependencies {
 
     // Disable Custom Worlds Advice
     modImplementation "maven.modrinth:dcwa:${dcwa_version}"
+
+    // Trinkets
+    modImplementation "dev.emi:trinkets:${trinkets_version}"
 
     // EMI
     modImplementation "dev.emi:emi-fabric:${emi_version}"

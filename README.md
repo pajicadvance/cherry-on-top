@@ -27,6 +27,12 @@ Adds Whetstones, a new item crafted with quartz that can be used to repair items
 
 The whetstone repair recipe will show up in [EMI](https://modrinth.com/mod/emi) if it's installed.
 
+### Ender Backpack
+
+Adds the Ender Backpack, a new item that functions like a portable ender chest, crafted by surrounding an ender chest with leather, and can be opened by either right-clicking while holding it, or pressing the hotkey (default: B) while it's anywhere in the inventory.
+
+If [Trinkets](https://modrinth.com/mod/trinkets) is installed, the Ender Backpack will be equippable in the Back slot, and can still be opened with the hotkey.
+
 ### Phantom Spawning Rework
 
 Replaces vanilla phantom spawning rules with spawning rules based on altitude. 

@@ -2,7 +2,9 @@ package me.pajic.cherryontop.item;
 
 import me.emafire003.dev.custombrewrecipes.CustomBrewRecipeRegister;
 import me.pajic.cherryontop.Main;
+import me.pajic.cherryontop.compat.CoTTrinketsCompat;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.ChatFormatting;
 import net.minecraft.Util;
 import net.minecraft.core.Registry;
@@ -23,11 +25,26 @@ import java.util.List;
 public class CoTItems {
 
     public static final Item ENCHANTMENT_UPGRADE_SMITHING_TEMPLATE = new SmithingTemplateFoilItem(
-            Component.translatable(Util.makeDescriptionId("item", ResourceLocation.parse("cherry-on-top.smithing_template.enchantment_upgrade.applies_to"))).withStyle(ChatFormatting.BLUE),
-            Component.translatable(Util.makeDescriptionId("item", ResourceLocation.parse("cherry-on-top.smithing_template.enchantment_upgrade.ingredients"))).withStyle(ChatFormatting.BLUE),
-            Component.translatable(Util.makeDescriptionId("upgrade", ResourceLocation.parse("cherry-on-top.enchantment_upgrade"))).withStyle(ChatFormatting.GRAY),
-            Component.translatable(Util.makeDescriptionId("item", ResourceLocation.parse("cherry-on-top.smithing_template.enchantment_upgrade.base_slot_description"))),
-            Component.translatable(Util.makeDescriptionId("item", ResourceLocation.parse("cherry-on-top.smithing_template.enchantment_upgrade.additions_slot_description"))),
+            Component.translatable(Util.makeDescriptionId(
+                    "item",
+                    ResourceLocation.parse("cherry-on-top.smithing_template.enchantment_upgrade.applies_to")
+            )).withStyle(ChatFormatting.BLUE),
+            Component.translatable(Util.makeDescriptionId(
+                    "item",
+                    ResourceLocation.parse("cherry-on-top.smithing_template.enchantment_upgrade.ingredients")
+            )).withStyle(ChatFormatting.BLUE),
+            Component.translatable(Util.makeDescriptionId(
+                    "upgrade",
+                    ResourceLocation.parse("cherry-on-top.enchantment_upgrade")
+            )).withStyle(ChatFormatting.GRAY),
+            Component.translatable(Util.makeDescriptionId(
+                    "item",
+                    ResourceLocation.parse("cherry-on-top.smithing_template.enchantment_upgrade.base_slot_description")
+            )),
+            Component.translatable(Util.makeDescriptionId(
+                    "item",
+                    ResourceLocation.parse("cherry-on-top.smithing_template.enchantment_upgrade.additions_slot_description")
+            )),
             List.of(ResourceLocation.parse("cherry-on-top:item/empty_slot_enchanted_book")),
             List.of(ResourceLocation.parse("item/empty_slot_lapis_lazuli"))
     );
@@ -54,36 +71,52 @@ public class CoTItems {
         Registry.register(
                 BuiltInRegistries.ITEM,
                 ResourceLocation.parse("cherry-on-top:enchantment_upgrade"),
-                CoTItems.ENCHANTMENT_UPGRADE_SMITHING_TEMPLATE
+                ENCHANTMENT_UPGRADE_SMITHING_TEMPLATE
         );
         ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.INGREDIENTS).register(contents -> contents.addAfter(
                 Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE,
-                CoTItems.ENCHANTMENT_UPGRADE_SMITHING_TEMPLATE)
+                ENCHANTMENT_UPGRADE_SMITHING_TEMPLATE)
         );
 
         Registry.register(
                 BuiltInRegistries.ITEM,
                 ResourceLocation.parse("cherry-on-top:whetstone"),
-                CoTItems.WHETSTONE
+                WHETSTONE
         );
         ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.TOOLS_AND_UTILITIES).register(contents -> contents.addAfter(
                 Items.NETHERITE_HOE,
-                CoTItems.WHETSTONE)
-        );
+                WHETSTONE
+        ));
+
+        if (FabricLoader.getInstance().isModLoaded("trinkets")) {
+            CoTTrinketsCompat.register();
+        }
+        else {
+            EnderBackpackItem item = new EnderBackpackItem(new Item.Properties().stacksTo(1));
+            Registry.register(
+                    BuiltInRegistries.ITEM,
+                    ResourceLocation.parse("cherry-on-top:ender_backpack"),
+                    item
+            );
+            ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.TOOLS_AND_UTILITIES).register(contents -> contents.addAfter(
+                    Items.LEAD,
+                    item
+            ));
+        }
 
         Registry.register(
                 BuiltInRegistries.ITEM,
                 ResourceLocation.parse("cherry-on-top:potion_of_teleportation"),
-                CoTItems.POTION_OF_TELEPORTATION
+                POTION_OF_TELEPORTATION
         );
         ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.FOOD_AND_DRINKS).register(contents -> contents.addAfter(
                 Items.POTION,
-                CoTItems.POTION_OF_TELEPORTATION
+                POTION_OF_TELEPORTATION
         ));
         CustomBrewRecipeRegister.registerCustomRecipeWithComponents(
                 Items.POTION,
                 Items.ENDER_PEARL,
-                CoTItems.POTION_OF_TELEPORTATION,
+                POTION_OF_TELEPORTATION,
                 DataComponentMap.builder().set(
                         DataComponents.POTION_CONTENTS,
                         new PotionContents(Potions.AWKWARD)
@@ -95,16 +128,16 @@ public class CoTItems {
         Registry.register(
                 BuiltInRegistries.ITEM,
                 ResourceLocation.parse("cherry-on-top:potion_of_wormhole"),
-                CoTItems.POTION_OF_WORMHOLE
+                POTION_OF_WORMHOLE
         );
         ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.FOOD_AND_DRINKS).register(contents -> contents.addAfter(
-                CoTItems.POTION_OF_TELEPORTATION,
-                CoTItems.POTION_OF_WORMHOLE
+                POTION_OF_TELEPORTATION,
+                POTION_OF_WORMHOLE
         ));
         CustomBrewRecipeRegister.registerCustomRecipeWithComponents(
                 Items.POTION,
                 Items.ENDER_EYE,
-                CoTItems.POTION_OF_WORMHOLE,
+                POTION_OF_WORMHOLE,
                 DataComponentMap.builder().set(
                         DataComponents.POTION_CONTENTS,
                         new PotionContents(Potions.AWKWARD)

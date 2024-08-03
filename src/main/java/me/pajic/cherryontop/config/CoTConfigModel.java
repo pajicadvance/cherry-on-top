@@ -17,6 +17,7 @@ public class CoTConfigModel {
     @SectionHeader("features")
     @Nest public EnchantmentUpgrading enchantmentUpgrading = new EnchantmentUpgrading();
     @Nest public Whetstone whetstone = new Whetstone();
+    @Nest public EnderBackpack enderBackpack = new EnderBackpack();
     @Nest public PhantomSpawningRework phantomSpawningRework = new PhantomSpawningRework();
     @Nest public AnvilImprovements anvilImprovements = new AnvilImprovements();
     @Nest public BottleOEnchantingImprovements bottleOEnchantingImprovements = new BottleOEnchantingImprovements();
@@ -55,6 +56,10 @@ public class CoTConfigModel {
 
     public static class Whetstone {
         @RestartRequired public boolean enableWhetstone = false;
+    }
+
+    public static class EnderBackpack {
+        @RestartRequired public boolean enableEnderBackpack = false;
     }
 
     public static class PhantomSpawningRework {
