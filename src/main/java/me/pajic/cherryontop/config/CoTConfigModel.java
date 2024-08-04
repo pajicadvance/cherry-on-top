@@ -27,12 +27,12 @@ public class CoTConfigModel {
     @Nest public InfoOverlays infoOverlays = new InfoOverlays();
 
     @SectionHeader("tweaks")
-    @RestartRequired public boolean craftTippedArrowsWithRegularPotions = false;
-    @RestartRequired public boolean glowstoneDustRecipe = false;
-    @RestartRequired public boolean cryingObsidianRecipe = false;
-    @RestartRequired public boolean infinityMendingCompatible = false;
-    @RestartRequired public boolean soulSpeedNoDamage = false;
-    public boolean playBowDrawingSounds = false;
+    @RestartRequired public boolean craftTippedArrowsWithRegularPotions = true;
+    @RestartRequired public boolean glowstoneDustRecipe = true;
+    @RestartRequired public boolean cryingObsidianRecipe = true;
+    @RestartRequired public boolean infinityMendingCompatible = true;
+    @RestartRequired public boolean soulSpeedNoDamage = true;
+    public boolean playBowDrawingSounds = true;
     public boolean disableShulkerDuplication = false;
     @RestartRequired public boolean disableNightVision = false;
     public boolean riptideWorksOnlyInWater = false;
@@ -40,7 +40,7 @@ public class CoTConfigModel {
     @Sync(Option.SyncMode.NONE) public boolean disableDoubleTapSprint = false;
 
     public static class EnchantmentUpgrading {
-        @RestartRequired public boolean enableEnchantmentUpgrading = false;
+        @RestartRequired public boolean enableEnchantmentUpgrading = true;
         public boolean upgradingHasExperienceCost = true;
         @PredicateConstraint("greaterThanZero") public int upgradingBaseExperienceCost = 5;
         public boolean ignoreTooExpensive = false;
@@ -55,15 +55,15 @@ public class CoTConfigModel {
     }
 
     public static class Whetstone {
-        @RestartRequired public boolean enableWhetstone = false;
+        @RestartRequired public boolean enableWhetstone = true;
     }
 
     public static class EnderBackpack {
-        @RestartRequired public boolean enableEnderBackpack = false;
+        @RestartRequired public boolean enableEnderBackpack = true;
     }
 
     public static class PhantomSpawningRework {
-        public boolean enablePhantomSpawningRework = false;
+        public boolean enablePhantomSpawningRework = true;
         @RangeConstraint(min = -64, max = 320) public int phantomSpawnStartHeight = 128;
         @PredicateConstraint("expressionWithRandValid") public String phantomSpawnFrequency = "30+rand(30)";
         public boolean repelPhantomsWithDefinedItems = true;
@@ -77,15 +77,15 @@ public class CoTConfigModel {
     }
 
     public static class AnvilImprovements {
-        public boolean modifyAnvilRepairUnitCosts = false;
+        public boolean modifyAnvilRepairUnitCosts = true;
         @Nest public Armor armor = new Armor();
         @Nest public Tools tools = new Tools();
         @Nest public UniqueItems uniqueItems = new UniqueItems();
-        public boolean modifyDegradationChance = false;
-        @RangeConstraint(min = 0.0F, max = 100.0F, decimalPlaces = 1) public float degradationChance = 12.0F;
-        public boolean freeUnenchantedRepairs = false;
-        public boolean freeRenames = false;
-        public boolean noTooExpensive = false;
+        public boolean modifyDegradationChance = true;
+        @RangeConstraint(min = 0.0F, max = 100.0F, decimalPlaces = 1) public float degradationChance = 6.0F;
+        public boolean freeUnenchantedRepairs = true;
+        public boolean freeRenames = true;
+        public boolean noTooExpensive = true;
         public boolean noPriorWorkCost = false;
     }
 
@@ -112,7 +112,7 @@ public class CoTConfigModel {
     }
 
     public static class BottleOEnchantingImprovements {
-        @RestartRequired public boolean enableBottleOEnchantingImprovements = false;
+        @RestartRequired public boolean enableBottleOEnchantingImprovements = true;
         public boolean modifyExperienceReward = true;
         @PredicateConstraint("expressionWithRandValid") public String experienceReward = "30+rand(10)+rand(10)";
         @RestartRequired @Sync(Option.SyncMode.NONE) public boolean renameToExperienceBottle = true;
@@ -133,7 +133,7 @@ public class CoTConfigModel {
     }
 
     public static class EnchantedBookLootImprovements {
-        @RestartRequired public boolean enableEnchantedBookLootImprovements = false;
+        @RestartRequired public boolean enableEnchantedBookLootImprovements = true;
         @RestartRequired public boolean additionalChestLoot = true;
         @RestartRequired public List<String> bookLootLocations = List.of(
                 "minecraft:chests/abandoned_mineshaft;10;1",
@@ -164,7 +164,7 @@ public class CoTConfigModel {
     }
 
     public static class MusicDiscLoot {
-        @RestartRequired public boolean enableMusicDiscLoot = false;
+        @RestartRequired public boolean enableMusicDiscLoot = true;
         @RestartRequired @RangeConstraint(min = 1, max = 100) public int musicDiscLootChance = 10;
         @RestartRequired public List<String> musicDiscLootLocations = List.of(
                 "minecraft:chests/abandoned_mineshaft",
@@ -182,15 +182,15 @@ public class CoTConfigModel {
     }
 
     public static class TeleportationPotions {
-        @RestartRequired public boolean enablePotionOfWormhole = false;
-        @RestartRequired public boolean enablePotionOfTeleportation = false;
+        @RestartRequired public boolean enablePotionOfWormhole = true;
+        @RestartRequired public boolean enablePotionOfTeleportation = true;
         public int teleportRadius = 10000;
         public int teleportMaxHeight = 384;
     }
 
     public static class InfoOverlays {
-        public boolean enableCompassOverlay = false;
-        public boolean enableClockOverlay = false;
+        public boolean enableCompassOverlay = true;
+        public boolean enableClockOverlay = true;
         @Sync(Option.SyncMode.NONE) public boolean coloredSeason = true;
         @Sync(Option.SyncMode.NONE) public boolean coloredWeather = true;
     }

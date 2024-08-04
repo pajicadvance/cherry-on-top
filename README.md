@@ -4,8 +4,6 @@ A collection of features and tweaks for Minecraft 1.21 Fabric.
 
 ## Features
 
-Every feature is disabled by default, and can be toggled on or off at any time. Changing some options will require a restart, and you will be prompted to do so if a restart is required.
-
 ### Enchantment Upgrading
 
 Adds a new smithing template found in End Cities by default that can upgrade a single enchantment stored in a book by one. The selected enchantment depends on the amount of lapis added to the recipe. By default, upgrading costs experience based on the upgraded book's repair cost. The template can be duplicated once found.
@@ -114,7 +112,7 @@ Potion of Teleportation
 
 Recipes for these potions will show up in [EMI](https://modrinth.com/mod/emi) if it's installed.
 
-## Compass and Clock Overlays
+### Compass and Clock Overlays
 
 Shows useful information in the top left when carrying a compass or a clock.
 
@@ -134,8 +132,6 @@ Configuration options:
 - Color the season line according to the current season
 
 ## Tweaks
-
-Every tweak is disabled by default, and can be toggled on or off at any time. Toggling some tweaks will require a restart, and you will be prompted to do so if a restart is required.
 
 ### Craft tipped arrows with regular potions
 
