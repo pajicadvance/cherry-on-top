@@ -4,6 +4,7 @@ import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
 import it.unimi.dsi.fastutil.objects.ObjectIntImmutablePair;
 import me.pajic.cherryontop.Main;
+import me.pajic.cherryontop.compat.CoTEmiCompat;
 import me.pajic.cherryontop.compat.CoTSeasonsCompat;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.DeltaTracker;
@@ -41,7 +42,11 @@ public abstract class GuiMixin {
         if (
                 minecraft.player != null && minecraft.level != null &&
                 !minecraft.options.hideGui && !minecraft.gui.getDebugOverlay().showDebugScreen()
+
         ) {
+            if (FabricLoader.getInstance().isModLoaded("emi") && CoTEmiCompat.Methods.isEmiScreenOpen()) {
+                return;
+            }
             if (
                     Main.CONFIG.infoOverlays.enableCompassOverlay() && Main.CONFIG.infoOverlays.enableClockOverlay() &&
                     hasCompass(minecraft.player) && hasClock(minecraft.player)

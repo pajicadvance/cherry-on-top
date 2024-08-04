@@ -2,6 +2,7 @@ package me.pajic.cherryontop.compat;
 
 import dev.emi.emi.EmiPort;
 import dev.emi.emi.EmiUtil;
+import dev.emi.emi.api.EmiApi;
 import dev.emi.emi.api.EmiPlugin;
 import dev.emi.emi.api.EmiRegistry;
 import dev.emi.emi.api.stack.EmiStack;
@@ -14,7 +15,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.PotionContents;
 import net.minecraft.world.item.alchemy.Potions;
 
-public class CoTEmiPlugin implements EmiPlugin {
+public class CoTEmiCompat implements EmiPlugin {
 
     @Override
     public void register(EmiRegistry registry) {
@@ -57,5 +58,12 @@ public class CoTEmiPlugin implements EmiPlugin {
                                 "/" + EmiUtil.subId(CoTItems.POTION_OF_WORMHOLE)
                 )
         ));
+    }
+
+    public static class Methods {
+
+        public static boolean isEmiScreenOpen() {
+            return EmiApi.getHandledScreen() != null;
+        }
     }
 }

@@ -18,7 +18,7 @@
       "me.pajic.cherryontop.Main"
     ],
     "emi": [
-      "me.pajic.cherryontop.compat.CoTEmiPlugin"
+      "me.pajic.cherryontop.compat.CoTEmiCompat"
     ]
   },
   "mixins": [
