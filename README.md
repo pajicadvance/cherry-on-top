@@ -31,6 +31,41 @@ Adds the Ender Backpack, a new item that functions like a portable ender chest, 
 
 If [Trinkets](https://modrinth.com/mod/trinkets) is installed, the Ender Backpack will be equippable in the Back slot, and can still be opened with the hotkey.
 
+### Teleportation Potions
+
+Adds two new potions inspired by Terraria.
+
+Potion of Wormhole
+- Teleports you to other players
+- Brewed with an awkward potion and ender eye
+- Drinking opens up a screen where you can select a player to teleport to
+
+Potion of Teleportation
+- Teleports you to a random location in a configurable radius
+- Brewed with an awkward potion and ender pearl
+- Configurable max teleport height
+
+Recipes for these potions will show up in [EMI](https://modrinth.com/mod/emi) if it's installed.
+
+### Compass and Clock Overlays
+
+Shows useful information in the top left when carrying a compass or a clock.
+
+Compass info:
+- Coordinates
+- Direction
+- Biome
+
+Clock info:
+- Day and time
+- Weather
+- Season (if [Serene Seasons](https://modrinth.com/mod/serene-seasons) is installed)
+
+Configuration options:
+- Enable or disable each info overlay
+- Color the weather line according to the current weather conditions
+- Color the season line according to the current season
+
 ### Phantom Spawning Rework
 
 Replaces vanilla phantom spawning rules with spawning rules based on altitude. 
@@ -95,41 +130,6 @@ Configuration options:
 - Change the chance that a disc will spawn in any of the defined locations
 - Add or remove locations where the discs can be found
 - Enable or disable removing the vanilla 13 and Cat music disc loot from regular dungeons
-
-### Teleportation Potions
-
-Adds two new potions inspired by Terraria.
-
-Potion of Wormhole
-- Teleports you to other players
-- Brewed with an awkward potion and ender eye
-- Drinking opens up a screen where you can select a player to teleport to
-
-Potion of Teleportation
-- Teleports you to a random location in a configurable radius
-- Brewed with an awkward potion and ender pearl
-- Configurable max teleport height
-
-Recipes for these potions will show up in [EMI](https://modrinth.com/mod/emi) if it's installed.
-
-### Compass and Clock Overlays
-
-Shows useful information in the top left when carrying a compass or a clock.
-
-Compass info:
-- Coordinates
-- Direction
-- Biome
-
-Clock info:
-- Day and time
-- Weather
-- Season (if [Serene Seasons](https://modrinth.com/mod/serene-seasons) is installed)
-
-Configuration options:
-- Enable or disable each info overlay
-- Color the weather line according to the current weather conditions
-- Color the season line according to the current season
 
 ## Tweaks
 

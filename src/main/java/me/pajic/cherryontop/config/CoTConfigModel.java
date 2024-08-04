@@ -18,13 +18,13 @@ public class CoTConfigModel {
     @Nest public EnchantmentUpgrading enchantmentUpgrading = new EnchantmentUpgrading();
     @Nest public Whetstone whetstone = new Whetstone();
     @Nest public EnderBackpack enderBackpack = new EnderBackpack();
+    @Nest public TeleportationPotions teleportationPotions = new TeleportationPotions();
+    @Nest public InfoOverlays infoOverlays = new InfoOverlays();
     @Nest public PhantomSpawningRework phantomSpawningRework = new PhantomSpawningRework();
     @Nest public AnvilImprovements anvilImprovements = new AnvilImprovements();
     @Nest public BottleOEnchantingImprovements bottleOEnchantingImprovements = new BottleOEnchantingImprovements();
     @Nest public EnchantedBookLootImprovements enchantedBookLootImprovements = new EnchantedBookLootImprovements();
     @Nest public MusicDiscLoot musicDiscLoot = new MusicDiscLoot();
-    @Nest public TeleportationPotions teleportationPotions = new TeleportationPotions();
-    @Nest public InfoOverlays infoOverlays = new InfoOverlays();
 
     @SectionHeader("tweaks")
     @RestartRequired public boolean craftTippedArrowsWithRegularPotions = true;
@@ -60,6 +60,20 @@ public class CoTConfigModel {
 
     public static class EnderBackpack {
         @RestartRequired public boolean enableEnderBackpack = true;
+    }
+
+    public static class TeleportationPotions {
+        @RestartRequired public boolean enablePotionOfWormhole = true;
+        @RestartRequired public boolean enablePotionOfTeleportation = true;
+        public int teleportRadius = 10000;
+        public int teleportMaxHeight = 384;
+    }
+
+    public static class InfoOverlays {
+        public boolean enableCompassOverlay = true;
+        public boolean enableClockOverlay = true;
+        @Sync(Option.SyncMode.NONE) public boolean coloredSeason = true;
+        @Sync(Option.SyncMode.NONE) public boolean coloredWeather = true;
     }
 
     public static class PhantomSpawningRework {
@@ -179,20 +193,6 @@ public class CoTConfigModel {
                 "minecraft:chests/woodland_mansion"
         );
         @RestartRequired public boolean remove13AndCatSimpleDungeonEntries = true;
-    }
-
-    public static class TeleportationPotions {
-        @RestartRequired public boolean enablePotionOfWormhole = true;
-        @RestartRequired public boolean enablePotionOfTeleportation = true;
-        public int teleportRadius = 10000;
-        public int teleportMaxHeight = 384;
-    }
-
-    public static class InfoOverlays {
-        public boolean enableCompassOverlay = true;
-        public boolean enableClockOverlay = true;
-        @Sync(Option.SyncMode.NONE) public boolean coloredSeason = true;
-        @Sync(Option.SyncMode.NONE) public boolean coloredWeather = true;
     }
 
     public static class Predicates {
