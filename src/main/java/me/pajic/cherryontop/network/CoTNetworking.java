@@ -64,9 +64,8 @@ public class CoTNetworking {
             context.player().teleportTo(playerToTpTo.getX(), playerToTpTo.getY(), playerToTpTo.getZ());
         }));
 
-        ServerPlayNetworking.registerGlobalReceiver(C2SOpenEnderContainerPayload.TYPE, (payload, context) -> context.server().execute(() -> {
-            System.out.println("packet received");
-            CoTUtil.openEnderBackpack(context.player());
-        }));
+        ServerPlayNetworking.registerGlobalReceiver(C2SOpenEnderContainerPayload.TYPE, (payload, context) -> context.server().execute(() ->
+                CoTUtil.openEnderBackpack(context.player()))
+        );
     }
 }
