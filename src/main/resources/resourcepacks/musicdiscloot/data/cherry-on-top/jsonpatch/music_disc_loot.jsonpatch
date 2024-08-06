@@ -2,7 +2,7 @@
 @target [
     {
         "path": {
-            "start": "loot_table/chests/",
+            "start": "loot_table/",
             "end": ".json"
         }
     }
