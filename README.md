@@ -161,6 +161,10 @@ Makes the bow play a bow drawing sound when being drawn by players or mobs. Make
 
 Disables the game mechanic that allows shulkers to duplicate by hitting each other with their bullets.
 
+### Disable pillager patrols
+
+Prevents pillager patrols from spawning, regardless of what the gamerule is set to.
+
 ### Disable night vision
 
 Makes Night Vision unobtainable in survival with the following changes:

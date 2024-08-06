@@ -34,6 +34,7 @@ public class CoTConfigModel {
     @RestartRequired public boolean soulSpeedNoDamage = true;
     public boolean playBowDrawingSounds = true;
     public boolean disableShulkerDuplication = false;
+    public boolean disablePillagerPatrols = false;
     @RestartRequired public boolean disableNightVision = false;
     public boolean riptideWorksOnlyInWater = false;
     public boolean hideDebugInfoInSurvival = false;

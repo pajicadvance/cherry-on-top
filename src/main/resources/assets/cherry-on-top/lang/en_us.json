@@ -115,7 +115,8 @@
   "text.config.cherry-on-top.option.glowstoneDustRecipe.tooltip": "Redstone Dust + Blaze Powder",
   "text.config.cherry-on-top.option.disableShulkerDuplication": "Disable shulker duplication",
   "text.config.cherry-on-top.option.disableNightVision": "Disable night vision",
-  "text.config.cherry-on-top.option.soulSpeedNoDamage": "Soul Speed doesn't damage boots,",
+  "text.config.cherry-on-top.option.soulSpeedNoDamage": "Soul Speed doesn't damage boots",
+  "text.config.cherry-on-top.option.disablePillagerPatrols": "Disable pillager patrols",
 
   "screen.cherry-on-top.wormholePlayerSelection.title": "Select player to teleport to",
 
