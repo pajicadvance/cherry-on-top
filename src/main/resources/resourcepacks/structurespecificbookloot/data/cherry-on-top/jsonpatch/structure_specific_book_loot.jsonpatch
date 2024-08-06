@@ -21,9 +21,18 @@ foreach (entry in cherryontop_config.enchantedBookLootImprovements.enchantmentSt
             val location = strings.split(stringArray[i], ";");
             val stringArray2 = strings.split(location[0], "/");
 
+            var path = "";
+            if (cotlib.arraySize(stringArray2) > 2) {
+                val pathArray = arrays.slice(stringArray2, 1, cotlib.arraySize(stringArray2));
+                path = strings.join(pathArray, "/") + ".json";
+            }
+            else {
+                path = stringArray2[1] + ".json";
+            }
+
             if (cotlib.arraySize(location) != 3) {
                 debug.throw("Invalid location entry " + stringArray[i] + " in structure specific loot entry " + entry + ": Location entry must be in format location;chance;count");
-            } else if (strings.contains(_target, stringArray2[cotlib.arraySize(stringArray2) - 1])) {
+            } else if (strings.contains(_target, path)) {
                 val chance = cotlib.strToInt(location[1], stringArray[i]) / 100;
                 val count = cotlib.strToInt(location[2], stringArray[i]);
 

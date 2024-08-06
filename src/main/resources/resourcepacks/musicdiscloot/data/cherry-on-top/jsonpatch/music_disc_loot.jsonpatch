@@ -12,7 +12,17 @@ import "cherry-on-top:cot_patcher_lib" as cotlib;
 
 foreach (entry in cherryontop_config.musicDiscLoot.musicDiscLootLocations) {
     val stringArray = strings.split(entry, "/");
-    if (strings.contains(_target, stringArray[cotlib.arraySize(stringArray) - 1])) {
+
+    var path = "";
+    if (cotlib.arraySize(stringArray) > 2) {
+        val pathArray = arrays.slice(stringArray, 1, cotlib.arraySize(stringArray));
+        path = strings.join(pathArray, "/") + ".json";
+    }
+    else {
+        path = stringArray[1] + ".json";
+    }
+
+    if (strings.contains(_target, path)) {
         val chance = cherryontop_config.musicDiscLoot.musicDiscLootChance / 100;
         val pool = {
             "rolls": 1.0,
