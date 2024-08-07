@@ -118,7 +118,7 @@ Optionally, make defined enchantments exclusive to defined structures, and speci
 Configuration options:
 - Add or remove additional locations where enchanted books can be found and define the loot chance and amount, in the format of `location;chance;count`
 - Enable or disable making enchantments exclusive to defined structures
-- Add or remove rules for structure-specific enchantments, in the format of `enchantment,location;chance;count, ... ,location;chance;count` (an example entry is provided in the default config)
+- Add or remove rules for structure-specific enchantments, in the format of `enchantment;weight,...,enchantment;weight!location;chance,...,location;chance` (an example entry is provided in the default config)
 - Enable or disable weighted enchantment levels in looted enchanted books
 - Modify weights for each enchantment level
 

@@ -164,7 +164,7 @@ public class CoTConfigModel {
         );
         @RestartRequired public boolean structureSpecificLoot = false;
         @RestartRequired public List<String> enchantmentStructureMap = List.of(
-                "minecraft:frost_walker,minecraft:chests/ancient_city_ice_box;100;1"
+                "minecraft:respiration;10,minecraft:depth_strider;10,minecraft:aqua_affinity;10!minecraft:chests/underwater_ruin_small;50,minecraft:chests/underwater_ruin_big;100,minecraft:chests/buried_treasure;100"
         );
         public boolean enchantmentLevelWeights = false;
         @PredicateConstraint("positive") public int level1Weight = 16;

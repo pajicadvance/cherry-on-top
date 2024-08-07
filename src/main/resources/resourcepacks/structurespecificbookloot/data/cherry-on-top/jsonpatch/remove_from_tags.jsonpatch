@@ -10,5 +10,8 @@
 ];
 
 foreach (configEntry in cherryontop_config.enchantedBookLootImprovements.enchantmentStructureMap) {
-    $values = arrays.removeIf($values, (value) -> strings.split(configEntry, ",")[0] == value);
+    val enchantments = strings.split(strings.split(configEntry, "!")[0], ",");
+    foreach (enchantment in enchantments) {
+        $values = arrays.removeIf($values, (value) -> strings.split(enchantment, ";")[0] == value);
+    }
 }

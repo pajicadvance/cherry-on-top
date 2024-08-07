@@ -33,60 +33,73 @@
 ];
 import "cherry-on-top:cot_patcher_lib" as cotlib;
 
-foreach (entry in cherryontop_config.enchantedBookLootImprovements.enchantmentStructureMap) {
-    val stringArray = strings.split(entry, ",");
+foreach (configEntry in cherryontop_config.enchantedBookLootImprovements.enchantmentStructureMap) {
+    val entryArray = strings.split(configEntry, "!");
 
-    if (cotlib.arraySize(stringArray) < 2) {
-        debug.throw("Invalid structure specific loot entry " + entry + ": Entry must be in format enchantment,location;chance;count,location;chance;count,...");
+    if (cotlib.arraySize(entryArray) != 2) {
+        debug.throw("Invalid structure specific loot entry " + configEntry + ": Entry must be in format enchantment;weight,...,enchantment;weight!location;chance,...,location;chance");
     } else {
-        val enchantment = stringArray[0];
+        val locations = strings.split(entryArray[1], ",");
 
-        for (var i = 1; i < cotlib.arraySize(stringArray); i++) {
-            val location = strings.split(stringArray[i], ";");
-            val stringArray2 = strings.split(location[0], "/");
+        foreach (locationEntry in locations) {
+            val locationEntryArray = strings.split(locationEntry, ";");
 
-            var path = "";
-            if (cotlib.arraySize(stringArray2) > 2) {
-                val pathArray = arrays.slice(stringArray2, 1, cotlib.arraySize(stringArray2));
-                path = strings.join(pathArray, "/") + ".json";
-            }
-            else {
-                path = stringArray2[1] + ".json";
-            }
+            if (cotlib.arraySize(locationEntryArray) != 2) {
+                debug.throw("Invalid location entry " + locationEntry + " in structure specific loot entry " + configEntry + ": Location entry must be in format location;chance");
+            } else {
+                val segmentedLocation = strings.split(locationEntryArray[0], "/");
 
-            if (cotlib.arraySize(location) != 3) {
-                debug.throw("Invalid location entry " + stringArray[i] + " in structure specific loot entry " + entry + ": Location entry must be in format location;chance;count");
-            } else if (strings.contains(_target, path)) {
-                val chance = cotlib.strToInt(location[1], stringArray[i]) / 100;
-                val count = cotlib.strToInt(location[2], stringArray[i]);
+                var path = "";
+                if (cotlib.arraySize(segmentedLocation) > 2) {
+                    val pathArray = arrays.slice(segmentedLocation, 1, cotlib.arraySize(segmentedLocation));
+                    path = strings.join(pathArray, "/") + ".json";
+                }
+                else {
+                    path = segmentedLocation[1] + ".json";
+                }
 
-                val pool = {
-                    "rolls": 1.0,
-                    "entries": [
-                        {
-                            "type": "minecraft:item",
-                            "name": "minecraft:book",
-                            "functions": [
-                                {
-                                    "function": "minecraft:set_count",
-                                    "count": count
-                                },
-                                {
-                                    "function": "minecraft:enchant_randomly",
-                                    "options": enchantment
-                                }
-                            ]
+                if (strings.contains(_target, path)) {
+                    val enchantments = strings.split(entryArray[0], ",");
+                    val chance = cotlib.strToInt(locationEntryArray[1], configEntry) / 100;
+
+                    var pool = {
+                        "rolls": 1.0,
+                        "entries": [],
+                        "conditions": [
+                            {
+                                "condition": "minecraft:random_chance",
+                                "chance": chance
+                            }
+                        ]
+                    };
+
+                    foreach (enchantmentEntry in enchantments) {
+                        val enchantmentEntryArray = strings.split(enchantmentEntry, ";");
+
+                        if (cotlib.arraySize(enchantmentEntryArray) != 2) {
+                            debug.throw("Invalid enchantment entry " + enchantmentEntry + " in structure specific loot entry " + configEntry + ": Enchantment entry must be in format enchantment;weight");
+                        } else {
+                            val enchantment = enchantmentEntryArray[0];
+                            val weight = cotlib.strToInt(enchantmentEntryArray[1], configEntry);
+
+                            val poolEntry = {
+                                "type": "minecraft:item",
+                                "name": "minecraft:book",
+                                "weight": weight,
+                                "functions": [
+                                    {
+                                        "function": "minecraft:enchant_randomly",
+                                        "options": enchantment
+                                    }
+                                ]
+                            };
+
+                            pool.entries = arrays.push(pool.entries, poolEntry);
                         }
-                    ],
-                    "conditions": [
-                        {
-                            "condition": "minecraft:random_chance",
-                            "chance": chance
-                        }
-                    ]
-                };
+                    }
 
-                $pools = arrays.push($pools, pool);
+                    $pools = arrays.push($pools, pool);
+                }
             }
         }
     }
