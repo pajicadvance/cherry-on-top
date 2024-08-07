@@ -2,7 +2,31 @@
 @target [
     {
         "path": {
-            "start": "loot_table/",
+            "start": "loot_table/archaeology",
+            "end": ".json"
+        }
+    },
+    {
+        "path": {
+            "start": "loot_table/chests",
+            "end": ".json"
+        }
+    },
+    {
+        "path": {
+            "start": "loot_table/entities",
+            "end": ".json"
+        }
+    },
+    {
+        "path": {
+            "start": "loot_table/equipment",
+            "end": ".json"
+        }
+    },
+    {
+        "path": {
+            "start": "loot_table/gameplay",
             "end": ".json"
         }
     }
