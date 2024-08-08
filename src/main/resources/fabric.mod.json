@@ -28,7 +28,7 @@
   "depends": {
     "fabricloader": ">=${loader_version}",
     "fabric": "*",
-    "minecraft": "${minecraft_version}",
+    "minecraft": "1.21.x",
     "owo-lib": "^0.12.11",
     "disable_custom_worlds_advice": ">=6.0"
   },
