@@ -124,11 +124,10 @@ Configuration options:
 
 ### Music Disc Loot
 
-Adds a chance to find any music disc you can usually get from getting a skeleton to kill a creeper to loot chests in the world. Additionally, removes the vanilla 13 and Cat music disc loot in regular dungeons to avoid getting many copies of those two discs.
+Adds a chance to find any music disc you can usually get from getting a skeleton to kill a creeper to loot chests in the world. Additionally, removes the vanilla 13 and Cat music disc loot in dungeons, ancient cities and woodland mansions to avoid getting many copies of those two discs.
 
 Configuration options:
-- Change the chance that a disc will spawn in any of the defined locations
-- Add or remove locations where the discs can be found
+- Add or remove locations where the discs can be found, in the format of `location;chance`
 - Enable or disable removing the vanilla 13 and Cat music disc loot from regular dungeons
 
 ## Tweaks

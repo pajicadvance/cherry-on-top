@@ -47,9 +47,8 @@
 
   "text.config.cherry-on-top.category.musicDiscLoot": "Music Disc Loot",
   "text.config.cherry-on-top.option.musicDiscLoot.enableMusicDiscLoot": "Enable music disc loot",
-  "text.config.cherry-on-top.option.musicDiscLoot.musicDiscLootChance": "Music disc loot chance (%)",
   "text.config.cherry-on-top.option.musicDiscLoot.musicDiscLootLocations": "Music disc loot locations",
-  "text.config.cherry-on-top.option.musicDiscLoot.remove13AndCatSimpleDungeonEntries": "Remove 13 and cat from dungeon loot",
+  "text.config.cherry-on-top.option.musicDiscLoot.remove13AndCatLootEntries": "Remove excessive 13 and Cat loot",
 
   "text.config.cherry-on-top.category.bottleOEnchantingImprovements": "Bottle O' Enchanting Improvements",
   "text.config.cherry-on-top.option.bottleOEnchantingImprovements.enableBottleOEnchantingImprovements": "Enable BoE improvements",

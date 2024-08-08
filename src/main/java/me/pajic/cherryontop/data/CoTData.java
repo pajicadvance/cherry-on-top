@@ -62,7 +62,7 @@ public class CoTData {
                         modContainer,
                         ResourcePackActivationType.ALWAYS_ENABLED
                 );
-                if (Main.CONFIG.musicDiscLoot.remove13AndCatSimpleDungeonEntries()) {
+                if (Main.CONFIG.musicDiscLoot.remove13AndCatLootEntries()) {
                     ResourceManagerHelper.registerBuiltinResourcePack(
                             ResourceLocation.parse("cherry-on-top:remove13andcatloot"),
                             modContainer,

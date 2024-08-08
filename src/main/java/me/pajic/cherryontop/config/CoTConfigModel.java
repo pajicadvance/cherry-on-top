@@ -180,20 +180,20 @@ public class CoTConfigModel {
 
     public static class MusicDiscLoot {
         @RestartRequired public boolean enableMusicDiscLoot = true;
-        @RestartRequired @RangeConstraint(min = 1, max = 100) public int musicDiscLootChance = 10;
         @RestartRequired public List<String> musicDiscLootLocations = List.of(
-                "minecraft:chests/abandoned_mineshaft",
-                "minecraft:chests/end_city_treasure",
-                "minecraft:chests/igloo_chest",
-                "minecraft:chests/jungle_temple",
-                "minecraft:chests/pillager_outpost",
-                "minecraft:chests/simple_dungeon",
-                "minecraft:chests/stronghold_corridor",
-                "minecraft:chests/stronghold_crossing",
-                "minecraft:chests/stronghold_library",
-                "minecraft:chests/woodland_mansion"
+                "minecraft:chests/abandoned_mineshaft;10",
+                "minecraft:chests/end_city_treasure;10",
+                "minecraft:chests/igloo_chest;10",
+                "minecraft:chests/jungle_temple;10",
+                "minecraft:chests/pillager_outpost;10",
+                "minecraft:chests/simple_dungeon;10",
+                "minecraft:chests/stronghold_corridor;10",
+                "minecraft:chests/stronghold_crossing;10",
+                "minecraft:chests/stronghold_library;10",
+                "minecraft:chests/woodland_mansion;10",
+                "minecraft:gameplay/cat_morning_gift;10"
         );
-        @RestartRequired public boolean remove13AndCatSimpleDungeonEntries = true;
+        @RestartRequired public boolean remove13AndCatLootEntries = true;
     }
 
     public static class Predicates {

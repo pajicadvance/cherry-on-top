@@ -35,19 +35,24 @@
 import "cherry-on-top:cot_patcher_lib" as cotlib;
 
 foreach (entry in cherryontop_config.musicDiscLoot.musicDiscLootLocations) {
-    val stringArray = strings.split(entry, "/");
+    val stringArray = strings.split(entry, ";");
+    val stringArray2 = strings.split(stringArray[0], "/");
 
     var path = "";
-    if (cotlib.arraySize(stringArray) > 2) {
-        val pathArray = arrays.slice(stringArray, 1, cotlib.arraySize(stringArray));
+    if (cotlib.arraySize(stringArray2) > 2) {
+        val pathArray = arrays.slice(stringArray2, 1, cotlib.arraySize(stringArray2));
         path = strings.join(pathArray, "/") + ".json";
     }
     else {
-        path = stringArray[1] + ".json";
+        path = stringArray2[1] + ".json";
     }
 
-    if (strings.contains(_target, path)) {
-        val chance = cherryontop_config.musicDiscLoot.musicDiscLootChance / 100;
+    if (cotlib.arraySize(stringArray) != 2) {
+        debug.throw("Invalid music loot entry " + entry + ": Entry must be in format location;chance");
+    }
+    else if (strings.contains(_target, path)) {
+        val chance = cotlib.strToInt(stringArray[1], entry) / 100;
+
         val pool = {
             "rolls": 1.0,
             "entries": [
