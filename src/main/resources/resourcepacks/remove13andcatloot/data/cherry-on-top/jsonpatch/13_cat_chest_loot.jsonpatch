@@ -1,0 +1,11 @@
+@version "1";
+@target [
+    "minecraft:loot_table/chests/ancient_city.json",
+    "minecraft:loot_table/chests/simple_dungeon.json",
+    "minecraft:loot_table/chests/woodland_mansion.json"
+];
+@priority 1;
+
+foreach (pool in $pools) {
+    pool.entries = arrays.removeIf(pool.entries, (entry) -> "name" in objects.keys(entry) && (entry.name == "minecraft:music_disc_13" || entry.name == "minecraft:music_disc_cat"));
+}
