@@ -92,7 +92,7 @@ public abstract class GuiMixin {
         BlockPos blockPos = minecraft.player.blockPosition();
         int y;
 
-        String day = I18n.get("gui.cherry-on-top.day", minecraft.level.getDayTime() / 24000L);
+        String day = I18n.get("gui.cherry-on-top.day", (minecraft.level.getDayTime() / 24000L) + 1);
         long timeOffset = (minecraft.level.getDayTime() + 6000) % 24000;
         String time = I18n.get(
                 "gui.cherry-on-top.time",
