@@ -119,6 +119,7 @@
   "text.config.cherry-on-top.option.disableNightVision": "Disable night vision",
   "text.config.cherry-on-top.option.soulSpeedNoDamage": "Soul Speed doesn't damage boots",
   "text.config.cherry-on-top.option.disablePillagerPatrols": "Disable pillager patrols",
+  "text.config.cherry-on-top.option.creeperExplosionDropsAll": "Creeper explosion drops all items",
 
   "screen.cherry-on-top.wormholePlayerSelection.title": "Select player to teleport to",
 

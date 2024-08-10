@@ -10,6 +10,7 @@
     "bottle_o_enchanting_improvements.ThrownExperienceBottleMixin",
     "bow_drawing_sounds.BowItemMixin",
     "bow_drawing_sounds.RangedBowAttackGoalMixin",
+    "creeper_explosion_drops_all.CreeperMixin",
     "disable_night_vision.PotionBrewingMixin",
     "disable_night_vision.SetStewEffectFunctionMixin",
     "disable_night_vision.SuspiciousStewRecipeMixin",

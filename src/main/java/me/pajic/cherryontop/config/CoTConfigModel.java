@@ -33,6 +33,7 @@ public class CoTConfigModel {
     @RestartRequired public boolean infinityMendingCompatible = true;
     @RestartRequired public boolean soulSpeedNoDamage = true;
     public boolean playBowDrawingSounds = true;
+    public boolean creeperExplosionDropsAll = true;
     public boolean disableShulkerDuplication = false;
     public boolean disablePillagerPatrols = false;
     @RestartRequired public boolean disableNightVision = false;
