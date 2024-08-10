@@ -63,6 +63,7 @@ Clock info:
 
 Configuration options:
 - Enable or disable each info overlay
+- Adjust text background and shadow
 - Color the weather line according to the current weather conditions
 - Color the season line according to the current season
 

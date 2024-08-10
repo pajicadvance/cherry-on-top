@@ -2,6 +2,7 @@ package me.pajic.cherryontop.mixin.info_overlays;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
+import io.wispforest.owo.ui.core.Color;
 import it.unimi.dsi.fastutil.objects.ObjectIntImmutablePair;
 import me.pajic.cherryontop.Main;
 import me.pajic.cherryontop.compat.CoTEmiCompat;
@@ -13,8 +14,9 @@ import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.player.LocalPlayer;
-import net.minecraft.client.resources.language.I18n;
 import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.biome.Biome;
@@ -71,12 +73,12 @@ public abstract class GuiMixin {
                 key -> key != null ? key.location() : null, unknown -> null
         );
 
-        String coordinates = I18n.get(
+        Component coordinates = Component.translatable(
                 "gui.cherry-on-top.coordinates",
                 blockPos.getX(), blockPos.getY(), blockPos.getZ()
         );
-        String direction = I18n.get("gui.cherry-on-top.facing", minecraft.player.getDirection().getName());
-        String biomeName = I18n.get("biome." + biome.getNamespace() + "." + biome.getPath());
+        Component direction = Component.translatable("gui.cherry-on-top.facing", minecraft.player.getDirection().getName());
+        Component biomeName = Component.translatable("biome." + biome.getNamespace() + "." + biome.getPath());
 
         int y = 4;
         renderLine(guiGraphics, font, coordinates, y, 0xffffff);
@@ -92,19 +94,24 @@ public abstract class GuiMixin {
         BlockPos blockPos = minecraft.player.blockPosition();
         int y;
 
-        String day = I18n.get("gui.cherry-on-top.day", (minecraft.level.getDayTime() / 24000L) + 1);
+        MutableComponent dayAndTime = Component.translatable(
+                "gui.cherry-on-top.day",
+                (minecraft.level.getDayTime() / 24000L) + 1
+        );
         long timeOffset = (minecraft.level.getDayTime() + 6000) % 24000;
-        String time = I18n.get(
+        Component time = Component.translatable(
                 "gui.cherry-on-top.time",
                 timeOffset / 1000,
                 String.format("%02d", (int) ((double) (timeOffset / 10 % 100) / 100 * 60))
         );
+        dayAndTime.append(", ");
+        dayAndTime.append(time);
         if (compassRendered) y = 40;
         else y = 4;
-        renderLine(guiGraphics, font, day + ", " + time, y, 0xffffff);
+        renderLine(guiGraphics, font, dayAndTime, y, 0xffffff);
 
         if (FabricLoader.getInstance().isModLoaded("sereneseasons")) {
-            ObjectIntImmutablePair<String> seasonStringData = CoTSeasonsCompat.getSeasonStringData(minecraft.level);
+            ObjectIntImmutablePair<Component> seasonStringData = CoTSeasonsCompat.getSeasonStringData(minecraft.level);
             y += 12;
             if (Main.CONFIG.infoOverlays.coloredSeason())
                 renderLine(guiGraphics, font, seasonStringData.left(), y, seasonStringData.rightInt());
@@ -112,29 +119,29 @@ public abstract class GuiMixin {
                 renderLine(guiGraphics, font, seasonStringData.left(), y, 0xffffff);
         }
 
-        String weather;
+        Component weather;
         int weatherColor;
         if (minecraft.level.isThundering()) {
-            weather = I18n.get("gui.cherry-on-top.thundering");
+            weather = Component.translatable("gui.cherry-on-top.thundering");
             weatherColor = 0x2d3656;
         }
         else if (minecraft.level.isRaining()) {
             Biome.Precipitation precipitation = minecraft.level.getBiome(blockPos).value().getPrecipitationAt(blockPos);
             if (precipitation == Biome.Precipitation.RAIN) {
-                weather = I18n.get("gui.cherry-on-top.raining");
+                weather = Component.translatable("gui.cherry-on-top.raining");
                 weatherColor = 0x30639c;
             }
             else if (precipitation == Biome.Precipitation.SNOW) {
-                weather = I18n.get("gui.cherry-on-top.snowing");
+                weather = Component.translatable("gui.cherry-on-top.snowing");
                 weatherColor = 0x2fced2;
             }
             else {
-                weather = I18n.get("gui.cherry-on-top.cloudy");
+                weather = Component.translatable("gui.cherry-on-top.cloudy");
                 weatherColor = 0x878787;
             }
         }
         else {
-            weather = I18n.get("gui.cherry-on-top.clear");
+            weather = Component.translatable("gui.cherry-on-top.clear");
             weatherColor = 0xffffff;
         }
         y += 12;
@@ -155,13 +162,19 @@ public abstract class GuiMixin {
     }
 
     @Unique
-    private void renderLine(GuiGraphics guiGraphics, Font font, String text, float y, int color) {
+    private void renderLine(GuiGraphics guiGraphics, Font font, Component text, int y, int color) {
+        if (Main.CONFIG.infoOverlays.textBackground()) {
+            guiGraphics.fill(
+                    2, y - 2, font.width(text) + 5, y + 10,
+                    Color.ofHsv(0, 0, 0, Main.CONFIG.infoOverlays.textBackgroundOpacity()).argb()
+            );
+        }
         PoseStack matrixStack = guiGraphics.pose();
         matrixStack.pushPose();
         matrixStack.translate(4, y, 0.0);
         RenderSystem.enableBlend();
         RenderSystem.defaultBlendFunc();
-        guiGraphics.drawString(font, text, 0, 0, color);
+        guiGraphics.drawString(font, text, 0, 0, color, Main.CONFIG.infoOverlays.textShadow());
         RenderSystem.disableBlend();
         matrixStack.popPose();
     }
