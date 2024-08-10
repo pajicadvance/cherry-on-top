@@ -22,6 +22,7 @@
     "hide_debug_info_in_survival.DebugScreenOverlayMixin",
     "hide_debug_info_in_survival.PlayerMixin",
     "phantom_spawning_rework.PhantomSpawnerMixin",
+    "player_drops_more_xp.PlayerMixin",
     "riptide_water_only.TridentItemMixin",
     "tipped_arrows_from_regular_potions.TippedArrowRecipeMixin",
     "tipped_arrows_from_regular_potions.emi.VanillaPluginMixin",

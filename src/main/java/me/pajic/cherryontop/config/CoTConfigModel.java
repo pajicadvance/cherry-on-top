@@ -34,6 +34,8 @@ public class CoTConfigModel {
     @RestartRequired public boolean soulSpeedNoDamage = true;
     public boolean playBowDrawingSounds = true;
     public boolean creeperExplosionDropsAll = true;
+    public boolean playerDropMoreXpOnDeath = true;
+    @RangeConstraint(min = 0, max = 100) public int droppedExperiencePercent = 80;
     public boolean disableShulkerDuplication = false;
     public boolean disablePillagerPatrols = false;
     @RestartRequired public boolean disableNightVision = false;

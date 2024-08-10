@@ -120,6 +120,8 @@
   "text.config.cherry-on-top.option.soulSpeedNoDamage": "Soul Speed doesn't damage boots",
   "text.config.cherry-on-top.option.disablePillagerPatrols": "Disable pillager patrols",
   "text.config.cherry-on-top.option.creeperExplosionDropsAll": "Creeper explosion drops all items",
+  "text.config.cherry-on-top.option.playerDropMoreXpOnDeath": "Drop more XP on death",
+  "text.config.cherry-on-top.option.droppedExperiencePercent": "Percent of total XP dropped",
 
   "screen.cherry-on-top.wormholePlayerSelection.title": "Select player to teleport to",
 

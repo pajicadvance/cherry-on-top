@@ -157,6 +157,14 @@ Removes the durability damage taken from using Soul Speed.
 
 Makes the bow play a bow drawing sound when being drawn by players or mobs. Makes dealing with skeletons easier since you can now hear them drawing the bow before they shoot.
 
+### Creeper explosion drops all items
+
+Makes creeper explosions drop every destroyed block instead of only dropping some of them.
+
+### Drop more XP on death
+
+Changes the amount of experience that the player drops on death to a percentage of the total experience they had (80% by default).
+
 ### Disable shulker duplication
 
 Disables the game mechanic that allows shulkers to duplicate by hitting each other with their bullets.
