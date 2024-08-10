@@ -6,6 +6,7 @@
   "compatibilityLevel": "JAVA_21",
   "mixins": [
     "anvil_improvements.AnvilMenuMixin",
+    "base.earlyload.ServerMainMixin",
     "base.jsonpatcher.PatcherMixin",
     "bottle_o_enchanting_improvements.ThrownExperienceBottleMixin",
     "bow_drawing_sounds.BowItemMixin",
@@ -16,6 +17,9 @@
     "disable_night_vision.SuspiciousStewRecipeMixin",
     "disable_patrols.PatrolSpawnerMixin",
     "disable_shulker_duplication.ShulkerMixin",
+    "early_loaders.bundles_enabled_by_default.DataPackConfigMixin",
+    "early_loaders.bundles_enabled_by_default.FeatureFlagsMixin",
+    "early_loaders.stackable_potions.ItemsMixin",
     "enchanted_book_loot_improvements.EnchantBookForEmeraldsMixin",
     "enchanted_book_loot_improvements.EnchantRandomlyFunctionMixin",
     "enchantment_upgrade_smithing_template.SmithingMenuMixin",
@@ -31,6 +35,7 @@
   ],
   "client": [
     "anvil_improvements.AnvilScreenMixin",
+    "base.earlyload.ClientMainMixin",
     "double_tap_sprint.LocalPlayerMixin",
     "enchantment_upgrade_smithing_template.SmithingScreenMixin",
     "info_overlays.GuiMixin"
