@@ -17,6 +17,9 @@
     "main": [
       "me.pajic.cherryontop.Main"
     ],
+    "client": [
+      "me.pajic.cherryontop.ClientMain"
+    ],
     "emi": [
       "me.pajic.cherryontop.compat.CoTEmiCompat"
     ]
