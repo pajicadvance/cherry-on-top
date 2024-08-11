@@ -192,3 +192,11 @@ Turns on reduced debug info in survival mode, hiding essential info (such as coo
 ### Disable double-tap to sprint
 
 Disables double-tapping the forward key to start sprinting.
+
+### Enable bundles by default
+
+Turn on bundles by default on world creation.
+
+### Stackable potions
+
+Lets potions stack up to a configurable value.
