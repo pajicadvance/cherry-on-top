@@ -3,7 +3,7 @@ plugins {
     id 'maven-publish'
 }
 
-version = project.mod_version
+version = project.mod_version + "+" + project.minecraft_version
 group = project.maven_group
 
 base {
@@ -58,11 +58,11 @@ dependencies {
     include(implementation("com.moulberry:mixinconstraints:${project.mixinconstraints_version}"))
 
     // JsonPatcher
-    modImplementation(include("com.github.mattidragon:jsonpatcher:${jsonpatcher_version}"))
+    modImplementation(include("com.github.mattidragon:jsonpatcher:${project.jsonpatcher_version + "-mc." + project.minecraft_version}"))
     modCompileOnly "com.github.MattiDragon:JsonPatcherLang:v1.0.0"
 
     // Custom Brew Recipes
-    modImplementation(include("maven.modrinth:custombrewrecipes:${custombrewrecipes_version}"))
+    modImplementation(include("maven.modrinth:custombrewrecipes:${project.custombrewrecipes_version}"))
 
     // exp4j
     include "net.objecthunter:exp4j:${project.exp4j_version}"
@@ -76,16 +76,16 @@ dependencies {
     include "io.wispforest:owo-sentinel:${project.owo_version}"
 
     // Disable Custom Worlds Advice
-    modImplementation "maven.modrinth:dcwa:${dcwa_version}"
+    modImplementation "maven.modrinth:dcwa:${project.dcwa_version}"
 
     // Trinkets
-    modImplementation "dev.emi:trinkets:${trinkets_version}"
+    modImplementation "dev.emi:trinkets:${project.trinkets_version}"
 
     // EMI
-    modImplementation "dev.emi:emi-fabric:${emi_version}"
+    modImplementation "dev.emi:emi-fabric:${project.emi_version}"
 
     // Carpet
-    modImplementation "com.github.gnembon:fabric-carpet:${carpet_version}"
+    modImplementation "com.github.gnembon:fabric-carpet:${project.carpet_version}"
 
     // Serene Seasons
     modCompileOnly "maven.modrinth:serene-seasons:${project.sereneseasons_version}"
