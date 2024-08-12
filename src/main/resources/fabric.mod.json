@@ -32,6 +32,8 @@
     "fabricloader": ">=${loader_version}",
     "fabric": "*",
     "minecraft": "${minecraft_version}",
+    "jsonpatcher": "*",
+    "custombrewrecipes": "*",
     "owo-lib": "^0.12.11",
     "disable_custom_worlds_advice": ">=6.0"
   },
