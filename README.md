@@ -197,6 +197,10 @@ Disables double-tapping the forward key to start sprinting.
 
 Turn on bundles by default on world creation.
 
+### Enable trade rebalance by default
+
+Turn on trade rebalance by default on world creation.
+
 ### Stackable potions
 
 Lets potions stack up to a configurable value.

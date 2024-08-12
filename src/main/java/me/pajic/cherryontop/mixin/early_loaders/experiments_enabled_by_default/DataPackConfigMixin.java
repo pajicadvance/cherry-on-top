@@ -1,8 +1,8 @@
-package me.pajic.cherryontop.mixin.early_loaders.bundles_enabled_by_default;
+package me.pajic.cherryontop.mixin.early_loaders.experiments_enabled_by_default;
 
 import com.google.common.collect.ImmutableList;
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
-import me.pajic.cherryontop.config.EarlyLoaderConfig;
+import me.pajic.cherryontop.config.EarlyLoader;
 import net.minecraft.world.level.DataPackConfig;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -19,8 +19,14 @@ public class DataPackConfigMixin {
             )
     )
     private static <E> ImmutableList<E> enableBundlesByDefault(ImmutableList<E> original) {
-        if (EarlyLoaderConfig.options.enableBundlesByDefault) {
+        if (EarlyLoader.CONFIG.enableBundlesByDefault && EarlyLoader.CONFIG.enableTradeRebalanceByDefault) {
+            return (ImmutableList<E>) ImmutableList.of("vanilla", "bundle", "trade_rebalance");
+        }
+        else if (EarlyLoader.CONFIG.enableBundlesByDefault) {
             return (ImmutableList<E>) ImmutableList.of("vanilla", "bundle");
+        }
+        else if (EarlyLoader.CONFIG.enableTradeRebalanceByDefault) {
+            return (ImmutableList<E>) ImmutableList.of("vanilla", "trade_rebalance");
         }
         return original;
     }

@@ -1,6 +1,6 @@
 package me.pajic.cherryontop.mixin.early_loaders.stackable_potions;
 
-import me.pajic.cherryontop.config.EarlyLoaderConfig;
+import me.pajic.cherryontop.config.EarlyLoader;
 import net.minecraft.world.item.Items;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -25,8 +25,8 @@ public class ItemsMixin {
             )
     )
     private static int modifyPotionMaxStackSize(int original) {
-        if (EarlyLoaderConfig.options.enableStackablePotions) {
-            return EarlyLoaderConfig.options.potionMaxStackSize;
+        if (EarlyLoader.CONFIG.enableStackablePotions) {
+            return EarlyLoader.CONFIG.potionMaxStackSize;
         }
         return original;
     }
@@ -46,8 +46,8 @@ public class ItemsMixin {
             )
     )
     private static int modifySplashPotionMaxStackSize(int original) {
-        if (EarlyLoaderConfig.options.enableStackablePotions) {
-            return EarlyLoaderConfig.options.potionMaxStackSize;
+        if (EarlyLoader.CONFIG.enableStackablePotions) {
+            return EarlyLoader.CONFIG.potionMaxStackSize;
         }
         return original;
     }
@@ -67,8 +67,8 @@ public class ItemsMixin {
             )
     )
     private static int modifyLingeringPotionMaxStackSize(int original) {
-        if (EarlyLoaderConfig.options.enableStackablePotions) {
-            return EarlyLoaderConfig.options.potionMaxStackSize;
+        if (EarlyLoader.CONFIG.enableStackablePotions) {
+            return EarlyLoader.CONFIG.potionMaxStackSize;
         }
         return original;
     }

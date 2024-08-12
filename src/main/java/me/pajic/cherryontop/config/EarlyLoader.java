@@ -11,37 +11,43 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Path;
 
-public class EarlyLoaderConfig {
+public class EarlyLoader {
 
     private static final Logger LOGGER = LoggerFactory.getLogger("CherryOnTop-EarlyLoader");
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
     private static final Path configFile = FabricLoader.getInstance().getConfigDir().resolve("cherry-on-top-early.json");
-    public static Options options;
+    public static Config CONFIG;
+
+    public static class Config {
+        public boolean enableBundlesByDefault = true;
+        public boolean enableTradeRebalanceByDefault = true;
+        public boolean enableStackablePotions = true;
+        public int potionMaxStackSize = 3;
+        Config() {}
+    }
 
     public static void loadConfig() {
         try (FileReader reader = new FileReader(configFile.toFile())) {
-            options = GSON.fromJson(reader, Options.class);
+            CONFIG = GSON.fromJson(reader, Config.class);
         } catch (FileNotFoundException | JsonSyntaxException e) {
             LOGGER.warn("Config doesn't exist or is malformed, initializing new mod config...");
             initializeConfig();
         } catch (IOException e) {
             LOGGER.error("Failed to read mod config", e);
         }
-    }
-
-    private static void initializeConfig() {
         try (FileWriter writer = new FileWriter(configFile.toFile())) {
-            options = new Options();
-            GSON.toJson(options, writer);
+            GSON.toJson(CONFIG, writer);
         } catch (IOException e) {
             LOGGER.error("Failed to save mod config", e);
         }
     }
 
-    public static class Options {
-        public boolean enableBundlesByDefault = true;
-        public boolean enableStackablePotions = true;
-        public int potionMaxStackSize = 3;
-        Options() {}
+    private static void initializeConfig() {
+        try (FileWriter writer = new FileWriter(configFile.toFile())) {
+            CONFIG = new Config();
+            GSON.toJson(CONFIG, writer);
+        } catch (IOException e) {
+            LOGGER.error("Failed to save mod config", e);
+        }
     }
 }

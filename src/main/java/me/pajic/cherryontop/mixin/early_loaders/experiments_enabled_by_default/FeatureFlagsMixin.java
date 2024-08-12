@@ -1,7 +1,7 @@
-package me.pajic.cherryontop.mixin.early_loaders.bundles_enabled_by_default;
+package me.pajic.cherryontop.mixin.early_loaders.experiments_enabled_by_default;
 
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
-import me.pajic.cherryontop.config.EarlyLoaderConfig;
+import me.pajic.cherryontop.config.EarlyLoader;
 import net.minecraft.world.flag.FeatureFlag;
 import net.minecraft.world.flag.FeatureFlagSet;
 import net.minecraft.world.flag.FeatureFlags;
@@ -17,6 +17,8 @@ public class FeatureFlagsMixin {
 
     @Shadow @Final public static FeatureFlag VANILLA;
 
+    @Shadow @Final public static FeatureFlag TRADE_REBALANCE;
+
     @ModifyExpressionValue(
             method = "<clinit>",
             at = @At(
@@ -25,8 +27,14 @@ public class FeatureFlagsMixin {
             )
     )
     private static FeatureFlagSet enableBundlesByDefault(FeatureFlagSet original) {
-        if (EarlyLoaderConfig.options.enableBundlesByDefault) {
+        if (EarlyLoader.CONFIG.enableBundlesByDefault && EarlyLoader.CONFIG.enableTradeRebalanceByDefault) {
+            return FeatureFlagSet.of(VANILLA, BUNDLE, TRADE_REBALANCE);
+        }
+        else if (EarlyLoader.CONFIG.enableBundlesByDefault) {
             return FeatureFlagSet.of(VANILLA, BUNDLE);
+        }
+        else if (EarlyLoader.CONFIG.enableTradeRebalanceByDefault) {
+            return FeatureFlagSet.of(VANILLA, TRADE_REBALANCE);
         }
         return original;
     }

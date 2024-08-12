@@ -3,7 +3,7 @@ package me.pajic.cherryontop.item;
 import me.emafire003.dev.custombrewrecipes.CustomBrewRecipeRegister;
 import me.pajic.cherryontop.Main;
 import me.pajic.cherryontop.compat.CoTTrinketsCompat;
-import me.pajic.cherryontop.config.EarlyLoaderConfig;
+import me.pajic.cherryontop.config.EarlyLoader;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.ChatFormatting;
@@ -57,13 +57,13 @@ public class CoTItems {
     );
 
     public static final Item POTION_OF_TELEPORTATION = new PotionOfTeleportationItem(
-            new Item.Properties().stacksTo(EarlyLoaderConfig.options.potionMaxStackSize),
+            new Item.Properties().stacksTo(EarlyLoader.CONFIG.potionMaxStackSize),
             Component.translatable("item.cherry-on-top.potion_of_teleportation.tooltip").withStyle(ChatFormatting.BLUE),
             Main.CONFIG.teleportationPotions.enablePotionOfTeleportation()
     );
 
     public static final Item POTION_OF_WORMHOLE = new PotionOfWormholeItem(
-            new Item.Properties().stacksTo(EarlyLoaderConfig.options.potionMaxStackSize),
+            new Item.Properties().stacksTo(EarlyLoader.CONFIG.potionMaxStackSize),
             Component.translatable("item.cherry-on-top.potion_of_wormhole.tooltip").withStyle(ChatFormatting.BLUE),
             Main.CONFIG.teleportationPotions.enablePotionOfWormhole()
     );

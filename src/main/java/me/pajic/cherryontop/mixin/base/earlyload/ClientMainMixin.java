@@ -1,6 +1,6 @@
 package me.pajic.cherryontop.mixin.base.earlyload;
 
-import me.pajic.cherryontop.config.EarlyLoaderConfig;
+import me.pajic.cherryontop.config.EarlyLoader;
 import net.minecraft.client.main.Main;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -15,6 +15,6 @@ public class ClientMainMixin {
             at = @At("HEAD")
     )
     private static void onInit(CallbackInfo ci) {
-        EarlyLoaderConfig.loadConfig();
+        EarlyLoader.loadConfig();
     }
 }
