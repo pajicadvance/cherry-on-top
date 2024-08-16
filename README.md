@@ -176,6 +176,7 @@ Prevents pillager patrols from spawning, regardless of what the gamerule is set 
 ### Disable night vision
 
 Makes Night Vision unobtainable in survival with the following changes:
+
 - The brewing recipe for Night Vision potions now makes Invisibility potions instead
 - The crafting recipe for Suspicious Stew with a Night Vision effect now gives a Suspicious Stew with Invisibility instead
 - Looted Suspicious Stew that would contain Night Vision now contains Invisibility instead
@@ -207,4 +208,4 @@ Makes obsidian, crying obsidian and respawn anchors break faster (9.4s -> 5.65s 
 
 ### Stackable items
 
-Enable item stacking for a bunch of items that were previously unstackable, up to a configurable value.
+Enable item stacking for a bunch of items that were previously unstackable, up to a configurable value. Throwable potions also get a configurable cooldown if potion stacking is enabled.
