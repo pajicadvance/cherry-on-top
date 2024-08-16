@@ -19,6 +19,7 @@
     "disable_shulker_duplication.ShulkerMixin",
     "early_loaders.experiments_enabled_by_default.DataPackConfigMixin",
     "early_loaders.experiments_enabled_by_default.FeatureFlagsMixin",
+    "early_loaders.faster_obsidian_mining.BlocksMixin",
     "early_loaders.stackable_items.ItemsMixin",
     "early_loaders.stackable_items.ThrowablePotionItemMixin",
     "enchanted_book_loot_improvements.EnchantBookForEmeraldsMixin",

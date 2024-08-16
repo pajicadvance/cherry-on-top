@@ -12,9 +12,7 @@ import org.spongepowered.asm.mixin.injection.At;
 public class ItemsMixin {
 
     @Definition(id = "PotionItem", type = PotionItem.class)
-    @Definition(id = "Properties", type = Item.Properties.class)
-    @Definition(id = "stacksTo", method = "Lnet/minecraft/world/item/Item$Properties;stacksTo(I)Lnet/minecraft/world/item/Item$Properties;")
-    @Expression("new PotionItem(new Properties().stacksTo(@(1)).?(?, ?))")
+    @Expression("new PotionItem(new ?().?(@(?)).?(?, ?))")
     @ModifyExpressionValue(
             method = "<clinit>",
             at = @At("MIXINEXTRAS:EXPRESSION")
@@ -27,9 +25,7 @@ public class ItemsMixin {
     }
 
     @Definition(id = "SplashPotionItem", type = SplashPotionItem.class)
-    @Definition(id = "Properties", type = Item.Properties.class)
-    @Definition(id = "stacksTo", method = "Lnet/minecraft/world/item/Item$Properties;stacksTo(I)Lnet/minecraft/world/item/Item$Properties;")
-    @Expression("new SplashPotionItem(new Properties().stacksTo(@(1)).?(?, ?))")
+    @Expression("new SplashPotionItem(new ?().?(@(?)).?(?, ?))")
     @ModifyExpressionValue(
             method = "<clinit>",
             at = @At("MIXINEXTRAS:EXPRESSION")
@@ -42,9 +38,7 @@ public class ItemsMixin {
     }
 
     @Definition(id = "LingeringPotionItem", type = LingeringPotionItem.class)
-    @Definition(id = "Properties", type = Item.Properties.class)
-    @Definition(id = "stacksTo", method = "Lnet/minecraft/world/item/Item$Properties;stacksTo(I)Lnet/minecraft/world/item/Item$Properties;")
-    @Expression("new LingeringPotionItem(new Properties().stacksTo(@(1)).?(?, ?))")
+    @Expression("new LingeringPotionItem(new ?().?(@(?)).?(?, ?))")
     @ModifyExpressionValue(
             method = "<clinit>",
             at = @At("MIXINEXTRAS:EXPRESSION")
@@ -57,9 +51,7 @@ public class ItemsMixin {
     }
 
     @Definition(id = "EnchantedBookItem", type = EnchantedBookItem.class)
-    @Definition(id = "Properties", type = Item.Properties.class)
-    @Definition(id = "stacksTo", method = "Lnet/minecraft/world/item/Item$Properties;stacksTo(I)Lnet/minecraft/world/item/Item$Properties;")
-    @Expression("new EnchantedBookItem(new Properties().stacksTo(@(1)).?(?).?(?, ?).?(?, ?))")
+    @Expression("new EnchantedBookItem(new ?().?(@(?)).?(?).?(?, ?).?(?, ?))")
     @ModifyExpressionValue(
             method = "<clinit>",
             at = @At("MIXINEXTRAS:EXPRESSION")
@@ -72,9 +64,7 @@ public class ItemsMixin {
     }
 
     @Definition(id = "AnimalArmorItem", type = AnimalArmorItem.class)
-    @Definition(id = "Properties", type = Item.Properties.class)
-    @Definition(id = "stacksTo", method = "Lnet/minecraft/world/item/Item$Properties;stacksTo(I)Lnet/minecraft/world/item/Item$Properties;")
-    @Expression("new AnimalArmorItem(?, ?, ?, new Properties().stacksTo(@(1)))")
+    @Expression("new AnimalArmorItem(?, ?, ?, new ?().?(@(?)))")
     @ModifyExpressionValue(
             method = "<clinit>",
             at = @At("MIXINEXTRAS:EXPRESSION")
@@ -86,10 +76,8 @@ public class ItemsMixin {
         return original;
     }
 
-    @Definition(id = "stacksTo", method = "Lnet/minecraft/world/item/Item$Properties;stacksTo(I)Lnet/minecraft/world/item/Item$Properties;")
-    @Definition(id = "Properties", type = Item.Properties.class)
     @Definition(id = "RABBIT_STEW", field = "Lnet/minecraft/world/food/Foods;RABBIT_STEW:Lnet/minecraft/world/food/FoodProperties;")
-    @Expression("new Properties().stacksTo(@(1)).?(RABBIT_STEW)")
+    @Expression("new ?().?(@(?)).?(RABBIT_STEW)")
     @ModifyExpressionValue(
             method = "<clinit>",
             at = @At("MIXINEXTRAS:EXPRESSION")
@@ -101,10 +89,8 @@ public class ItemsMixin {
         return original;
     }
 
-    @Definition(id = "stacksTo", method = "Lnet/minecraft/world/item/Item$Properties;stacksTo(I)Lnet/minecraft/world/item/Item$Properties;")
-    @Definition(id = "Properties", type = Item.Properties.class)
     @Definition(id = "MUSHROOM_STEW", field = "Lnet/minecraft/world/food/Foods;MUSHROOM_STEW:Lnet/minecraft/world/food/FoodProperties;")
-    @Expression("new Properties().stacksTo(@(1)).?(MUSHROOM_STEW)")
+    @Expression("new ?().?(@(?)).?(MUSHROOM_STEW)")
     @ModifyExpressionValue(
             method = "<clinit>",
             at = @At("MIXINEXTRAS:EXPRESSION")
@@ -116,10 +102,8 @@ public class ItemsMixin {
         return original;
     }
 
-    @Definition(id = "stacksTo", method = "Lnet/minecraft/world/item/Item$Properties;stacksTo(I)Lnet/minecraft/world/item/Item$Properties;")
-    @Definition(id = "Properties", type = Item.Properties.class)
     @Definition(id = "BEETROOT_SOUP", field = "Lnet/minecraft/world/food/Foods;BEETROOT_SOUP:Lnet/minecraft/world/food/FoodProperties;")
-    @Expression("new Properties().stacksTo(@(1)).?(BEETROOT_SOUP)")
+    @Expression("new ?().?(@(?)).?(BEETROOT_SOUP)")
     @ModifyExpressionValue(
             method = "<clinit>",
             at = @At("MIXINEXTRAS:EXPRESSION")
@@ -131,10 +115,8 @@ public class ItemsMixin {
         return original;
     }
 
-    @Definition(id = "stacksTo", method = "Lnet/minecraft/world/item/Item$Properties;stacksTo(I)Lnet/minecraft/world/item/Item$Properties;")
-    @Definition(id = "Properties", type = Item.Properties.class)
     @Definition(id = "jukeboxPlayable", method = "Lnet/minecraft/world/item/Item$Properties;jukeboxPlayable(Lnet/minecraft/resources/ResourceKey;)Lnet/minecraft/world/item/Item$Properties;")
-    @Expression("new Properties().stacksTo(@(1)).?(?).jukeboxPlayable(?)")
+    @Expression("new ?().?(@(?)).?(?).jukeboxPlayable(?)")
     @ModifyExpressionValue(
             method = "<clinit>",
             at = @At("MIXINEXTRAS:EXPRESSION")
@@ -147,9 +129,7 @@ public class ItemsMixin {
     }
 
     @Definition(id = "SaddleItem", type = SaddleItem.class)
-    @Definition(id = "Properties", type = Item.Properties.class)
-    @Definition(id = "stacksTo", method = "Lnet/minecraft/world/item/Item$Properties;stacksTo(I)Lnet/minecraft/world/item/Item$Properties;")
-    @Expression("new SaddleItem(new Properties().stacksTo(@(1)))")
+    @Expression("new SaddleItem(new ?().?(@(?)))")
     @ModifyExpressionValue(
             method = "<clinit>",
             at = @At("MIXINEXTRAS:EXPRESSION")
@@ -162,9 +142,7 @@ public class ItemsMixin {
     }
 
     @Definition(id = "MinecartItem", type = MinecartItem.class)
-    @Definition(id = "Properties", type = Item.Properties.class)
-    @Definition(id = "stacksTo", method = "Lnet/minecraft/world/item/Item$Properties;stacksTo(I)Lnet/minecraft/world/item/Item$Properties;")
-    @Expression("new MinecartItem(?, new Properties().stacksTo(@(1)))")
+    @Expression("new MinecartItem(?, new ?().?(@(?)))")
     @ModifyExpressionValue(
             method = "<clinit>",
             at = @At("MIXINEXTRAS:EXPRESSION")
@@ -177,9 +155,7 @@ public class ItemsMixin {
     }
 
     @Definition(id = "BoatItem", type = BoatItem.class)
-    @Definition(id = "Properties", type = Item.Properties.class)
-    @Definition(id = "stacksTo", method = "Lnet/minecraft/world/item/Item$Properties;stacksTo(I)Lnet/minecraft/world/item/Item$Properties;")
-    @Expression("new BoatItem(?, ?, new Properties().stacksTo(@(1)))")
+    @Expression("new BoatItem(?, ?, new ?().?(@(?)))")
     @ModifyExpressionValue(
             method = "<clinit>",
             at = @At("MIXINEXTRAS:EXPRESSION")
@@ -191,11 +167,8 @@ public class ItemsMixin {
         return original;
     }
 
-    @Definition(id = "BlockItem", type = BlockItem.class)
     @Definition(id = "CAKE", field = "Lnet/minecraft/world/level/block/Blocks;CAKE:Lnet/minecraft/world/level/block/Block;")
-    @Definition(id = "Properties", type = Item.Properties.class)
-    @Definition(id = "stacksTo", method = "Lnet/minecraft/world/item/Item$Properties;stacksTo(I)Lnet/minecraft/world/item/Item$Properties;")
-    @Expression("new BlockItem(CAKE, new Properties().stacksTo(@(1)))")
+    @Expression("new ?(CAKE, new ?().?(@(?)))")
     @ModifyExpressionValue(
             method = "<clinit>",
             at = @At("MIXINEXTRAS:EXPRESSION")
@@ -208,9 +181,7 @@ public class ItemsMixin {
     }
 
     @Definition(id = "BedItem", type = BedItem.class)
-    @Definition(id = "Properties", type = Item.Properties.class)
-    @Definition(id = "stacksTo", method = "Lnet/minecraft/world/item/Item$Properties;stacksTo(I)Lnet/minecraft/world/item/Item$Properties;")
-    @Expression("new BedItem(?, new Properties().stacksTo(@(1)))")
+    @Expression("new BedItem(?, new ?().?(@(?)))")
     @ModifyExpressionValue(
             method = "<clinit>",
             at = @At("MIXINEXTRAS:EXPRESSION")

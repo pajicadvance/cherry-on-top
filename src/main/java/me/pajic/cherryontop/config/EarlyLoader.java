@@ -21,6 +21,7 @@ public class EarlyLoader {
     public static class Config {
         public boolean enableBundlesByDefault = true;
         public boolean enableTradeRebalanceByDefault = true;
+        public boolean enableFasterObsidianMining = true;
         public boolean enableStackablePotions = true;
         public int potionMaxStackSize = 3;
         public int splashPotionCooldown = 1;
