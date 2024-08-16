@@ -89,6 +89,9 @@ dependencies {
 
     // Serene Seasons
     modCompileOnly "maven.modrinth:serene-seasons:${project.sereneseasons_version}"
+
+    // Notes
+    modImplementation "maven.modrinth:notes:${project.notes_version}"
 }
 
 loom {

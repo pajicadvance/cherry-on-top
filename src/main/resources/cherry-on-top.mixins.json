@@ -38,6 +38,7 @@
   "client": [
     "anvil_improvements.AnvilScreenMixin",
     "base.earlyload.ClientMainMixin",
+    "compat.notes.EditNoteScreenMixin",
     "double_tap_sprint.LocalPlayerMixin",
     "enchantment_upgrade_smithing_template.SmithingScreenMixin",
     "info_overlays.GuiMixin"
