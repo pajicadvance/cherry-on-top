@@ -201,6 +201,10 @@ Turn on bundles by default on world creation.
 
 Turn on trade rebalance by default on world creation.
 
+### Faster obsidian mining
+
+Makes obsidian, crying obsidian and respawn anchors break faster (9.4s -> 5.65s with an unenchanted diamond pickaxe).
+
 ### Stackable items
 
 Enable item stacking for a bunch of items that were previously unstackable, up to a configurable value.
