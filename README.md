@@ -201,6 +201,6 @@ Turn on bundles by default on world creation.
 
 Turn on trade rebalance by default on world creation.
 
-### Stackable potions
+### Stackable items
 
-Lets potions stack up to a configurable value.
+Enable item stacking for a bunch of items that were previously unstackable, up to a configurable value.
