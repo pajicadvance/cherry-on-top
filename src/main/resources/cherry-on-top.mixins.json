@@ -32,6 +32,7 @@
     "riptide_water_only.TridentItemMixin",
     "tipped_arrows_from_regular_potions.TippedArrowRecipeMixin",
     "tipped_arrows_from_regular_potions.emi.VanillaPluginMixin",
+    "whetstone.AnvilMenuMixin",
     "whetstone.EnchantmentHelperMixin",
     "whetstone.RepairItemRecipeMixin"
   ],
