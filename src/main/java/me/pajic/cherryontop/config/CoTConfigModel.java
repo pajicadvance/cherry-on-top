@@ -21,6 +21,7 @@ public class CoTConfigModel {
     @Nest public TeleportationPotions teleportationPotions = new TeleportationPotions();
     @Nest public InfoOverlays infoOverlays = new InfoOverlays();
     @Nest public PhantomSpawningRework phantomSpawningRework = new PhantomSpawningRework();
+    @Nest public DeathImprovements deathImprovements = new DeathImprovements();
     @Nest public AnvilImprovements anvilImprovements = new AnvilImprovements();
     @Nest public BottleOEnchantingImprovements bottleOEnchantingImprovements = new BottleOEnchantingImprovements();
     @Nest public EnchantedBookLootImprovements enchantedBookLootImprovements = new EnchantedBookLootImprovements();
@@ -34,8 +35,6 @@ public class CoTConfigModel {
     @RestartRequired public boolean soulSpeedNoDamage = true;
     public boolean playBowDrawingSounds = true;
     public boolean creeperExplosionDropsAll = true;
-    public boolean playerDropMoreXpOnDeath = true;
-    @RangeConstraint(min = 0, max = 100) public int droppedExperiencePercent = 80;
     public boolean disableShulkerDuplication = false;
     public boolean disablePillagerPatrols = false;
     @RestartRequired public boolean disableNightVision = false;
@@ -95,6 +94,13 @@ public class CoTConfigModel {
         public static boolean expressionWithRandValid(String string) {
             return Predicates.expressionWithRandValid(string);
         }
+    }
+
+    public static class DeathImprovements {
+        public boolean noItemSplatterOnDeath = true;
+        public boolean noDeathItemDespawn = true;
+        public boolean playerDropMoreXpOnDeath = true;
+        @RangeConstraint(min = 0, max = 100) public int droppedExperiencePercent = 80;
     }
 
     public static class AnvilImprovements {

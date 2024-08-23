@@ -1,7 +1,7 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "minMixinExtrasVersion": "0.5.0-beta.1",
+  "minMixinExtrasVersion": "0.5.0-beta.2",
   "package": "me.pajic.cherryontop.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
@@ -12,6 +12,9 @@
     "bow_drawing_sounds.BowItemMixin",
     "bow_drawing_sounds.RangedBowAttackGoalMixin",
     "creeper_explosion_drops_all.CreeperMixin",
+    "death_improvements.InventoryMixin",
+    "death_improvements.ItemEntityMixin",
+    "death_improvements.PlayerMixin",
     "disable_night_vision.PotionBrewingMixin",
     "disable_night_vision.SetStewEffectFunctionMixin",
     "disable_night_vision.SuspiciousStewRecipeMixin",
@@ -28,7 +31,6 @@
     "hide_debug_info_in_survival.DebugScreenOverlayMixin",
     "hide_debug_info_in_survival.PlayerMixin",
     "phantom_spawning_rework.PhantomSpawnerMixin",
-    "player_drops_more_xp.PlayerMixin",
     "riptide_water_only.TridentItemMixin",
     "tipped_arrows_from_regular_potions.TippedArrowRecipeMixin",
     "tipped_arrows_from_regular_potions.emi.VanillaPluginMixin",

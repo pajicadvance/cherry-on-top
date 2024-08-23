@@ -1,15 +1,24 @@
 package me.pajic.cherryontop.data;
 
+import com.mojang.serialization.Codec;
 import me.pajic.cherryontop.Main;
 import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
 import net.fabricmc.fabric.api.resource.ResourcePackActivationType;
 import net.fabricmc.loader.api.FabricLoader;
+import net.minecraft.core.Registry;
+import net.minecraft.core.component.DataComponentType;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.network.codec.ByteBufCodecs;
 import net.minecraft.resources.ResourceLocation;
 
 public class CoTData {
 
+    public static final DataComponentType<Boolean> NO_DESPAWN = DataComponentType.<Boolean>builder().persistent(Codec.BOOL).networkSynchronized(ByteBufCodecs.BOOL).build();
+
     public static void initData() {
         FabricLoader.getInstance().getModContainer("cherry-on-top").ifPresent(modContainer -> {
+
+            Registry.register(BuiltInRegistries.DATA_COMPONENT_TYPE, ResourceLocation.parse("cherry-on-top:no_despawn"), NO_DESPAWN);
 
             ResourceManagerHelper.registerBuiltinResourcePack(
                     ResourceLocation.parse("cherry-on-top:patcherlib"),

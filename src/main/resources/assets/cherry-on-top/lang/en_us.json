@@ -98,6 +98,12 @@
   "text.config.cherry-on-top.option.infoOverlays.coloredSeason": "Colored season line",
   "text.config.cherry-on-top.option.infoOverlays.coloredWeather": "Colored weather line",
 
+  "text.config.cherry-on-top.category.deathImprovements": "Death Improvements",
+  "text.config.cherry-on-top.option.deathImprovements.noItemSplatterOnDeath": "Disable item splatter",
+  "text.config.cherry-on-top.option.deathImprovements.noDeathItemDespawn": "Don't despawn items dropped on death",
+  "text.config.cherry-on-top.option.deathImprovements.playerDropMoreXpOnDeath": "Drop more XP on death",
+  "text.config.cherry-on-top.option.deathImprovements.droppedExperiencePercent": "Percent of total XP dropped",
+
   "text.config.cherry-on-top.section.tweaks": "Tweaks",
   "text.config.cherry-on-top.option.disableDoubleTapSprint": "Disable double-tap to sprint",
   "cherry-on-top.tweaks.disableDoubleTapSprint.desc": "Disables double-tapping the forward key to sprint.",
@@ -120,8 +126,6 @@
   "text.config.cherry-on-top.option.soulSpeedNoDamage": "Soul Speed doesn't damage boots",
   "text.config.cherry-on-top.option.disablePillagerPatrols": "Disable pillager patrols",
   "text.config.cherry-on-top.option.creeperExplosionDropsAll": "Creeper explosion drops all items",
-  "text.config.cherry-on-top.option.playerDropMoreXpOnDeath": "Drop more XP on death",
-  "text.config.cherry-on-top.option.droppedExperiencePercent": "Percent of total XP dropped",
 
   "screen.cherry-on-top.wormholePlayerSelection.title": "Select player to teleport to",
 
