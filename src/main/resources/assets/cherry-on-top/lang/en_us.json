@@ -76,6 +76,8 @@
   "text.config.cherry-on-top.option.anvilImprovements.uniqueItems.elytraUnits": "Elytra",
   "text.config.cherry-on-top.option.anvilImprovements.uniqueItems.maceUnits": "Mace",
   "text.config.cherry-on-top.option.anvilImprovements.uniqueItems.whetstoneUnits": "Whetstone",
+  "text.config.cherry-on-top.option.anvilImprovements.modTags": "Custom Item Tags",
+  "text.config.cherry-on-top.option.anvilImprovements.modItems": "Custom Items",
   "text.config.cherry-on-top.option.anvilImprovements.modifyDegradationChance": "Modify degradation chance",
   "text.config.cherry-on-top.option.anvilImprovements.degradationChance": "Degradation chance (%)",
   "text.config.cherry-on-top.option.anvilImprovements.freeUnenchantedRepairs": "No XP cost for unenchanted repairs",

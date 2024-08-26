@@ -108,6 +108,8 @@ public class CoTConfigModel {
         @Nest public Armor armor = new Armor();
         @Nest public Tools tools = new Tools();
         @Nest public UniqueItems uniqueItems = new UniqueItems();
+        public List<String> modTags = List.of("farmersdelight:tools/knives;1");
+        public List<String> modItems = List.of();
         public boolean modifyDegradationChance = true;
         @RangeConstraint(min = 0.0F, max = 100.0F, decimalPlaces = 1) public float degradationChance = 6.0F;
         public boolean freeUnenchantedRepairs = true;
