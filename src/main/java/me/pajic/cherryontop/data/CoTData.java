@@ -26,6 +26,14 @@ public class CoTData {
                     ResourcePackActivationType.ALWAYS_ENABLED
             );
 
+            if (FabricLoader.getInstance().isModLoaded("itemswapper")) {
+                ResourceManagerHelper.registerBuiltinResourcePack(
+                        ResourceLocation.parse("cherry-on-top:itemswappercompat"),
+                        modContainer,
+                        ResourcePackActivationType.ALWAYS_ENABLED
+                );
+            }
+
             if (Main.CONFIG.enderBackpack.enableEnderBackpack()) {
                 ResourceManagerHelper.registerBuiltinResourcePack(
                         ResourceLocation.parse("cherry-on-top:enderbackpack"),
