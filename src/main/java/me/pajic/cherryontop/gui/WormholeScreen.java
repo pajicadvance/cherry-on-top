@@ -1,4 +1,4 @@
-package me.pajic.cherryontop.screen;
+package me.pajic.cherryontop.gui;
 
 import me.pajic.cherryontop.network.CoTNetworking;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
@@ -26,6 +26,7 @@ public class WormholeScreen extends Screen {
         this.user = user;
     }
 
+    @SuppressWarnings("ConstantConditions")
     @Override
     protected void init() {
         LinearLayout linearLayout = this.layout.addToHeader(LinearLayout.vertical().spacing(8));
@@ -57,6 +58,7 @@ public class WormholeScreen extends Screen {
         return false;
     }
 
+    @SuppressWarnings("ConstantConditions")
     private class PlayerListWidget extends ObjectSelectionList<PlayerEntry> {
 
         public PlayerListWidget() {

@@ -1,6 +1,6 @@
 package me.pajic.cherryontop.item;
 
-import me.pajic.cherryontop.screen.WormholeScreen;
+import me.pajic.cherryontop.gui.WormholeScreen;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.Minecraft;

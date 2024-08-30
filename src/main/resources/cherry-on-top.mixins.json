@@ -44,8 +44,7 @@
     "base.earlyload.ClientMainMixin",
     "compat.notes.EditNoteScreenMixin",
     "double_tap_sprint.LocalPlayerMixin",
-    "enchantment_upgrade_smithing_template.SmithingScreenMixin",
-    "info_overlays.GuiMixin"
+    "enchantment_upgrade_smithing_template.SmithingScreenMixin"
   ],
   "plugin": "com.moulberry.mixinconstraints.ConstraintsMixinPlugin",
   "injectors": {
