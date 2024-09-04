@@ -2,9 +2,11 @@ package me.pajic.cherryontop.gui;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import io.wispforest.owo.ui.core.Color;
+import it.unimi.dsi.fastutil.ints.IntIntImmutablePair;
 import it.unimi.dsi.fastutil.objects.ObjectIntImmutablePair;
 import me.pajic.cherryontop.Main;
 import me.pajic.cherryontop.compat.CoTEmiCompat;
+import me.pajic.cherryontop.compat.CoTRaisedCompat;
 import me.pajic.cherryontop.compat.CoTSeasonsCompat;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.fabricmc.loader.api.FabricLoader;
@@ -153,15 +155,23 @@ public class InfoOverlays {
         }
 
         private void renderLine(GuiGraphics guiGraphics, Font font, Component text, int y, int color) {
+            int xOffset = 0;
+            int yOffset = 0;
+            if (FabricLoader.getInstance().isModLoaded("raised")) {
+                IntIntImmutablePair offsets = CoTRaisedCompat.getOtherComponentOffsets();
+                xOffset = offsets.leftInt();
+                yOffset = offsets.rightInt();
+            }
+
             RenderSystem.enableBlend();
 
             if (Main.CONFIG.infoOverlays.textBackground()) {
                 guiGraphics.fill(
-                        2, y - 2, font.width(text) + 5, y + 10,
+                        2 + xOffset, y - 2 + yOffset, font.width(text) + 5 + xOffset, y + 10 + yOffset,
                         Color.ofHsv(0, 0, 0, Main.CONFIG.infoOverlays.textBackgroundOpacity()).argb()
                 );
             }
-            guiGraphics.drawString(font, text, 4, y, color, Main.CONFIG.infoOverlays.textShadow());
+            guiGraphics.drawString(font, text, 4 + xOffset, y + yOffset, color, Main.CONFIG.infoOverlays.textShadow());
 
             RenderSystem.disableBlend();
         }

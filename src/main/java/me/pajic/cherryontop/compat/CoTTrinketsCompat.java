@@ -28,12 +28,8 @@ public class CoTTrinketsCompat {
         }
     }
 
-    public static TrinketEnderBackpackItem createEnderBackpackTrinketItem() {
-        return new TrinketEnderBackpackItem(new Item.Properties().stacksTo(1));
-    }
-
     public static void register() {
-        EnderBackpackItem item = CoTTrinketsCompat.createEnderBackpackTrinketItem();
+        EnderBackpackItem item = new TrinketEnderBackpackItem(new Item.Properties().stacksTo(1));
         Registry.register(
                 BuiltInRegistries.ITEM,
                 ResourceLocation.parse("cherry-on-top:ender_backpack"),

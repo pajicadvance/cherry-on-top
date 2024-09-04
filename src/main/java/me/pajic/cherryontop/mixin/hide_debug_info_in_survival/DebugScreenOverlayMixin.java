@@ -29,9 +29,8 @@ public class DebugScreenOverlayMixin {
                 lines.removeIf(text -> text.startsWith("hunger: "));
             }
             else {
-                // this is for cave dust's debug info
-                // todo: stop doing this after CleanF3 adds it
-                lines.removeIf(text -> text.startsWith("Particle amount evaluated: "));
+                // sodium 0.6 translucency sorting debug
+                lines.removeIf(text -> text.startsWith("N="));
             }
         }
     }
