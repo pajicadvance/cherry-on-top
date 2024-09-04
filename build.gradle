@@ -37,6 +37,14 @@ repositories {
     }
     maven { url 'https://maven.wispforest.io/releases/' }
     maven { url 'https://jitpack.io' }
+    maven {
+        name = "Greenhouse Maven"
+        url = 'https://repo.greenhouse.house/releases/'
+    }
+    maven {
+        name "greenhouseSnapshots"
+        url "https://repo.greenhouse.house/snapshots"
+    }
 }
 
 dependencies {
@@ -92,6 +100,14 @@ dependencies {
 
     // Notes
     modImplementation "maven.modrinth:notes:${project.notes_version}"
+
+    // Farmer's Delight Refabricated
+    modImplementation("vectorwing:FarmersDelight:${fdrf_version}") {
+        exclude(group: "net.fabricmc")
+    }
+
+    // Raised
+    modImplementation "maven.modrinth:raised:${project.raised_version}"
 }
 
 loom {

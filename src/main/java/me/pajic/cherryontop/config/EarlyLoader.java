@@ -43,6 +43,10 @@ public class EarlyLoader {
         public int cakeMaxStackSize = 16;
         public boolean enableStackableBeds = true;
         public int bedMaxStackSize = 16;
+        public boolean fd_enableStackableBowlFoods = true;
+        public int fd_bowlFoodMaxStackSize = 64;
+        public boolean fd_enableStackableDrinks = true;
+        public int fd_drinkMaxStackSize = 64;
     }
 
     public static void loadConfig() {
