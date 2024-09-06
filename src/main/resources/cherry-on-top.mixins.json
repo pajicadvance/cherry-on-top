@@ -11,6 +11,7 @@
     "bottle_o_enchanting_improvements.ThrownExperienceBottleMixin",
     "bow_drawing_sounds.BowItemMixin",
     "bow_drawing_sounds.RangedBowAttackGoalMixin",
+    "compat.emi.EmiAnvilRecipeMixin",
     "compat.fdrf.HUDOverlaysMixin",
     "creeper_explosion_drops_all.CreeperMixin",
     "death_improvements.InventoryMixin",

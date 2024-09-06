@@ -34,12 +34,7 @@ public class AnvilMenuMixin {
             index = 1
     )
     private int modifyRepairUnitCost(int original, @Local(ordinal = 1) ItemStack itemStack) {
-        if (Main.CONFIG.anvilImprovements.modifyAnvilRepairUnitCosts()) {
-            return itemStack.getMaxDamage() / CoTUtil.determineUnitCost(itemStack);
-        }
-        else {
-            return original;
-        }
+        return itemStack.getMaxDamage() / CoTUtil.determineUnitCost(itemStack);
     }
 
     @ModifyExpressionValue(
