@@ -81,6 +81,16 @@ Configuration options:
 - Enable or disable phantom repelling
 - Add or remove items to be used as phantom repellent items
 
+### Death Improvements
+
+- Makes items dropped on death never despawn
+- Prevents items dropped on death from splattering around the player and instead drops them all at the exact spot where the player died
+- Increases the amount of experience that the player drops on death
+
+Configuration options:
+- Change the amount of experience that the player drops on death as a percentage of the total experience
+- Toggle each option listed above on or off
+
 ### Anvil Improvements
 
 Changes the amount of materials required to repair items in the anvil from a fixed amount of 4 to an amount based on the amount of material units required to craft the item.
@@ -160,10 +170,6 @@ Makes the bow play a bow drawing sound when being drawn by players or mobs. Make
 ### Creeper explosion drops all items
 
 Makes creeper explosions drop every destroyed block instead of only dropping some of them.
-
-### Drop more XP on death
-
-Changes the amount of experience that the player drops on death to a percentage of the total experience they had (80% by default).
 
 ### Disable shulker duplication
 
