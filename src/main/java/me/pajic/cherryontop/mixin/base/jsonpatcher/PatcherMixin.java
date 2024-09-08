@@ -11,6 +11,7 @@ import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.ModifyArg;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -35,5 +36,20 @@ public class PatcherMixin {
                         JsonElement.class)
                 )
         );
+    }
+
+    @ModifyArg(
+            method = "runPatch",
+            at = @At(
+                    value = "INVOKE",
+                    target = "Ljava/util/concurrent/CompletableFuture;get(JLjava/util/concurrent/TimeUnit;)Ljava/lang/Object;"
+            ),
+            index = 0
+    )
+    private static long modifyPatchTimeout(long original) {
+        if (original < 1000) {
+            return 1000;
+        }
+        return original;
     }
 }
