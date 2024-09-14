@@ -1,0 +1,38 @@
+{
+  "item.pickup.cherry-on-top.ender_backpack": {
+    "replace": true,
+    "sounds": [
+      {
+        "name": "extrasounds:item.category.gear.generic",
+        "type": "event"
+      }
+    ]
+  },
+  "item.pickup.cherry-on-top.potion_of_teleportation": {
+    "replace": true,
+    "sounds": [
+      {
+        "name": "extrasounds:item.category.potion",
+        "type": "event"
+      }
+    ]
+  },
+  "item.pickup.cherry-on-top.potion_of_wormhole": {
+    "replace": true,
+    "sounds": [
+      {
+        "name": "extrasounds:item.category.potion",
+        "type": "event"
+      }
+    ]
+  },
+  "item.pickup.cherry-on-top.whetstone": {
+    "replace": true,
+    "sounds": [
+      {
+        "name": "extrasounds:item.category.loose_metal",
+        "type": "event"
+      }
+    ]
+  }
+}

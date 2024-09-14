@@ -34,6 +34,14 @@ public class CoTData {
                 );
             }
 
+            if (FabricLoader.getInstance().isModLoaded("extrasounds")) {
+                ResourceManagerHelper.registerBuiltinResourcePack(
+                        ResourceLocation.parse("cherry-on-top:extrasoundscompat"),
+                        modContainer,
+                        ResourcePackActivationType.ALWAYS_ENABLED
+                );
+            }
+
             if (Main.CONFIG.enderBackpack.enableEnderBackpack()) {
                 ResourceManagerHelper.registerBuiltinResourcePack(
                         ResourceLocation.parse("cherry-on-top:enderbackpack"),
