@@ -93,7 +93,7 @@ dependencies {
     modImplementation "dev.emi:emi-fabric:${project.emi_version}"
 
     // Carpet
-    modImplementation "com.github.gnembon:fabric-carpet:${project.carpet_version}"
+    // modImplementation "com.github.gnembon:fabric-carpet:${project.carpet_version}"
 
     // Serene Seasons
     modCompileOnly "maven.modrinth:serene-seasons:${project.sereneseasons_version}"
@@ -108,6 +108,9 @@ dependencies {
 
     // Raised
     modImplementation "maven.modrinth:raised:${project.raised_version}"
+
+    // Simple Netherite Horse Armor
+    modImplementation "maven.modrinth:simple-netherite-horse-armor:${project.snha_version}"
 }
 
 loom {

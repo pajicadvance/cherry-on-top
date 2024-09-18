@@ -23,6 +23,7 @@
     "disable_patrols.PatrolSpawnerMixin",
     "disable_shulker_duplication.ShulkerMixin",
     "early_loaders.compat.fdrf.ModItemsMixin",
+    "early_loaders.compat.snha.NetheriteHorseArmorMixin",
     "early_loaders.experiments_enabled_by_default.DataPackConfigMixin",
     "early_loaders.experiments_enabled_by_default.FeatureFlagsMixin",
     "early_loaders.faster_obsidian_mining.BlocksMixin",
