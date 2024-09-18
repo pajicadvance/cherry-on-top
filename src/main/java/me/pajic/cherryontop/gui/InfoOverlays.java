@@ -40,15 +40,19 @@ public class InfoOverlays {
             Minecraft minecraft = Minecraft.getInstance();
             if (
                     minecraft.player != null && minecraft.level != null &&
-                            !minecraft.options.hideGui && !minecraft.gui.getDebugOverlay().showDebugScreen()
-
+                    !minecraft.options.hideGui && !minecraft.gui.getDebugOverlay().showDebugScreen()
             ) {
-                if (FabricLoader.getInstance().isModLoaded("emi") && CoTEmiCompat.Methods.isEmiScreenOpen()) {
+                if (
+                        Main.CONFIG.infoOverlays.hideIfEmiOpen() &&
+                        FabricLoader.getInstance().isModLoaded("emi") &&
+                        CoTEmiCompat.Methods.isEmiScreenOpen()
+                ) {
                     return;
                 }
                 if (
-                        Main.CONFIG.infoOverlays.enableCompassOverlay() && Main.CONFIG.infoOverlays.enableClockOverlay() &&
-                                hasCompass(minecraft.player) && hasClock(minecraft.player)
+                        Main.CONFIG.infoOverlays.enableCompassOverlay() &&
+                        Main.CONFIG.infoOverlays.enableClockOverlay() &&
+                        hasCompass(minecraft.player) && hasClock(minecraft.player)
                 ) {
                     renderCompassOverlay(guiGraphics, minecraft);
                     renderClockOverlay(guiGraphics, true, minecraft);

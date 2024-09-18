@@ -75,11 +75,12 @@ public class CoTConfigModel {
     public static class InfoOverlays {
         public boolean enableCompassOverlay = true;
         public boolean enableClockOverlay = true;
+        @Sync(Option.SyncMode.NONE) public boolean hideIfEmiOpen = false;
         @Sync(Option.SyncMode.NONE) public boolean textBackground = true;
         @Sync(Option.SyncMode.NONE) @RangeConstraint(min = 0.0F, max = 1.0F) public float textBackgroundOpacity = 0.3F;
         @Sync(Option.SyncMode.NONE) public boolean textShadow = false;
-        @Sync(Option.SyncMode.NONE) public boolean coloredSeason = true;
-        @Sync(Option.SyncMode.NONE) public boolean coloredWeather = true;
+        @Sync(Option.SyncMode.NONE) public boolean coloredSeason = false;
+        @Sync(Option.SyncMode.NONE) public boolean coloredWeather = false;
     }
 
     public static class PhantomSpawningRework {

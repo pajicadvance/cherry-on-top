@@ -94,6 +94,7 @@
   "text.config.cherry-on-top.category.infoOverlays": "Compass and Clock Overlays",
   "text.config.cherry-on-top.option.infoOverlays.enableCompassOverlay": "Compass overlay",
   "text.config.cherry-on-top.option.infoOverlays.enableClockOverlay": "Clock overlay",
+  "text.config.cherry-on-top.option.infoOverlays.hideIfEmiOpen": "Hide if EMI open",
   "text.config.cherry-on-top.option.infoOverlays.textBackground": "Show background",
   "text.config.cherry-on-top.option.infoOverlays.textBackgroundOpacity": "Background opacity",
   "text.config.cherry-on-top.option.infoOverlays.textShadow": "Show text shadow",
