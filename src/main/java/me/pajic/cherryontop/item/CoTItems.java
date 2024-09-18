@@ -57,13 +57,13 @@ public class CoTItems {
     );
 
     public static final Item POTION_OF_TELEPORTATION = new PotionOfTeleportationItem(
-            new Item.Properties().stacksTo(EarlyLoader.CONFIG.potionMaxStackSize),
+            new Item.Properties().stacksTo(EarlyLoader.CONFIG.enableStackablePotions ? EarlyLoader.CONFIG.potionMaxStackSize : 1),
             Component.translatable("item.cherry-on-top.potion_of_teleportation.tooltip").withStyle(ChatFormatting.BLUE),
             Main.CONFIG.teleportationPotions.enablePotionOfTeleportation()
     );
 
     public static final Item POTION_OF_WORMHOLE = new PotionOfWormholeItem(
-            new Item.Properties().stacksTo(EarlyLoader.CONFIG.potionMaxStackSize),
+            new Item.Properties().stacksTo(EarlyLoader.CONFIG.enableStackablePotions ? EarlyLoader.CONFIG.potionMaxStackSize : 1),
             Component.translatable("item.cherry-on-top.potion_of_wormhole.tooltip").withStyle(ChatFormatting.BLUE),
             Main.CONFIG.teleportationPotions.enablePotionOfWormhole()
     );

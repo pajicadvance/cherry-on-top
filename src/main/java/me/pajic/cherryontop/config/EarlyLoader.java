@@ -128,5 +128,13 @@ public class EarlyLoader {
             LOGGER.warn("Invalid value for 'bedMaxStackSize', allowed range: 1-64. Using default value of 16");
             CONFIG.bedMaxStackSize = 16;
         }
+        if (CONFIG.fd_drinkMaxStackSize < 1 || CONFIG.fd_drinkMaxStackSize > 64) {
+            LOGGER.warn("Invalid value for 'fd_drinkMaxStackSize', allowed range: 1-64. Using default value of 16");
+            CONFIG.fd_drinkMaxStackSize = 16;
+        }
+        if (CONFIG.fd_bowlFoodMaxStackSize < 1 || CONFIG.fd_bowlFoodMaxStackSize > 64) {
+            LOGGER.warn("Invalid value for 'fd_bowlFoodMaxStackSize', allowed range: 1-64. Using default value of 16");
+            CONFIG.fd_bowlFoodMaxStackSize = 16;
+        }
     }
 }

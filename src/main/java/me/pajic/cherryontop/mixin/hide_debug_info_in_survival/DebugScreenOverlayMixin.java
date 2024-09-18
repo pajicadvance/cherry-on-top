@@ -28,10 +28,6 @@ public class DebugScreenOverlayMixin {
                 lines.removeIf(text -> text.startsWith("Chunk-relative: "));
                 lines.removeIf(text -> text.startsWith("hunger: "));
             }
-            else {
-                // sodium 0.6 translucency sorting debug
-                lines.removeIf(text -> text.startsWith("N="));
-            }
         }
     }
 }
