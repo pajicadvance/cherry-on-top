@@ -44,7 +44,7 @@
   ],
   "client": [
     "anvil_improvements.AnvilScreenMixin",
-    "base.PackSelectionScreenMixin",
+    "base.PackSelectionModelMixin",
     "base.earlyload.ClientMainMixin",
     "compat.notes.EditNoteScreenMixin",
     "double_tap_sprint.LocalPlayerMixin",
