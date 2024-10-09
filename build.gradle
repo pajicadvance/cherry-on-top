@@ -71,7 +71,7 @@ dependencies {
     include(implementation("com.moulberry:mixinconstraints:${project.mixinconstraints_version}"))
 
     // JsonPatcher
-    modImplementation("com.github.mattidragon:jsonpatcher:${project.jsonpatcher_version + "-mc." + project.minecraft_version}")
+    modImplementation(include("com.github.mattidragon:jsonpatcher:${project.jsonpatcher_version + "-mc." + project.minecraft_version}"))
     modCompileOnly "com.github.MattiDragon:JsonPatcherLang:v1.0.0"
 
     // Custom Brew Recipes
