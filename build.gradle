@@ -36,14 +36,19 @@ repositories {
         url = 'https://maven.ladysnake.org/releases'
     }
     maven { url 'https://maven.wispforest.io/releases/' }
-    maven { url 'https://jitpack.io' }
     maven {
         name = "Greenhouse Maven"
         url = 'https://repo.greenhouse.house/releases/'
     }
     maven {
-        name "greenhouseSnapshots"
-        url "https://repo.greenhouse.house/snapshots"
+        name = "Greenhouse Maven (Snapshots)"
+        url = 'https://repo.greenhouse.house/snapshots/'
+    }
+    maven {
+        url "https://jitpack.io/" // Fabric ASM
+        content {
+            excludeGroup "io.github.fabricators_of_create"
+        }
     }
 }
 
@@ -108,9 +113,6 @@ dependencies {
 
     // Raised
     modImplementation "maven.modrinth:raised:${project.raised_version}"
-
-    // Simple Netherite Horse Armor
-    modImplementation "maven.modrinth:simple-netherite-horse-armor:${project.snha_version}"
 }
 
 loom {

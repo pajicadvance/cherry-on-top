@@ -3,3 +3,4 @@ accessWidener v2 named
 accessible field net/minecraft/world/level/levelgen/PhantomSpawner nextTick I
 mutable field net/minecraft/world/level/block/FlowerBlock suspiciousStewEffects Lnet/minecraft/world/item/component/SuspiciousStewEffects;
 accessible field net/minecraft/world/level/block/FlowerBlock suspiciousStewEffects Lnet/minecraft/world/item/component/SuspiciousStewEffects;
+accessible method net/minecraft/world/item/Item$Properties buildAndValidateComponents ()Lnet/minecraft/core/component/DataComponentMap;
