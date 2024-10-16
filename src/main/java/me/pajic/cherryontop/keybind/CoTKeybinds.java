@@ -1,6 +1,7 @@
 package me.pajic.cherryontop.keybind;
 
 import com.mojang.blaze3d.platform.InputConstants;
+import me.pajic.cherryontop.Main;
 import me.pajic.cherryontop.compat.CoTTrinketsCompat;
 import me.pajic.cherryontop.item.EnderBackpackItem;
 import me.pajic.cherryontop.network.CoTNetworking;
@@ -22,6 +23,15 @@ public class CoTKeybinds {
             )
     );
 
+    private static final KeyMapping NEXT_MUSIC_TRACK = KeyBindingHelper.registerKeyBinding(
+            new KeyMapping(
+                    "key.cherry-on-top.next_music_track",
+                    InputConstants.Type.KEYSYM,
+                    GLFW.GLFW_KEY_M,
+                    "category.cherry-on-top.keybindings"
+            )
+    );
+
     public static void initKeybinds() {
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             if (OPEN_ENDER_BACKPACK.consumeClick() && client.player != null) {
@@ -31,6 +41,10 @@ public class CoTKeybinds {
                 else if (FabricLoader.getInstance().isModLoaded("trinkets")) {
                     CoTTrinketsCompat.tryOpenEnderBackpack(client.player);
                 }
+            }
+            if (Main.CONFIG.musicControl.enableNextTrackKeybind() && NEXT_MUSIC_TRACK.consumeClick() && client.player != null) {
+                client.getMusicManager().stopPlaying();
+                client.getMusicManager().startPlaying(client.getSituationalMusic());
             }
         });
     }

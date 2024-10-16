@@ -73,14 +73,6 @@ public class CoTData {
                 );
             }
 
-            if (Main.CONFIG.infinityMendingCompatible()) {
-                ResourceManagerHelper.registerBuiltinResourcePack(
-                        ResourceLocation.parse("cherry-on-top:infinimending"),
-                        modContainer,
-                        ResourcePackActivationType.ALWAYS_ENABLED
-                );
-            }
-
             if (Main.CONFIG.musicDiscLoot.enableMusicDiscLoot()) {
                 ResourceManagerHelper.registerBuiltinResourcePack(
                         ResourceLocation.parse("cherry-on-top:musicdiscloot"),

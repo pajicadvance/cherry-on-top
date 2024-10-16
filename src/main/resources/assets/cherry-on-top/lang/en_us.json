@@ -107,6 +107,14 @@
   "text.config.cherry-on-top.option.deathImprovements.playerDropMoreXpOnDeath": "Drop more XP on death",
   "text.config.cherry-on-top.option.deathImprovements.droppedExperiencePercent": "Percent of total XP dropped",
 
+  "text.config.cherry-on-top.category.musicControl": "Music Control",
+  "text.config.cherry-on-top.option.musicControl.enableNextTrackKeybind": "Enable next track keybind",
+  "text.config.cherry-on-top.option.musicControl.stopMusicOnJukeboxUse": "Stop music when playing jukebox",
+  "text.config.cherry-on-top.option.musicControl.creativeMusicInSurvival": "Creative music in survival",
+  "text.config.cherry-on-top.option.musicControl.modifyMusicDelays": "Modify music delays",
+  "text.config.cherry-on-top.option.musicControl.musicMinDelay": "Minimum delay (seconds)",
+  "text.config.cherry-on-top.option.musicControl.musicMaxDelay": "Maximum delay (seconds)",
+
   "text.config.cherry-on-top.section.tweaks": "Tweaks",
   "text.config.cherry-on-top.option.disableDoubleTapSprint": "Disable double-tap to sprint",
   "cherry-on-top.tweaks.disableDoubleTapSprint.desc": "Disables double-tapping the forward key to sprint.",
@@ -174,5 +182,6 @@
   "gui.cherry-on-top.late_winter": "Late Winter",
 
   "category.cherry-on-top.keybindings": "Cherry On Top",
-  "key.cherry-on-top.open_ender_backpack": "Open ender backpack"
+  "key.cherry-on-top.open_ender_backpack": "Open ender backpack",
+  "key.cherry-on-top.next_music_track": "Next music track"
 }

@@ -26,14 +26,12 @@ public class CoTConfigModel {
     @Nest public BottleOEnchantingImprovements bottleOEnchantingImprovements = new BottleOEnchantingImprovements();
     @Nest public EnchantedBookLootImprovements enchantedBookLootImprovements = new EnchantedBookLootImprovements();
     @Nest public MusicDiscLoot musicDiscLoot = new MusicDiscLoot();
+    @Nest public MusicControl musicControl = new MusicControl();
 
     @SectionHeader("tweaks")
-    @RestartRequired public boolean craftTippedArrowsWithRegularPotions = true;
     @RestartRequired public boolean glowstoneDustRecipe = true;
     @RestartRequired public boolean cryingObsidianRecipe = true;
-    @RestartRequired public boolean infinityMendingCompatible = true;
     @RestartRequired public boolean soulSpeedNoDamage = true;
-    public boolean playBowDrawingSounds = true;
     public boolean creeperExplosionDropsAll = true;
     public boolean disableShulkerDuplication = false;
     public boolean disablePillagerPatrols = false;
@@ -209,6 +207,15 @@ public class CoTConfigModel {
                 "minecraft:gameplay/cat_morning_gift;10"
         );
         @RestartRequired public boolean remove13AndCatLootEntries = true;
+    }
+
+    public static class MusicControl {
+        public boolean enableNextTrackKeybind = false;
+        public boolean stopMusicOnJukeboxUse = false;
+        public boolean creativeMusicInSurvival = false;
+        public boolean modifyMusicDelays = false;
+        public int musicMinDelay = 600;
+        public int musicMaxDelay = 1200;
     }
 
     public static class Predicates {
