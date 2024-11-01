@@ -32,10 +32,7 @@
     "fabricloader": ">=${loader_version}",
     "fabric": "*",
     "minecraft": "${minecraft_version}",
-    "jsonpatcher": "*",
-    "custombrewrecipes": "*",
-    "owo-lib": "^0.12.13",
-    "disable_custom_worlds_advice": ">=6.0"
+    "owo-lib": "^0.12.13"
   },
   "recommends": {
     "modmenu": "^11.0.2"
