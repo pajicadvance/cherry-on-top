@@ -43,6 +43,10 @@ public class EarlyLoader {
         public int cakeMaxStackSize = 16;
         public boolean enableStackableBeds = true;
         public int bedMaxStackSize = 16;
+        public boolean enableStackableSnowballs = true;
+        public int snowballMaxStackSize = 64;
+        public boolean enableStackableEggs = true;
+        public int eggMaxStackSize = 64;
         public boolean fd_enableStackableBowlFoods = true;
         public int fd_bowlFoodMaxStackSize = 64;
         public boolean fd_enableStackableDrinks = true;
@@ -127,6 +131,14 @@ public class EarlyLoader {
         if (CONFIG.bedMaxStackSize < 1 || CONFIG.bedMaxStackSize > 64) {
             LOGGER.warn("Invalid value for 'bedMaxStackSize', allowed range: 1-64. Using default value of 16");
             CONFIG.bedMaxStackSize = 16;
+        }
+        if (CONFIG.snowballMaxStackSize < 1 || CONFIG.snowballMaxStackSize > 64) {
+            LOGGER.warn("Invalid value for 'snowballMaxStackSize', allowed range: 1-64. Using default value of 64");
+            CONFIG.snowballMaxStackSize = 64;
+        }
+        if (CONFIG.eggMaxStackSize < 1 || CONFIG.eggMaxStackSize > 64) {
+            LOGGER.warn("Invalid value for 'eggMaxStackSize', allowed range: 1-64. Using default value of 64");
+            CONFIG.eggMaxStackSize = 64;
         }
         if (CONFIG.fd_drinkMaxStackSize < 1 || CONFIG.fd_drinkMaxStackSize > 64) {
             LOGGER.warn("Invalid value for 'fd_drinkMaxStackSize', allowed range: 1-64. Using default value of 16");

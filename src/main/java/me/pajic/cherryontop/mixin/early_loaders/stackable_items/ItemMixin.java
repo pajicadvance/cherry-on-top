@@ -38,6 +38,12 @@ public class ItemMixin {
         if (EarlyLoader.CONFIG.enableStackableBeds && item instanceof BedItem) {
             properties.stacksTo(EarlyLoader.CONFIG.bedMaxStackSize);
         }
+        if (EarlyLoader.CONFIG.enableStackableSnowballs && item instanceof SnowballItem) {
+            properties.stacksTo(EarlyLoader.CONFIG.snowballMaxStackSize);
+        }
+        if (EarlyLoader.CONFIG.enableStackableEggs && item instanceof EggItem) {
+            properties.stacksTo(EarlyLoader.CONFIG.eggMaxStackSize);
+        }
         if (EarlyLoader.CONFIG.enableStackableMusicDiscs) {
             DataComponentMap components = properties.buildAndValidateComponents();
             if (components.has(DataComponents.JUKEBOX_PLAYABLE)) {

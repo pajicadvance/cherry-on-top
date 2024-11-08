@@ -12,6 +12,7 @@ base {
 
 repositories {
     mavenCentral()
+    mavenLocal()
     maven {
         name = 'ParchmentMC'
         url = 'https://maven.parchmentmc.org'
